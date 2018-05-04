@@ -10,6 +10,10 @@ const bind = function (element, eventName, callback) {
     element.addEventListener(eventName, callback)
 }
 
+const unbind = function (element, eventName, callback) {
+    element.removeEventListener(eventName, callback)
+}
+
 const setOneActive = function (target, elementList, classNormal, classActive) {
     const cls = target.className
     const clsn = classNormal
@@ -25,18 +29,39 @@ const setOneActive = function (target, elementList, classNormal, classActive) {
     }
 }
 
+const setFirstActive = (elementList, classActive) => {
+    const clsa = classActive
+    const path = location.pathname
+    const l = elementList
+    const len = l.length
+    for (let i = 0; i < len; i++) {
+        const e = l[i]
+        if (e.dataset.link === path) {
+            e.className = clsa
+            return
+        }
+    }
+}
+
+const setActiveNav = () => {
+    const l = elementTable.navList
+    const clsn = 'headerNavItem'
+    const clsa = 'headerNavItem active'
+    setFirstActive(l, clsa)
+}
+
 const bindHeader = function () {
     const header = elementTable.header
     bind(header, 'click', function (event) {
         const target = event.target
         const block = target.dataset.block
+        log(block)
         if (block) {
             const cls = target.className
             const clsn = 'headerNavItem'
             const clsa = 'headerNavItem active'
             const l = elementTable.navList
             setOneActive(target, l, clsn, clsa)
-            renderTable[block]()
         }
     })
 }
@@ -76,13 +101,19 @@ const initElementTable = function () {
     table.navList = navList
 }
 
-const renderMyDapps = function () {
+const renderMyDappsContainer = function () {
     let l = localStorage.__viewInfoList_myDapps
     l = JSON.parse(l)
-    log(l)
     const container = elementTable.localViewContainer
     if (l && l.length > 0) {
         container.innerHTML = tMyDapps(l)
+    }
+}
+
+const renderMyDapps = () => {
+    if (location.pathname === '/dapps/mine') {
+        test()
+        renderMyDappsContainer()
     }
 }
 
@@ -124,21 +155,16 @@ const test = function () {
     localStorage.__viewInfoList_myDapps = JSON.stringify(l)
 }
 
-const render = function () {
+const init = () => {
+    log(location.pathname)
     initElementTable()
     initRenderTable()
-    bindHeader()
+    setActiveNav()
     renderMyDapps()
 }
 
 const main = () => {
-    log(location.pathname)
-    if (location.pathname === '/dapps/mine') {
-        window.addEventListener('load', () => {
-            test()
-            render()
-        })
-    }
+    bind(window, 'load', init)
 }
 
 main()
