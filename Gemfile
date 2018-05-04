@@ -48,7 +48,7 @@ gem 'awesome_print'
 # Deployment
 gem 'mina', require: false
 gem 'mina-puma', require: false
-# gem 'mina-multistage', require: false
+gem 'mina-multistage', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

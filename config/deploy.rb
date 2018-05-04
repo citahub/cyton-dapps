@@ -1,3 +1,4 @@
+require 'mina/multistage'
 require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
@@ -17,10 +18,9 @@ set :deploy_to, '/home/deploy/cita-dapps'
 set :repository, 'https://github.com/CITA-Toys/cita-dapps.git'
 set :branch, 'develop'
 set :rails_env, 'production'
-set :rvm_use_path, '/usr/share/rvm/scripts/rvm'
 
 # Optional settings:
-  set :user, 'root'          # Username in the server to SSH to.
+  set :user, 'deploy'          # Username in the server to SSH to.
 #   set :port, '30000'           # SSH port number.
 #   set :forward_agent, true     # SSH forward_agent.
 
