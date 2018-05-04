@@ -1,0 +1,8 @@
+<% @dapps.keys.each do |key| %>
+  <h3><%= key.to_s %></h3>
+  <ul>
+    <% @dapps[key].each do |dapp| %>
+      <li><%= dapp.name %></li>
+    <% end %>
+  </ul>
+<% end %>
