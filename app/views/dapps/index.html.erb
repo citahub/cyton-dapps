@@ -2,7 +2,11 @@
   <h3><%= key.to_s %></h3>
   <ul>
     <% @dapps[key].each do |dapp| %>
-      <li><%= dapp.name %></li>
+      <li>
+        <%= image_tag dapp.logo_url, alt: "Logo" %>
+        <span><%= dapp.name %></span>
+        <%= link_to dapp.url_address, dapp.url_address %>
+      </li>
     <% end %>
   </ul>
 <% end %>
