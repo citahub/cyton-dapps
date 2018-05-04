@@ -1,24 +1,24 @@
-# README
+# CITA Dapps
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Initial Project
 
-Things you may want to cover:
+```shell
+cp config/database.yml.default config/database.yml
 
-* Ruby version
+rails db:create
 
-* System dependencies
+rails db:migrate
+```
 
-* Configuration
+## Running Test
 
-* Database creation
+```shell
+rails test
+```
 
-* Database initialization
+## Run Project
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```shell
+rails s
+./bin/webpack-dev-server
+```
