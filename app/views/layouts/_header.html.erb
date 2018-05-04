@@ -1,6 +1,21 @@
-<nav>
-  <ul>
-    <li><%= link_to "My Dapps", dapps_mine_path %></li>
-    <li><%= link_to "Popular", dapps_path %></li>
-  </ul>
-</nav>
+<!--<nav>-->
+  <!--<ul>-->
+    <!--<li><%= link_to "My Dapps", dapps_mine_path %></li>-->
+    <!--<li><%= link_to "Popular", dapps_path %></li>-->
+  <!--</ul>-->
+<!--</nav>-->
+
+<div id="id_header" class="header container">
+  <div class="headerTitleContainer">
+    <div class="headerTitle">Dapps</div>
+    <div class="headerButton">+</div>
+  </div>
+  <div class="headerNav">
+    <div class="headerNavItem active" data-block="myDapps">
+      <%= link_to "My Dapps", dapps_mine_path %>
+    </div>
+    <div class="headerNavItem" data-block="popular">
+      <%= link_to "Popular", dapps_path %>
+    </div>
+  </div>
+</div>
