@@ -1,12 +1,16 @@
 <% @dapps.keys.each do |key| %>
-  <h3><%= key.to_s %></h3>
-  <ul>
+  <h3 class="popularTitle"><%= key.to_s %></h3>
     <% @dapps[key].each do |dapp| %>
-      <li>
-        <%= image_tag dapp.logo_url, alt: "Logo" %>
-        <span><%= dapp.name %></span>
-        <%= link_to dapp.url_address, dapp.url_address %>
-      </li>
+
+      <div class="dappsListItem">
+        <div class="dappsListImgContainer">
+          <%= image_tag dapp.logo_url, class: 'dappsListImg', alt: "Logo" %>
+        </div>
+        <div class="dappsListContent">
+          <div class="dappsListName"><%= dapp.name %></div>
+          <%= link_to dapp.url_address, dapp.url_address, class: 'dappsListUrl' %>
+        </div>
+      </div>
+
     <% end %>
-  </ul>
 <% end %>

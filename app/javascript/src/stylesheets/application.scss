@@ -66,18 +66,18 @@ div {
   border-bottom: 2px solid;
 }
 
-.DappsContainer {
+.dappsContainer {
   flex: auto;
   width: 100%;
 }
 
-.DappsListItem {
+.dappsListItem {
   display: flex;
   text-align: left;
   padding: 16px 0 0px 17px;
 }
 
-.DappsListImg {
+.dappsListImg {
   width: 40px;
   height: 40px;
   display: flex;
@@ -85,7 +85,7 @@ div {
   margin-right: 12px;
 }
 
-.DappsListContent {
+.dappsListContent {
   vertical-align: bottom;
   border-bottom: 1px solid #eee;
   padding-bottom: 20px;
@@ -94,13 +94,29 @@ div {
   flex-flow: column;
 }
 
-.DappsListName {
+.dappsListName {
   color: #666666;
   font-size: 17px;
 }
 
-.DappsListUrl {
+.dappsListUrl {
   word-break: break-word;
   color: #999999;
   font-size: 12px;
+}
+
+.popularTitle {
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  color: #2b2d53;
+}
+
+.popularTitle:before {
+  content: '';
+  display: inline-block;
+  background-color: #ff9256;
+  width: 4px;
+  height: 20px;
+  margin: 0 9px 0 15px;
 }
