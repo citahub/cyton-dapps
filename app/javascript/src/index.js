@@ -68,13 +68,13 @@ const bindHeader = function () {
 }
 
 const tDappListCell = function (img, name, url) {
-    const t = `<div class="DappsListItem">
-                  <div class="DappsListImgContainer">
-                    <img class="DappsListImg" src=${img} alt="">
+    const t = `<div class="dappsListItem">
+                  <div class="dappsListImgContainer">
+                    <img class="dappsListImg" src=${img} alt="">
                   </div>
-                  <div class="DappsListContent">
-                    <div class="DappsListName">${name}</div>
-                    <div class="DappsListUrl">${url}</div>
+                  <div class="dappsListContent">
+                    <div class="dappsListName">${name}</div>
+                    <a class="dappsListUrl" href="${url}">${url}</a>
                   </div>
                 </div>`
     return t
