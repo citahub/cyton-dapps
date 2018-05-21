@@ -159,3 +159,13 @@ const main = () => {
 
 main()
 
+// with native
+function startNativePage() {
+  appHybrid.startAddWebsitePage();
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+  document.getElementById("searchBar").addEventListener("focus",
+    startNativePage()
+  );
+});
