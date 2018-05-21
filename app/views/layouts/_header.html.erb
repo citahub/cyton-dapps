@@ -1,0 +1,15 @@
+<div id="id_header" class="header container">
+  <div class="headerTitleContainer">
+    <input class="headerSearch" type="text" id="searchBar" />
+    <!--<div class="headerTitle">Dapps</div>-->
+    <!--<div class="headerButton">+</div>-->
+  </div>
+  <div class="headerNav">
+    <div class="headerNavItem" data-link="/dapps/mine">
+      <%= link_to "My Dapps", dapps_mine_path %>
+    </div>
+    <div class="headerNavItem" data-link="/dapps">
+      <%= link_to "Popular", dapps_path %>
+    </div>
+  </div>
+</div>
