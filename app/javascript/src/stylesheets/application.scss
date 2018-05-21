@@ -34,9 +34,12 @@ div {
 }
 
 .headerSearch {
-  width: 300px;
+  display: inline-block;
+  width: 70%;
+  max-width: 300px;
   height: 30px;
   border: 1px solid #c5d5ff;
+  background-color: white;
   border-radius: 2px;
 }
 
@@ -81,7 +84,7 @@ div {
 .dappsListItem {
   display: flex;
   text-align: left;
-  padding: 16px 0 0px 17px;
+  padding: 16px 0 0 17px;
 }
 
 .dappsListImgContainer {
