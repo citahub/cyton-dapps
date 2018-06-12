@@ -22,3 +22,9 @@ rails test
 rails s
 ./bin/webpack-dev-server
 ```
+
+## build
+
+```shell
+mina dev deploy
+```

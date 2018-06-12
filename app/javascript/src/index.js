@@ -102,12 +102,12 @@ const mydappAdd = (dapp) => {
     mydappSave(dapps)
 }
 
-const mydappRemove = (dapp) => {
+const mydappRemove = (url) => {
     const dapps = localStoreParsed('__viewInfoList_myDapps')
     const len = dapps.length
     for (let i = 0; i < dapps.length; i++) {
         const obj = dapps[i];
-        if (dapp.url === obj.url) {
+        if (url === obj.url) {
             dapps.splice(i, 1)
             mydappSave(dapps)
             return
@@ -133,12 +133,13 @@ const test = () => {
     }
     const l = [info, info, info]
     localStoreStore('__viewInfoList_myDapps', l)
-    // setInterval(() => {
-    //     mydappRemove(info)
-    //     setTimeout(() => {
-    //         mydappAdd(info)
-    //     }, 1500)
-    // }, 3000)
+    setInterval(() => {
+        log('test')
+        mydappRemove(info.url)
+        setTimeout(() => {
+            mydappAdd(info)
+        }, 1500)
+    }, 3000)
 }
 
 
