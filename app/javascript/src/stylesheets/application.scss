@@ -32,6 +32,7 @@ div {
   color: white;
   text-align: center;
   width: 100%;
+  background-size: cover;
 }
 
 .headerSearch {
@@ -69,13 +70,14 @@ div {
 .headerNavItem {
   color: #bac1ea;
   font-size: 16px;
+  padding: 3px;
+  vertical-align: top;
 }
 
 .headerNavItem.active {
   color: #fff;
   font-size: 16px;
   border-bottom: 4px solid;
-  padding: 3px;
 }
 
 .dappsContainer {

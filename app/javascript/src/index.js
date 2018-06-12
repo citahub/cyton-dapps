@@ -8,8 +8,16 @@ import {
     localStoreStore,
 } from './utils.js'
 import './stylesheets/application.scss'
+import headerBackground from 'src/imgs/headerBackground.svg'
+import './imgs/index'
 
 const GlobalTable = {}
+
+const setHeaderImg = () => {
+    log(`url(${headerBackground})`)
+    GlobalTable.elementTable.header.backgroundImage = `url(${headerBackground})`
+    log(GlobalTable.elementTable.header.backgroundImage)
+}
 
 const setFirstActive = (elementList, classActive) => {
     const clsa = classActive
@@ -157,7 +165,8 @@ const initElementTable = () => {
 
 const init = () => {
     initElementTable()
-    test()
+    setHeaderImg()
+    // test()
     bindEvents()
     setActiveNav()
     renderMyDapps()
