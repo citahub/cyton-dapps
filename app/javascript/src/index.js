@@ -127,12 +127,12 @@ const test = () => {
     }
     const l = [info, info, info]
     localStoreStore('__viewInfoList_myDapps', l)
-    setInterval(() => {
-        mydappRemove(info)
-        setTimeout(() => {
-            mydappAdd(info)
-        }, 1500)
-    }, 3000)
+    // setInterval(() => {
+    //     mydappRemove(info)
+    //     setTimeout(() => {
+    //         mydappAdd(info)
+    //     }, 1500)
+    // }, 3000)
 }
 
 
@@ -157,7 +157,7 @@ const initElementTable = () => {
 
 const init = () => {
     initElementTable()
-    // test()
+    test()
     bindEvents()
     setActiveNav()
     renderMyDapps()

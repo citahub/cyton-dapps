@@ -8,7 +8,8 @@ body {
   text-align: center;
   margin: 0;
   min-height: 100vh;
-  //background-color: #333;
+  background-color: #f5f5f5;
+  font-family: 'Avenir-Medium', 'PingFangSC-Regular', "Microsoft YaHei", "微软雅黑", 'STXihei', "华文细黑", sans-serif;
 }
 
 a {
@@ -62,7 +63,7 @@ div {
 .headerNav {
   display: flex;
   justify-content: space-around;
-  padding-bottom: 23px;
+  padding-bottom: 1px;
 }
 
 .headerNavItem {
@@ -73,12 +74,14 @@ div {
 .headerNavItem.active {
   color: #fff;
   font-size: 16px;
-  border-bottom: 2px solid;
+  border-bottom: 4px solid;
+  padding: 3px;
 }
 
 .dappsContainer {
   flex: auto;
   width: 100%;
+  margin-top: 10px;
 }
 
 .dappsListItem {
@@ -96,6 +99,7 @@ div {
   border-radius: 50%;
   border: 1px solid #eee;
   margin-right: 12px;
+  flex-shrink: 0;
 }
 
 .dappsListImg {
@@ -107,6 +111,7 @@ div {
   vertical-align: bottom;
   border-bottom: 1px solid #eee;
   padding-bottom: 20px;
+  padding-right: 15px;
   flex: auto;
   display: flex;
   flex-flow: column;
@@ -123,11 +128,16 @@ div {
   font-size: 12px;
 }
 
+.popularContainer {
+  margin-top: 10px;
+  background: #fff;
+}
+
 .popularTitle {
   display: flex;
   align-items: center;
   font-size: 17px;
-  color: #2b2d53;
+  color: #666;
 }
 
 .popularTitle:before {
