@@ -9,15 +9,10 @@ import {
 } from './utils.js'
 import './stylesheets/application.scss'
 import headerBackground from 'src/imgs/headerBackground.svg'
+import noData from 'src/imgs/noData.png'
 import './imgs/index'
 
 const GlobalTable = {}
-
-const setHeaderImg = () => {
-    log(`url(${headerBackground})`)
-    GlobalTable.elementTable.header.backgroundImage = `url(${headerBackground})`
-    log(GlobalTable.elementTable.header.backgroundImage)
-}
 
 const setFirstActive = (elementList, classActive) => {
     const clsa = classActive
@@ -66,12 +61,15 @@ const tMyDapps = (dappInfoList) => {
         const info = l[i]
         t += tDappListCell(info.img, info.name, info.url)
     }
+    t = `<div class="dappsContainer container">
+            ${t}
+        </div>`
     return t
 }
 
 const tMyDappsDefault = () => {
     const t = `<div class="noData">
-                <img class="noDataImg" src="" alt="">
+                <img class="noDataImg" src="${noData}" alt="">
                 <span class="noDataText">无数据显示</span>
               </div>`
     return t
@@ -165,7 +163,6 @@ const initElementTable = () => {
 
 const init = () => {
     initElementTable()
-    setHeaderImg()
     // test()
     bindEvents()
     setActiveNav()
