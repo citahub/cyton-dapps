@@ -115,6 +115,14 @@ const mydappRemove = (url) => {
     }
 }
 
+const initApi = () => {
+    if (window.api === undefined ) {
+        window.api = {}
+    }
+    window.api.mydappRemove = mydappRemove
+    window.api.mydappAdd = mydappAdd
+}
+
 const renderMyDapps = () => {
     if (location.pathname === '/dapps/mine') {
         const dapps = localStoreParsed('__viewInfoList_myDapps')
@@ -164,6 +172,7 @@ const initElementTable = () => {
 
 const init = () => {
     initElementTable()
+    initApi()
     // test()
     bindEvents()
     setActiveNav()
