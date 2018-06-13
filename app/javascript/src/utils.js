@@ -1,4 +1,4 @@
-const log = console.log.bind(console)
+const log = console.log.bind(console, '>>>')
 
 const localStoreParsed = (key) => {
     const json = localStorage.getItem(key)

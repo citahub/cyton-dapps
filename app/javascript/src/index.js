@@ -41,15 +41,16 @@ const startNativePage = () => {
 }
 
 const tDappListCell = (img, name, url) => {
-    const t = `<div class="dappsListItem">
-                  <div class="dappsListImgContainer">
-                    <img class="dappsListImg" src=${img} alt="">
-                  </div>
-                  <div class="dappsListContent">
-                    <div class="dappsListName">${name}</div>
-                    <a class="dappsListUrl" href="${url}">${url}</a>
-                  </div>
-                </div>`
+    const t =
+        `<a class="dappsListItem" href="${url}">
+            <div class="dappsListImgContainer">
+              <img class="dappsListImg" src=${img} alt="">
+            </div>
+            <div class="dappsListContent">
+              <div class="dappsListName">${name}</div>
+              <div class="dappsListUrl" >${url}</div>
+            </div>
+        </a>`
     return t
 }
 
@@ -64,6 +65,7 @@ const tMyDapps = (dappInfoList) => {
     t = `<div class="dappsContainer container">
             ${t}
         </div>`
+    log('tMyDapps template', t, 'input:', JSON.stringify(dappInfoList, ' ', 2))
     return t
 }
 
@@ -72,14 +74,18 @@ const tMyDappsDefault = () => {
                 <img class="noDataImg" src="${noData}" alt="">
                 <span class="noDataText">无数据显示</span>
               </div>`
+    log('tMyDappsDefault template', t,)
     return t
 }
 
 const renderMyDappsContainer = (dapps) => {
     const container = GlobalTable.elementTable.localViewContainer
+    log(`renderMyDappsContainer`, 'input:', JSON.stringify(dapps, ' ', 2))
     if (Array.isArray(dapps) && dapps.length > 0) {
+        log('dapps 非空')
         container.innerHTML = tMyDapps(dapps)
     } else {
+        log('dapps 空')
         container.innerHTML = tMyDappsDefault()
     }
 }
@@ -90,6 +96,7 @@ const mydappSave = (dapps) => {
 }
 
 const mydappLoaded = () => {
+    log(`mydappLoaded`)
     let dapps = localStoreParsed('__viewInfoList_myDapps')
     if (!Array.isArray(dapps)) {
         dapps = []
@@ -98,6 +105,8 @@ const mydappLoaded = () => {
 }
 
 const mydappAdd = (dapp) => {
+    log('mydappAdd')
+    log(`mydappAdd: input: (${JSON.stringify(dapp, ' ', 2)})`)
     const dapps = mydappLoaded()
     const len = dapps.length
     for (let i = 0; i < dapps.length; i++) {
@@ -107,10 +116,12 @@ const mydappAdd = (dapp) => {
         }
     }
     dapps.push(dapp)
+    log('dapp added', dapps)
     mydappSave(dapps)
 }
 
 const mydappRemove = (url) => {
+    log(`mydappRemove: input: (${url})`)
     const dapps = mydappLoaded()
     const len = dapps.length
     for (let i = 0; i < dapps.length; i++) {
@@ -124,8 +135,7 @@ const mydappRemove = (url) => {
 }
 
 const initApi = () => {
-    log(window.__mydapp)
-    if (window.__mydapp === undefined ) {
+    if (window.__mydapp === undefined) {
         window.__mydapp = {
             remove: mydappRemove,
             add: mydappAdd,
@@ -149,6 +159,11 @@ const test = () => {
         img,
         name,
         url,
+    }
+    let a = {
+        img: 'http://p1.music.126.net/sr9yP4Kt4xxYap5T7CbMqQ==/109951162955032377.jpg?param=180y180',
+        name: 'Yuki',
+        url: 'http://p1.music.126.net/sr9yP4Kt4xxYa',
     }
     const l = [info, info, info]
     localStoreStore('__viewInfoList_myDapps', l)
