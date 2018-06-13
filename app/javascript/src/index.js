@@ -124,11 +124,14 @@ const mydappRemove = (url) => {
 }
 
 const initApi = () => {
+    log(window.__mydapp)
     if (window.__mydapp === undefined ) {
-        window.__mydapp = {}
+        window.__mydapp = {
+            remove: mydappRemove,
+            add: mydappAdd,
+        }
+        Object.freeze(window.__mydapp)
     }
-    window.__mydapp.remove = mydappRemove
-    window.__mydapp.add = mydappAdd
 }
 
 const renderMyDapps = () => {
