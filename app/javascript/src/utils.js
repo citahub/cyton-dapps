@@ -1,4 +1,8 @@
-const log = console.log.bind(console, '>>>')
+let _log = () => {
+    return () => {}
+    return console.log.bind(console, '>>>')
+}
+const log = _log()
 
 const localStoreParsed = (key) => {
     const json = localStorage.getItem(key)

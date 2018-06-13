@@ -65,7 +65,7 @@ const tMyDapps = (dappInfoList) => {
     t = `<div class="dappsContainer container">
             ${t}
         </div>`
-    log('tMyDapps template', t, 'input:', JSON.stringify(dappInfoList, ' ', 2))
+    // log('tMyDapps template', t, 'input:', JSON.stringify(dappInfoList, ' ', 2))
     return t
 }
 
@@ -74,19 +74,23 @@ const tMyDappsDefault = () => {
                 <img class="noDataImg" src="${noData}" alt="">
                 <span class="noDataText">无数据显示</span>
               </div>`
-    log('tMyDappsDefault template', t,)
+    // log('tMyDappsDefault template', t,)
     return t
 }
 
 const renderMyDappsContainer = (dapps) => {
-    const container = GlobalTable.elementTable.localViewContainer
-    log(`renderMyDappsContainer`, 'input:', JSON.stringify(dapps, ' ', 2))
-    if (Array.isArray(dapps) && dapps.length > 0) {
-        log('dapps 非空')
-        container.innerHTML = tMyDapps(dapps)
-    } else {
-        log('dapps 空')
-        container.innerHTML = tMyDappsDefault()
+    if (location.pathname === '/dapps/mine') {
+        const container = GlobalTable.elementTable.localViewContainer
+        // log(`renderMyDappsContainer`, 'input:', JSON.stringify(dapps, ' ', 2))
+        if (Array.isArray(dapps) && dapps.length > 0) {
+            // log('dapps 非空')
+            const t = tMyDapps(dapps)
+            log(GlobalTable)
+            container.innerHTML = t
+        } else {
+            // log('dapps 空')
+            container.innerHTML = tMyDappsDefault()
+        }
     }
 }
 
@@ -96,7 +100,7 @@ const mydappSave = (dapps) => {
 }
 
 const mydappLoaded = () => {
-    log(`mydappLoaded`)
+    // log(`mydappLoaded`)
     let dapps = localStoreParsed('__viewInfoList_myDapps')
     if (!Array.isArray(dapps)) {
         dapps = []
@@ -105,23 +109,29 @@ const mydappLoaded = () => {
 }
 
 const mydappAdd = (dapp) => {
-    log('mydappAdd')
-    log(`mydappAdd: input: (${JSON.stringify(dapp, ' ', 2)})`)
+    // log('mydappAdd')
+    // log(`mydappAdd: input: (${JSON.stringify(dapp, ' ', 2)})`)
+    const {entry, icon, name} = dapp
+    const o = {
+        img: icon,
+        url: entry,
+        name: name,
+    }
     const dapps = mydappLoaded()
     const len = dapps.length
     for (let i = 0; i < dapps.length; i++) {
         const obj = dapps[i];
-        if (dapp.url === obj.url) {
+        if (o.url === obj.url) {
             return
         }
     }
-    dapps.push(dapp)
-    log('dapp added', dapps)
+    dapps.push(o)
+    // log('dapp added', dapps)
     mydappSave(dapps)
 }
 
 const mydappRemove = (url) => {
-    log(`mydappRemove: input: (${url})`)
+    // log(`mydappRemove: input: (${url})`)
     const dapps = mydappLoaded()
     const len = dapps.length
     for (let i = 0; i < dapps.length; i++) {
@@ -168,7 +178,7 @@ const test = () => {
     const l = [info, info, info]
     localStoreStore('__viewInfoList_myDapps', l)
     setInterval(() => {
-        log('test')
+        // log('test')
         mydappRemove(info.url)
         setTimeout(() => {
             mydappAdd(info)
@@ -185,6 +195,7 @@ const bindEvents = () => {
 const initElementTable = () => {
     const header = _e('#id_header')
     const localViewContainer = _e('#id_localViewContainer')
+    // log(localViewContainer)
     const searchBar = _e('#id_searchBar')
     const navList = _es('.headerNavItem', header)
 
@@ -194,6 +205,7 @@ const initElementTable = () => {
         searchBar,
         navList,
     }
+    log(GlobalTable)
 }
 
 const init = () => {
