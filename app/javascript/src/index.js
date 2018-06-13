@@ -89,8 +89,16 @@ const mydappSave = (dapps) => {
     localStoreStore('__viewInfoList_myDapps', dapps)
 }
 
+const mydappLoaded = () => {
+    let dapps = localStoreParsed('__viewInfoList_myDapps')
+    if (!Array.isArray(dapps)) {
+        dapps = []
+    }
+    return dapps
+}
+
 const mydappAdd = (dapp) => {
-    const dapps = localStoreParsed('__viewInfoList_myDapps')
+    const dapps = mydappLoaded()
     const len = dapps.length
     for (let i = 0; i < dapps.length; i++) {
         const obj = dapps[i];
@@ -103,7 +111,7 @@ const mydappAdd = (dapp) => {
 }
 
 const mydappRemove = (url) => {
-    const dapps = localStoreParsed('__viewInfoList_myDapps')
+    const dapps = mydappLoaded()
     const len = dapps.length
     for (let i = 0; i < dapps.length; i++) {
         const obj = dapps[i];
@@ -116,11 +124,11 @@ const mydappRemove = (url) => {
 }
 
 const initApi = () => {
-    if (window.api === undefined ) {
-        window.api = {}
+    if (window.__mydapp === undefined ) {
+        window.__mydapp = {}
     }
-    window.api.mydappRemove = mydappRemove
-    window.api.mydappAdd = mydappAdd
+    window.__mydapp.remove = mydappRemove
+    window.__mydapp.add = mydappAdd
 }
 
 const renderMyDapps = () => {
