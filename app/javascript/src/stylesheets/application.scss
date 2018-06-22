@@ -44,7 +44,7 @@ div {
   align-items: center;
   padding-left: 9px;
   //width: 70%;
-  width: 300px;
+  width: 100%;
   max-width: 300px;
   height: 30px;
   border: 1px solid #c5d5ff;
@@ -54,9 +54,8 @@ div {
 
 .headerTitleContainer {
   position: relative;
-  padding-top: 21px;
-  padding-bottom: 17px;
   font-size: 18px;
+  padding: 21px 38px 17px;
 }
 
 .headerTitle {
