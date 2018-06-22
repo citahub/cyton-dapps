@@ -45,7 +45,6 @@ div {
   padding-left: 9px;
   //width: 70%;
   width: 100%;
-  max-width: 300px;
   height: 30px;
   border: 1px solid #c5d5ff;
   background-color: white;
@@ -55,7 +54,8 @@ div {
 .headerTitleContainer {
   position: relative;
   font-size: 18px;
-  padding: 21px 38px 17px;
+  //padding: 21px 38px 17px;
+  padding: 21px 10% 17px;
 }
 
 .headerTitle {
