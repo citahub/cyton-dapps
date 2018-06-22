@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 1rem;
 }
@@ -36,8 +40,11 @@ div {
 }
 
 .headerSearch {
-  display: inline-block;
-  width: 70%;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 9px;
+  //width: 70%;
+  width: 300px;
   max-width: 300px;
   height: 30px;
   border: 1px solid #c5d5ff;
@@ -64,7 +71,7 @@ div {
 .headerNav {
   display: flex;
   justify-content: space-around;
-  padding-bottom: 1px;
+  //padding-bottom: 1px;
 }
 
 .headerNavItem {
@@ -84,12 +91,23 @@ div {
   flex: auto;
   width: 100%;
   margin-top: 10px;
+  padding-top: 15px;
 }
 
 .dappsListItem {
   display: flex;
   text-align: left;
-  padding: 16px 0 0 17px;
+  padding: 0 0 0 17px;
+  margin-bottom: 16px;
+}
+
+.dappsListItem:last-child {
+  margin-bottom: 0;
+  .dappsListContent {
+    border: none;
+    padding-bottom: 0;
+    margin-bottom: 26px;
+  }
 }
 
 .dappsListImgContainer {
@@ -122,12 +140,15 @@ div {
 .dappsListName {
   color: #333;
   font-size: 17px;
+  margin-bottom: 10px;
+  line-height: 17px;
 }
 
 .dappsListUrl {
   word-break: break-word;
   color: #999999;
   font-size: 12px;
+  line-height: 12px;
 }
 
 .popularContainer {
@@ -140,6 +161,7 @@ div {
   align-items: center;
   font-size: 17px;
   color: #666;
+  margin: 15px 0 20px;
 }
 
 .popularTitle:before {

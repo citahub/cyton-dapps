@@ -13,11 +13,7 @@
             <stop stop-color="#302BE4" offset="0%"></stop>
             <stop stop-color="#2C68FF" offset="100%"></stop>
         </linearGradient>
-        <linearGradient x1="-4.4906337%" y1="150.805719%" x2="64.3713973%" y2="85.7005748%" id="linearGradient-5">
-            <stop stop-color="#2764FE" offset="0%"></stop>
-            <stop stop-color="#2563FC" offset="100%"></stop>
-        </linearGradient>
-        <linearGradient x1="156.848788%" y1="61.211877%" x2="10.3868527%" y2="43.1898236%" id="linearGradient-6">
+        <linearGradient x1="156.848788%" y1="61.211877%" x2="10.3868527%" y2="43.1898236%" id="linearGradient-5">
             <stop stop-color="#2D4EF3" offset="0%"></stop>
             <stop stop-color="#2559F0" offset="100%"></stop>
         </linearGradient>
@@ -32,8 +28,7 @@
                     <use id="Mask" stroke="#797979" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
                     <path d="M-9,131.81335 C16.9845404,162.171685 63.3738589,165.539229 130.167956,141.915982 C230.359101,106.481111 208.848442,46.6949696 344.700903,70.414632 C435.26921,86.2277403 457.792169,96.3859455 412.26978,100.889247 L395.374444,205.034005 L-9,205.034005 L-9,131.81335 Z" fill="url(#linearGradient-4)" mask="url(#mask-3)"></path>
                 </g>
-                <ellipse id="Oval-11" fill="url(#linearGradient-5)" cx="317" cy="38" rx="119" ry="38"></ellipse>
-                <path d="M25.9717631,118.144424 C79.2855215,136.413385 116.765635,129.283911 138.412103,96.7560018 C170.881805,47.9641374 168.758479,33.759902 161.604748,18.6137679 C156.835593,8.51634523 102.967344,19.5792351 0,51.8024375 L25.9717631,118.144424 Z" id="Path-19" fill="url(#linearGradient-6)"></path>
+                <path d="M25.9717631,118.144424 C79.2855215,136.413385 116.765635,129.283911 138.412103,96.7560018 C170.881805,47.9641374 168.758479,33.759902 161.604748,18.6137679 C156.835593,8.51634523 102.967344,19.5792351 0,51.8024375 L25.9717631,118.144424 Z" id="Path-19" fill="url(#linearGradient-5)"></path>
             </g>
         </g>
     </g>
