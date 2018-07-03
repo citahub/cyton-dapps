@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2018_05_04_041139) do
 
-  create_table "dapps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "dapps", force: :cascade do |t|
     t.string "logo_url"
     t.string "name"
     t.string "url_address"
