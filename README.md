@@ -20,5 +20,13 @@ rails test
 
 ```shell
 rails s
+rails s -b 0.0.0.0
 ./bin/webpack-dev-server
+```
+
+## build
+
+```shell
+mina dev deploy
+mina dev puma:start
 ```

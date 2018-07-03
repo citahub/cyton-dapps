@@ -1,5 +1,8 @@
 <% @dapps.keys.each do |key| %>
-  <h3 class="popularTitle"><%= key.to_s %></h3>
+  <div class="popularContainer">
+    <div class="popularTitle">
+      <%= key.to_s %>
+    </div>
     <% @dapps[key].each do |dapp| %>
 
       <div class="dappsListItem">
@@ -13,4 +16,8 @@
       </div>
 
     <% end %>
+
+  </div>
 <% end %>
+
+

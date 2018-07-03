@@ -1,15 +1,17 @@
-<div id="id_header" class="header container">
+<div id="id_header" class="header container" style="background-image: url(<%= asset_pack_path("src/imgs/headerBackground.svg") %>)">
   <div class="headerTitleContainer">
-    <input class="headerSearch" type="text" id="searchBar" />
+    <div class="headerSearch" type="text" id="id_searchBar" >
+      <%= image_tag asset_pack_path("src/imgs/searchIcon.png"), class: 'dappsListImg', alt: "Logo" %>
+    </div>
     <!--<div class="headerTitle">Dapps</div>-->
     <!--<div class="headerButton">+</div>-->
   </div>
   <div class="headerNav">
     <div class="headerNavItem" data-link="/dapps/mine">
-      <%= link_to "My Dapps", dapps_mine_path %>
+      <%= link_to "我的应用", dapps_mine_path %>
     </div>
     <div class="headerNavItem" data-link="/dapps">
-      <%= link_to "Popular", dapps_path %>
+      <%= link_to "应用推荐", dapps_path %>
     </div>
   </div>
 </div>

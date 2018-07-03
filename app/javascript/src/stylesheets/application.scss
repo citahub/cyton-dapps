@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 1rem;
 }
@@ -8,7 +12,8 @@ body {
   text-align: center;
   margin: 0;
   min-height: 100vh;
-  //background-color: #333;
+  background-color: #f5f5f5;
+  font-family: 'Avenir-Medium', 'PingFangSC-Regular', "Microsoft YaHei", "微软雅黑", 'STXihei', "华文细黑", sans-serif;
 }
 
 a {
@@ -31,20 +36,26 @@ div {
   color: white;
   text-align: center;
   width: 100%;
+  background-size: cover;
 }
 
 .headerSearch {
-  width: 300px;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 9px;
+  //width: 70%;
+  width: 100%;
   height: 30px;
   border: 1px solid #c5d5ff;
+  background-color: white;
   border-radius: 2px;
 }
 
 .headerTitleContainer {
   position: relative;
-  padding-top: 21px;
-  padding-bottom: 17px;
   font-size: 18px;
+  //padding: 21px 38px 17px;
+  padding: 21px 10% 17px;
 }
 
 .headerTitle {
@@ -59,29 +70,43 @@ div {
 .headerNav {
   display: flex;
   justify-content: space-around;
-  padding-bottom: 23px;
+  //padding-bottom: 1px;
 }
 
 .headerNavItem {
   color: #bac1ea;
   font-size: 16px;
+  padding: 3px;
+  vertical-align: top;
 }
 
 .headerNavItem.active {
   color: #fff;
   font-size: 16px;
-  border-bottom: 2px solid;
+  border-bottom: 4px solid;
 }
 
 .dappsContainer {
   flex: auto;
   width: 100%;
+  margin-top: 10px;
+  padding-top: 15px;
 }
 
 .dappsListItem {
   display: flex;
   text-align: left;
-  padding: 16px 0 0px 17px;
+  padding: 0 0 0 17px;
+  margin-bottom: 16px;
+}
+
+.dappsListItem:last-child {
+  margin-bottom: 0;
+  .dappsListContent {
+    border: none;
+    padding-bottom: 0;
+    margin-bottom: 26px;
+  }
 }
 
 .dappsListImgContainer {
@@ -93,6 +118,7 @@ div {
   border-radius: 50%;
   border: 1px solid #eee;
   margin-right: 12px;
+  flex-shrink: 0;
 }
 
 .dappsListImg {
@@ -104,6 +130,7 @@ div {
   vertical-align: bottom;
   border-bottom: 1px solid #eee;
   padding-bottom: 20px;
+  padding-right: 15px;
   flex: auto;
   display: flex;
   flex-flow: column;
@@ -112,19 +139,28 @@ div {
 .dappsListName {
   color: #333;
   font-size: 17px;
+  margin-bottom: 10px;
+  line-height: 17px;
 }
 
 .dappsListUrl {
   word-break: break-word;
   color: #999999;
   font-size: 12px;
+  line-height: 12px;
+}
+
+.popularContainer {
+  margin-top: 10px;
+  background: #fff;
 }
 
 .popularTitle {
   display: flex;
   align-items: center;
   font-size: 17px;
-  color: #2b2d53;
+  color: #666;
+  margin: 15px 0 20px;
 }
 
 .popularTitle:before {
@@ -135,4 +171,19 @@ div {
   width: 4px;
   height: 20px;
   margin: 0 9px 0 15px;
+}
+
+.noDataImg {
+  display: block;
+  height: 140px;
+  width: 208px;
+  margin: 82px auto 24px;
+  //background-color: #4f9afd;
+}
+
+.noDataText {
+  font-size: 14px;
+  color: #666666;
+  letter-spacing: 0;
+  text-align: center;
 }
