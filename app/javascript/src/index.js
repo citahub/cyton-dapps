@@ -29,8 +29,16 @@ const setActiveNav = () => {
 
 // with native
 const startNativePage = () => {
-  appHybrid.startAddWebsitePage()
-  touchSearchbar()
+	try {
+		touchSearchbar()
+	} catch (err) {
+		log(err)
+	 }
+  try {
+    appHybrid.startAddWebsitePage()
+  } catch (err) {
+		log(err)
+	}
 }
 
 const tDappListCell = (img, name, url) => {
