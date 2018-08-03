@@ -1,6 +1,5 @@
 import { log, _e, _es, bind, unbind, localStoreParsed, localStoreStore } from './utils.js'
 import './stylesheets/application.scss'
-import headerBackground from 'src/imgs/headerBackground.svg'
 import noData from 'src/imgs/noData.png'
 import './imgs/index'
 
@@ -29,16 +28,16 @@ const setActiveNav = () => {
 
 // with native
 const startNativePage = () => {
-	try {
-		touchSearchbar()
-	} catch (err) {
-		log(err)
-	 }
+  try {
+    touchSearchbar()
+  } catch (err) {
+    log(err)
+  }
   try {
     appHybrid.startAddWebsitePage()
   } catch (err) {
-		log(err)
-	}
+    log(err)
+  }
 }
 
 const tDappListCell = (img, name, url) => {
@@ -62,7 +61,7 @@ const tMyDapps = (dappInfoList) => {
     const info = l[i]
     t += tDappListCell(info.img, info.name, info.url)
   }
-  t = `<div class="dappsContainer container">
+  t = `<div class="dappsBlock container">
             ${t}
         </div>`
   // log('tMyDapps template', t, 'input:', JSON.stringify(dappInfoList, ' ', 2))
@@ -80,7 +79,7 @@ const tMyDappsDefault = () => {
 
 const renderMyDappsContainer = (dapps) => {
   if (location.pathname === '/dapps/mine') {
-    const container = GlobalTable.elementTable.localViewContainer
+    const container = GlobalTable.elementTable.dapps
     // log(`renderMyDappsContainer`, 'input:', JSON.stringify(dapps, ' ', 2))
     if (Array.isArray(dapps) && dapps.length > 0) {
       // log('dapps 非空')
@@ -175,15 +174,12 @@ const test = () => {
     name: 'Yuki',
     url: 'http://p1.music.126.net/sr9yP4Kt4xxYa',
   }
-  const l = [info, info, info]
+  const length = 100
+  let l = []
+  for (let i = 0; i < length; i++) {
+    l.push(info)
+  }
   localStoreStore('__viewInfoList_myDapps', l)
-  setInterval(() => {
-    // log('test')
-    mydappRemove(info.url)
-    setTimeout(() => {
-      mydappAdd(info)
-    }, 1500)
-  }, 3000)
 }
 
 const bindEvents = () => {
@@ -192,24 +188,29 @@ const bindEvents = () => {
 }
 
 const initElementTable = () => {
-  const header = _e('#id_header')
-  const localViewContainer = _e('#id_localViewContainer')
-  // log(localViewContainer)
-  const searchBar = _e('#id_searchBar')
+  const header = _e('#id-header')
+  const dapps = _e('#id-dapps')
+  // log(dapps)
+  const searchBar = _e('#id-searchBar')
   const navList = _es('.headerNavItem', header)
-
   GlobalTable.elementTable = {
     header,
-    localViewContainer,
+    dapps,
     searchBar,
     navList,
   }
   log(GlobalTable)
 }
 
+const initStyle = () => {
+  const {dapps, header} = GlobalTable.elementTable
+  dapps.style.marginTop = header.offsetHeight.toString() + 'px'
+}
+
 const init = () => {
   initElementTable()
   initApi()
+  initStyle()
   // test()
   bindEvents()
   setActiveNav()
