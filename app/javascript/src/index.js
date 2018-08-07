@@ -1,13 +1,10 @@
 import { log, _e, _es, bind, setStyle, setStyles, localStoreParsed, localStoreStore } from './utils.js'
-import {
-  GlobalTable,
-  initElementTable
-} from './global'
+import { GlobalTable, initElementTable } from './global'
+import { renderMydapps } from './dappsRender'
 import createHeaderAnime from './headerAnime'
 import './imgs/index'
 import './stylesheets/application.scss'
 import './stylesheets/header.scss'
-import noData from 'src/imgs/noData.png'
 
 const setFirstActive = (elementList, classActive) => {
   const clsa = classActive
@@ -45,58 +42,8 @@ const startNativePage = (event) => {
   event.stopPropagation()
 }
 
-const tDappListCell = (img, name, url) => {
-  const t = `<a class="dappsListItem" href="${url}">
-            <div class="dappsListImgContainer">
-              <img class="dappsListImg" src=${img} alt="">
-            </div>
-            <div class="dappsListContent">
-              <div class="dappsListName">${name}</div>
-              <div class="dappsListUrl" >${url}</div>
-            </div>
-        </a>`
-  return t
-}
-
-const tMyDapps = (dappInfoList) => {
-  const l = dappInfoList
-  const len = l.length
-  let t = ''
-  for (let i = 0; i < l.length; i++) {
-    const info = l[i]
-    t += tDappListCell(info.img, info.name, info.url)
-  }
-  t = `<div class="dappsBlock container">
-            ${t}
-        </div>`
-  // log('tMyDapps template', t, 'input:', JSON.stringify(dappInfoList, ' ', 2))
-  return t
-}
-
-const tMyDappsDefault = () => {
-  const t = `<div class="noData">
-                <img class="noDataImg" src="${noData}" alt="">
-                <span class="noDataText">无数据显示</span>
-              </div>`
-  // log('tMyDappsDefault template', t,)
-  return t
-}
-
-const renderMyDappsContainer = (dapps) => {
-  if (location.pathname === '/dapps/mine') {
-    const container = GlobalTable.elementTable.dapps
-    // log(`renderMyDappsContainer`, 'input:', JSON.stringify(dapps, ' ', 2))
-    if (Array.isArray(dapps) && dapps.length > 0) {
-      const t = tMyDapps(dapps)
-      container.innerHTML = t
-    } else {
-      container.innerHTML = tMyDappsDefault()
-    }
-  }
-}
-
 const mydappSave = (dapps) => {
-  renderMyDappsContainer(dapps)
+  renderMydapps(dapps)
   localStoreStore('__viewInfoList_mydapps', dapps)
 }
 
@@ -132,7 +79,6 @@ const mydappAdd = (dapp) => {
     }
   }
   dapps.push(o)
-  // log('dapp added', dapps)
   mydappSave(dapps)
 }
 
@@ -180,18 +126,11 @@ const initApi = () => {
   }
 
   if (window.__myhistory === undefined) {
-    window.__mydapp = {
+    window.__myhistory = {
       remove: mydappRemove,
       add: mydappAdd,
     }
     Object.freeze(window.__mydapp)
-  }
-}
-
-const renderMyDapps = () => {
-  if (location.pathname === '/dapps/mine') {
-    const dapps = localStoreParsed('__viewInfoList_mydapps')
-    renderMyDappsContainer(dapps)
   }
 }
 
@@ -222,18 +161,25 @@ const bindEvents = () => {
   bind(window, 'scroll', headerAnime)
 }
 
-const init = () => {
+const renderMydappsPage = () => {
+  if (location.pathname === '/dapps/mine') {
+    const dapps = localStoreParsed('__viewInfoList_mydapps')
+    renderMydapps(dapps)
+  }
+}
+
+const initDom = () => {
   initElementTable()
-  initApi()
   // initStyle()
   test()
   setActiveNav()
   bindEvents()
-  renderMyDapps()
+  renderMydappsPage()
 }
 
 const main = () => {
-  bind(document, 'DOMContentLoaded', init)
+  initApi()
+  bind(document, 'DOMContentLoaded', initDom)
 }
 
 main()
