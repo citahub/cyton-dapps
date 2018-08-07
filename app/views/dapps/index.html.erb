@@ -2,7 +2,7 @@
 <% @dapps.keys.each do |key| %>
   <div class="popularContainer">
     <div class="popularTitle">
-      <%= image_tag asset_pack_path("src/imgs/icon/test.png"), class: 'popularIcon', alt: "Logo" %>
+      <%= image_tag asset_pack_path("src/imgs/icon/test.svg"), class: 'popularIcon', alt: "Logo" %>
       <div class="popularText"><%= key.to_s %></div>
     </div>
     <% @dapps[key].each do |dapp| %>
