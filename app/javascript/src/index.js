@@ -1,9 +1,13 @@
-import { log, _e, _es, bind, unbind, localStoreParsed, localStoreStore } from './utils.js'
-import './stylesheets/application.scss'
-import noData from 'src/imgs/noData.png'
+import { log, _e, _es, bind, setStyle, setStyles, localStoreParsed, localStoreStore } from './utils.js'
+import {
+  GlobalTable,
+  initElementTable
+} from './global'
+import createHeaderAnime from './headerAnime'
 import './imgs/index'
-
-const GlobalTable = {}
+import './stylesheets/application.scss'
+import './stylesheets/header.scss'
+import noData from 'src/imgs/noData.png'
 
 const setFirstActive = (elementList, classActive) => {
   const clsa = classActive
@@ -20,14 +24,14 @@ const setFirstActive = (elementList, classActive) => {
 }
 
 const setActiveNav = () => {
-  const l = GlobalTable.elementTable.navList
-  const clsn = 'headerNavItem'
+  const { header } = GlobalTable.elementTable
+  const l = _es('.headerNavItem', header)
   const clsa = 'headerNavItem active'
   setFirstActive(l, clsa)
 }
 
 // with native
-const startNativePage = () => {
+const startNativePage = (event) => {
   try {
     touchSearchbar()
   } catch (err) {
@@ -38,6 +42,7 @@ const startNativePage = () => {
   } catch (err) {
     log(err)
   }
+  event.stopPropagation()
 }
 
 const tDappListCell = (img, name, url) => {
@@ -82,12 +87,9 @@ const renderMyDappsContainer = (dapps) => {
     const container = GlobalTable.elementTable.dapps
     // log(`renderMyDappsContainer`, 'input:', JSON.stringify(dapps, ' ', 2))
     if (Array.isArray(dapps) && dapps.length > 0) {
-      // log('dapps 非空')
       const t = tMyDapps(dapps)
-      log(GlobalTable)
       container.innerHTML = t
     } else {
-      // log('dapps 空')
       container.innerHTML = tMyDappsDefault()
     }
   }
@@ -95,21 +97,26 @@ const renderMyDappsContainer = (dapps) => {
 
 const mydappSave = (dapps) => {
   renderMyDappsContainer(dapps)
-  localStoreStore('__viewInfoList_myDapps', dapps)
+  localStoreStore('__viewInfoList_mydapps', dapps)
 }
 
 const mydappLoaded = () => {
-  // log(`mydappLoaded`)
-  let dapps = localStoreParsed('__viewInfoList_myDapps')
+  let dapps = localStoreParsed('__viewInfoList_mydapps')
   if (!Array.isArray(dapps)) {
     dapps = []
   }
   return dapps
 }
 
+// const mydappLoaded = () => {
+//   let dapps = localStoreParsed('__viewInfoList_mydapps')
+//   if (!Array.isArray(dapps)) {
+//     dapps = []
+//   }
+//   return dapps
+// }
+
 const mydappAdd = (dapp) => {
-  // log('mydappAdd')
-  // log(`mydappAdd: input: (${JSON.stringify(dapp, ' ', 2)})`)
   const { entry, icon, name } = dapp
   const o = {
     img: icon,
@@ -129,11 +136,30 @@ const mydappAdd = (dapp) => {
   mydappSave(dapps)
 }
 
-const mydappRemove = (url) => {
-  // log(`mydappRemove: input: (${url})`)
+const myhistoryAdd = (dapp) => {
+  const { entry, icon, name } = dapp
+  const o = {
+    img: icon,
+    url: entry,
+    name: name,
+  }
   const dapps = mydappLoaded()
   const len = dapps.length
-  for (let i = 0; i < dapps.length; i++) {
+  for (let i = 0; i < len; i++) {
+    const obj = dapps[i]
+    if (o.url === obj.url) {
+      return
+    }
+  }
+  dapps.push(o)
+  // log('dapp added', dapps)
+  mydappSave(dapps)
+}
+
+const mydappRemove = (url) => {
+  const dapps = mydappLoaded()
+  const len = dapps.length
+  for (let i = 0; i < len; i++) {
     const obj = dapps[i]
     if (url === obj.url) {
       dapps.splice(i, 1)
@@ -143,8 +169,17 @@ const mydappRemove = (url) => {
   }
 }
 
+// 提供给外部的接口
 const initApi = () => {
   if (window.__mydapp === undefined) {
+    window.__mydapp = {
+      remove: mydappRemove,
+      add: mydappAdd,
+    }
+    Object.freeze(window.__mydapp)
+  }
+
+  if (window.__myhistory === undefined) {
     window.__mydapp = {
       remove: mydappRemove,
       add: mydappAdd,
@@ -155,7 +190,7 @@ const initApi = () => {
 
 const renderMyDapps = () => {
   if (location.pathname === '/dapps/mine') {
-    const dapps = localStoreParsed('__viewInfoList_myDapps')
+    const dapps = localStoreParsed('__viewInfoList_mydapps')
     renderMyDappsContainer(dapps)
   }
 }
@@ -169,51 +204,31 @@ const test = () => {
     name,
     url,
   }
-  let a = {
-    img: 'http://p1.music.126.net/sr9yP4Kt4xxYap5T7CbMqQ==/109951162955032377.jpg?param=180y180',
-    name: 'Yuki',
-    url: 'http://p1.music.126.net/sr9yP4Kt4xxYa',
-  }
   const length = 100
   let l = []
   for (let i = 0; i < length; i++) {
     l.push(info)
   }
-  localStoreStore('__viewInfoList_myDapps', l)
+  localStoreStore('__viewInfoList_mydapps', l)
 }
 
 const bindEvents = () => {
-  const { searchBar } = GlobalTable.elementTable
+  const { searchBar, headerAnime2 } = GlobalTable.elementTable
+  const earth = _e('.headerSearchIcon', headerAnime2)
   bind(searchBar, 'click', startNativePage)
-}
+  bind(earth, 'click', startNativePage)
 
-const initElementTable = () => {
-  const header = _e('#id-header')
-  const dapps = _e('#id-dapps')
-  // log(dapps)
-  const searchBar = _e('#id-searchBar')
-  const navList = _es('.headerNavItem', header)
-  GlobalTable.elementTable = {
-    header,
-    dapps,
-    searchBar,
-    navList,
-  }
-  log(GlobalTable)
-}
-
-const initStyle = () => {
-  const {dapps, header} = GlobalTable.elementTable
-  dapps.style.marginTop = header.offsetHeight.toString() + 'px'
+  const headerAnime = createHeaderAnime()
+  bind(window, 'scroll', headerAnime)
 }
 
 const init = () => {
   initElementTable()
   initApi()
-  initStyle()
-  // test()
-  bindEvents()
+  // initStyle()
+  test()
   setActiveNav()
+  bindEvents()
   renderMyDapps()
 }
 
