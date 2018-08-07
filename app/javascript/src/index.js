@@ -53,14 +53,13 @@ const renderMydappsPage = () => {
 
 const initDom = () => {
   initElementTable()
-  // initStyle()
-  test()
   setActiveNav()
   renderMydappsPage()
   bindEvents()
 }
 
 const main = () => {
+  // test()
   initApi()
   bind(document, 'DOMContentLoaded', initDom)
 }
