@@ -1,10 +1,27 @@
-import { log, _e, _es, bind, setStyle, setStyles, localStoreParsed, localStoreStore } from './utils.js'
-import { GlobalTable, initElementTable } from './global'
+import { _es, bind, localStoreParsed, localStoreStore } from './utils.js'
+import { initElementTable, GlobalTable } from './global'
 import { renderMydapps } from './dappsRender'
-import { createHeaderAnime } from './headerAnime'
 import { initApi } from './apiOuter'
+import { bindEvents } from './events'
 import './imgs/index'
 import './stylesheets'
+
+const test = () => {
+  const img = 'http://p1.music.126.net/sr9yP4Kt4xxYap5T7CbMqQ==/109951162955032377.jpg?param=180y180'
+  const name = 'Yuki'
+  const url = 'http://p1.music.126.net/sr9yP4Kt4xxYap5T7CbMqQ==/109951162955032377.jpg?param=180y180'
+  const info = {
+    img,
+    name,
+    url,
+  }
+  const length = 100
+  let l = []
+  for (let i = 0; i < length; i++) {
+    l.push(info)
+  }
+  localStoreStore('__viewInfoList_mydapps', l)
+}
 
 const setFirstActive = (elementList, classActive) => {
   const clsa = classActive
@@ -27,48 +44,6 @@ const setActiveNav = () => {
   setFirstActive(l, clsa)
 }
 
-// with native
-const startNativePage = (event) => {
-  try {
-    touchSearchbar()
-  } catch (err) {
-    log(err)
-  }
-  try {
-    appHybrid.startAddWebsitePage()
-  } catch (err) {
-    log(err)
-  }
-  event.stopPropagation()
-}
-
-const test = () => {
-  const img = 'http://p1.music.126.net/sr9yP4Kt4xxYap5T7CbMqQ==/109951162955032377.jpg?param=180y180'
-  const name = 'Yuki'
-  const url = 'http://p1.music.126.net/sr9yP4Kt4xxYap5T7CbMqQ==/109951162955032377.jpg?param=180y180'
-  const info = {
-    img,
-    name,
-    url,
-  }
-  const length = 100
-  let l = []
-  for (let i = 0; i < length; i++) {
-    l.push(info)
-  }
-  localStoreStore('__viewInfoList_mydapps', l)
-}
-
-const bindEvents = () => {
-  const { searchBar, headerAnime2 } = GlobalTable.elementTable
-  const earth = _e('.headerSearchIcon', headerAnime2)
-  bind(searchBar, 'click', startNativePage)
-  bind(earth, 'click', startNativePage)
-
-  const headerAnime = createHeaderAnime()
-  bind(window, 'scroll', headerAnime)
-}
-
 const renderMydappsPage = () => {
   if (location.pathname === '/dapps/mine') {
     const dapps = localStoreParsed('__viewInfoList_mydapps')
@@ -81,8 +56,8 @@ const initDom = () => {
   // initStyle()
   test()
   setActiveNav()
-  bindEvents()
   renderMydappsPage()
+  bindEvents()
 }
 
 const main = () => {
