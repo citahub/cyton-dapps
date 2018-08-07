@@ -1,8 +1,8 @@
 import { log, _e, _es, bind, setStyle, setStyles, localStoreParsed, localStoreStore } from './utils.js'
 import { GlobalTable, initElementTable } from './global'
 import { renderMydapps } from './dappsRender'
-import createHeaderAnime from './headerAnime'
-import { initApi} from './apiOuter'
+import { createHeaderAnime } from './headerAnime'
+import { initApi } from './apiOuter'
 import './imgs/index'
 import './stylesheets'
 

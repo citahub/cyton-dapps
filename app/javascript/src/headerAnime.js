@@ -1,5 +1,5 @@
 import { GlobalTable } from './global'
-import { log, _e, _es, bind, setStyle, setStyles, localStoreParsed, localStoreStore } from './utils.js'
+import { _e, _es, setStyle, setStyles } from './utils.js'
 
 const createHeaderAnime = () => {
   const { header, dapps } = GlobalTable.elementTable
@@ -134,4 +134,4 @@ const createHeaderAnime = () => {
   return eventfunc
 }
 
-export default createHeaderAnime
+export { createHeaderAnime }
