@@ -3,8 +3,7 @@ import { GlobalTable, initElementTable } from './global'
 import { renderMydapps } from './dappsRender'
 import createHeaderAnime from './headerAnime'
 import './imgs/index'
-import './stylesheets/application.scss'
-import './stylesheets/header.scss'
+import './stylesheets'
 
 const setFirstActive = (elementList, classActive) => {
   const clsa = classActive
