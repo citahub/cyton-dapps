@@ -1,4 +1,4 @@
 import './noData.png'
-import './icon/earth1.png'
-import './icon/earth2.png'
-import './icon/test.png'
+import './icon/earth1.svg'
+import './icon/earth2.svg'
+import './icon/test.svg'
