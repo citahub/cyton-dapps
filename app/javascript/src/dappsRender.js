@@ -49,6 +49,4 @@ const renderMydapps = (dapps) => {
   }
 }
 
-export {
-  renderMydapps,
-}
+export { renderMydapps }
