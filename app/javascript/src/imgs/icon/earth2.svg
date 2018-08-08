@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Group Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-Copy" transform="translate(8.928203, 8.928203) rotate(-330.000000) translate(-8.928203, -8.928203) translate(0.928203, 0.928203)" stroke="#262a44">
+            <circle id="Oval-25" cx="7.86440678" cy="7.86440678" r="7.86440678"></circle>
+            <ellipse id="Oval-26" cx="7.86440678" cy="7.86440678" rx="3.52542373" ry="7.86440678"></ellipse>
+            <path d="M13.8939961,12.9026682 C12.6475732,11.8311785 10.4354353,11.1186441 7.91422922,11.1186441 C5.36845819,11.1186441 3.13780738,11.845131 1.89830508,12.9340898" id="Oval-27-Copy"></path>
+            <path d="M13.8939961,4.49588858 C12.6475732,3.42439882 10.4354353,2.71186441 7.91422922,2.71186441 C5.36845819,2.71186441 3.13780738,3.43835139 1.89830508,4.52731013" id="Oval-27-Copy-2" transform="translate(7.896151, 3.619587) scale(1, -1) translate(-7.896151, -3.619587) "></path>
+            <path d="M0,7.86440678 L15.7434173,7.86440678" id="Path-69"></path>
+        </g>
+    </g>
+</svg>

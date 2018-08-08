@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>w @3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="应用推荐" transform="translate(-16.000000, -134.000000)">
+            <rect id="Rectangle-2" fill="#F8F8FA" x="0" y="0" width="375" height="667"></rect>
+            <rect id="Rectangle-53" fill="#FFFFFF" fill-rule="nonzero" x="0" y="121" width="375" height="566"></rect>
+            <g id="Group-5" transform="translate(16.000000, 134.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-50" fill="#7793FF" x="0" y="0" width="16" height="16" rx="2"></rect>
+                <polyline id="Star-2" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" points="9.16067773 5.94681214 12.412678 6.41935543 10.0595085 8.71312879 10.6150165 11.9519887 7.706339 10.4228065 4.79766154 11.9519887 5.3531695 8.71312879 3 6.41935543 6.25200027 5.94681214 7.706339 3 8.47610352 4.55971327"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
