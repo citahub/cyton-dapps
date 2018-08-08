@@ -63,7 +63,7 @@ const setActiveNav = () => {
 const init = () => {
   initGlobalTable()
   initApi()
-  test()
+  // test()
   setActiveNav()
   renderMinePage()
   bindEvents()
