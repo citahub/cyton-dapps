@@ -20,7 +20,18 @@ const createHeaderAnime = () => {
   })
   const transition = (start, end) => {
     const step = (end - start) / h
-    return (n) => start + n * step
+    const max = Math.max(start, end)
+    const min = Math.min(start, end)
+    const func = (n) => {
+      let r = start + n * step
+      if (r > max) {
+        r = max
+      } else if (r < min) {
+        r = min
+      }
+      return r
+    }
+    return func
   }
 
   const transitionsColor = (color1, color2) => {
