@@ -24,6 +24,10 @@ const bindEvents = () => {
   bind(earth, 'click', startNativePage)
 
   const headerAnime = createHeaderAnime()
+  const raf = window.requestAnimationFrame
+  const anime = () => {
+    raf(headerAnime)
+  }
   bind(window, 'scroll', headerAnime)
 }
 

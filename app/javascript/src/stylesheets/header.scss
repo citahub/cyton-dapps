@@ -1,5 +1,13 @@
 @import './color.scss';
 
+#id-header-base {
+  position: absolute;
+  z-index: -10000;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+}
+
 .header {
   color: white;
   text-align: center;

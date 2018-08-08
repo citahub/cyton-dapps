@@ -1,25 +1,32 @@
-import { localStoreParsed, localStoreStore } from './utils.js'
+import { log, localStoreParsed, localStoreStore } from './utils.js'
+import { GlobalTable } from './global'
 
-const dappsLoaded = (key) => {
-  let dapps = localStoreParsed(key)
-  if (!Array.isArray(dapps)) {
+const dappsLoaded = (local) => {
+  let dapps
+  try {
+    dapps = localStoreParsed(local)
+    if (!Array.isArray(dapps)) {
+      throw 'init dapps'
+    }
+  } catch (error) {
+    console.log(error)
     dapps = []
   }
   return dapps
 }
 
-const dappsSave = (dapps, key) => {
-  localStoreStore(key, dapps)
+const dappsSave = (dapps, local) => {
+  localStoreStore(local, dapps)
 }
 
-const dappsAdd = (dapp, key) => {
+const dappsAdd = (dapp, { local, method = 'unshift', maxlength }) => {
   const { entry, icon, name } = dapp
   const o = {
     img: icon,
     url: entry,
     name: name,
   }
-  const dapps = dappsLoaded(key)
+  const dapps = dappsLoaded(local)
   const len = dapps.length
   for (let i = 0; i < len; i++) {
     const obj = dapps[i]
@@ -27,18 +34,25 @@ const dappsAdd = (dapp, key) => {
       return
     }
   }
-  dapps.push(o)
-  dappsSave(dapps, key)
+  if (method === 'unshift') {
+    dapps.unshift(o)
+  } else {
+    dapps.push(o)
+  }
+  if (maxlength && maxlength < len) {
+    dapps.splice(maxlength, len)
+  }
+  dappsSave(dapps, local)
 }
 
-const dappsRemove = (url, key) => {
-  const dapps = dappsLoaded(key)
+const dappsRemove = (url, local) => {
+  const dapps = dappsLoaded(local)
   const len = dapps.length
   for (let i = 0; i < len; i++) {
     const obj = dapps[i]
     if (url === obj.url) {
       dapps.splice(i, 1)
-      dappsSave(dapps, key)
+      dappsSave(dapps, local)
       return
     }
   }
@@ -46,22 +60,28 @@ const dappsRemove = (url, key) => {
 
 // 提供给外部的接口
 const initApi = () => {
+  const table = GlobalTable.renderkeyTable
   if (window.__mydapp === undefined) {
-    const key = '__viewInfoList_mydapps'
+    const info = table.mydapps
+    const remove = (dapp) => dappsRemove(dapp, info)
+    const add = (dapp) => dappsAdd(dapp, info)
     window.__mydapp = {
-      remove: (dapp) => dappsRemove(dapp, key),
-      add: (dapp) => dappsAdd(dapp, key),
+      remove,
+      add,
     }
     Object.freeze(window.__mydapp)
   }
 
   if (window.__myhistory === undefined) {
-    const key = '__viewInfoList_myhistory'
+    const info = table.myhistory
+    const add = (dapp) => {
+      dappsAdd(dapp, info)
+    }
     window.__myhistory = {
-      add: (dapp) => dappsAdd(dapp, key),
+      add,
     }
     Object.freeze(window.__mydapp)
   }
 }
 
-export { initApi }
+export { initApi, dappsLoaded }

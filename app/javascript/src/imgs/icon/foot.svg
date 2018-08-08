@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>se@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="应用推荐" transform="translate(-16.000000, -418.000000)">
+            <rect id="Rectangle-2" fill="#F8F8FA" x="0" y="0" width="375" height="667"></rect>
+            <rect id="Rectangle-53" fill="#FFFFFF" fill-rule="nonzero" x="0" y="121" width="375" height="566"></rect>
+            <g id="Group-10" transform="translate(16.000000, 418.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-50-Copy" fill="#7793FF" x="0" y="0" width="16" height="16" rx="2"></rect>
+                <g id="Group-9" transform="translate(3.000000, 3.000000)" stroke="#FFFFFF" stroke-linecap="round">
+                    <path d="M7.92090277,6.48720559 C8.32461165,3.49263037 7.16255542,1.99534276 4.43473409,1.99534276 C1.60100705,2.12106891 -0.257048271,7.42756356 5.19898343,7.79991081 C5.42271386,7.82372171 6.59224376,9.72112535 7.63632226,10.2603704 C8.68040076,10.7996154 11.2530483,9.33140023 9.01746943,7.01990257" id="Path-19" stroke-linejoin="round"></path>
+                    <path d="M1.99595247,1.17579789 C3.06527465,0.289984433 4.07889458,0.0384250066 5.03681226,0.421119615" id="Path-20"></path>
+                    <path d="M0.339058767,3.09990134 C0.434571353,2.71586451 0.577786542,2.47120411 0.768704335,2.36592014" id="Path-56" stroke-linejoin="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
