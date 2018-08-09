@@ -49,15 +49,23 @@
   height: 16px;
 }
 
+.headerSearchIcon.big {
+  width: 22px;
+  height: 22px;
+}
+
 .headerNav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 20%;
   position: relative;
   margin-top: 17px;
   overflow: hidden;
 
   .headerSearchIcon {
     position: absolute;
+    width: 22px;
+    height: 22px;
     left: 23px;
     top: 150%;
     transform: translate(0%, -50%);
@@ -86,8 +94,6 @@
 //   width: 100%;
 //   padding-top: 30px;
 //   top: 0;
-
-  
 
 //   .headerNavItem {
 //     color: #8a8d9f;

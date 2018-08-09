@@ -25,10 +25,21 @@ const bindEvents = () => {
 
   const headerAnime = createHeaderAnime()
   const raf = window.requestAnimationFrame
+  let running = false
   const anime = () => {
-    raf(headerAnime)
+    if (running) {
+      return
+    } else if (raf) {
+      running = true
+      raf(() => {
+        running = false
+        headerAnime()
+      })
+    } else {
+      headerAnime()
+    }
   }
-  bind(window, 'scroll', headerAnime)
+  bind(window, 'scroll', anime)
 }
 
 export { bindEvents }

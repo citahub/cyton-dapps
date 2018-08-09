@@ -1,5 +1,5 @@
 import { GlobalTable } from './global'
-import { _e, _es, setStyle, setStyles, log, bind } from './utils.js'
+import { _e, _es, setStyle, setStyles, log, bind, newElement } from './utils.js'
 
 const createHeaderAnime = () => {
   const { header, dapps } = GlobalTable.elementTable
@@ -60,11 +60,13 @@ const createHeaderAnime = () => {
   const opacity = transition(1, 0)
   let changing = true
 
+  // const style = newElement('style')
+
   const setStateBegin = (n) => {
-    setStyle(icon, {
-      top: '100%',
-      transform: 'translate(0%, 0%)',
-    })
+    // style.textContent = setStyle(icon, {
+    //   top: '100%',
+    //   transform: 'translate(0%, 0%)',
+    // })
     setStyle(header, {
       background: 'linear-gradient(to bottom, #365FFF, #4F72FF)',
       position: 'relative',
@@ -109,7 +111,6 @@ const createHeaderAnime = () => {
     })
     changing = true
   }
-
   const setStateEnd = (n) => {
     setStyle(icon, {
       top: '50%',
