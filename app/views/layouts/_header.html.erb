@@ -1,18 +1,5 @@
 <div id="id-header" class="container header test">
 
-  <!-- <div class="headerAnime second">
-    <div class="headerNav">
-      <%= image_tag asset_pack_path("src/imgs/icon/earth2.svg"), class: 'headerSearchIcon', alt: "Logo" %>
-        <div class="headerNavItem" data-link="/dapps/mine">
-          <%= link_to "我的应用", dapps_mine_path %>
-        </div>
-        <div class="headerNavItem" data-link="/dapps">
-          <%= link_to "应用推荐", dapps_path %>
-        </div>
-    </div>
-  </div> -->
-
-
   <div class="headerTitleContainer">
     <div class="headerSearch" type="text" id="id-searchBar">
       <%= image_tag asset_pack_path("src/imgs/icon/earth1.svg"), class: 'headerSearchIcon', alt: "Logo" %>
@@ -29,5 +16,22 @@
       </div>
   </div>
 
+</div>
 
+<div id='id-header-base'>
+  <div class="headerTitleContainer">
+    <div class="headerSearch" type="text" id="id-searchBar">
+      <%= image_tag asset_pack_path("src/imgs/icon/earth1.svg"), class: 'headerSearchIcon', alt: "Logo" %>
+        <div class="headerSearchLabel">添加 Token 名称或合约地址</div>
+    </div>
+  </div>
+  <div class="headerNav">
+    <%= image_tag asset_pack_path("src/imgs/icon/earth2.svg"), class: 'headerSearchIcon big', alt: "Logo" %>
+      <div class="headerNavItem" data-link="/dapps/mine">
+        <%= link_to "我的应用", dapps_mine_path %>
+      </div>
+      <div class="headerNavItem" data-link="/dapps">
+        <%= link_to "应用推荐", dapps_path %>
+      </div>
+  </div>
 </div>

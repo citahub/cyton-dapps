@@ -47,4 +47,8 @@ const setStyles = (elements, style) => {
   elements.forEach((element) => setStyle(element, style))
 }
 
-export { log, _e, _es, bind, binds, unbind, setStyle, setStyles, localStoreParsed, localStoreStore }
+const newElement = (tag = 'div') => {
+  return document.createElement(tag)
+}
+
+export { log, _e, _es, bind, binds, unbind, setStyle, setStyles, newElement, localStoreParsed, localStoreStore }

@@ -1,7 +1,7 @@
-import { _es, bind, localStoreParsed, localStoreStore } from './utils.js'
-import { initElementTable, GlobalTable } from './global'
-import { renderMydapps } from './dappsRender'
-import { initApi } from './apiOuter'
+import { _es, bind, localStoreStore } from './utils.js'
+import { initGlobalTable, GlobalTable } from './global'
+import { renderMinePage } from './dappsRender'
+import { initApi } from './dappsApi'
 import { bindEvents } from './events'
 import './imgs/index'
 import './stylesheets'
@@ -15,12 +15,21 @@ const test = () => {
     name,
     url,
   }
-  const length = 100
+  let i = 0
+  window.testinfo = () => {
+    return {
+      icon: img,
+      name,
+      entry: i++,
+    }
+  }
+  const length = 10
   let l = []
   for (let i = 0; i < length; i++) {
     l.push(info)
   }
   localStoreStore('__viewInfoList_mydapps', l)
+  localStoreStore('__viewInfoList_myhistory', l)
 }
 
 const setFirstActive = (elementList, classActive) => {
@@ -44,24 +53,24 @@ const setActiveNav = () => {
   setFirstActive(l, clsa)
 }
 
-const renderMydappsPage = () => {
-  if (location.pathname === '/dapps/mine') {
-    const dapps = localStoreParsed('__viewInfoList_mydapps')
-    renderMydapps(dapps)
-  }
-}
+// const renderMydappsPage = () => {
+//   if (location.pathname === '/dapps/mine') {
+//     const dapps = localStoreParsed('__viewInfoList_mydapps')
+//     renderMydapps(dapps)
+//   }
+// }
 
-const initDom = () => {
-  initElementTable()
+const init = () => {
+  initGlobalTable()
+  initApi()
+  // test()
   setActiveNav()
-  renderMydappsPage()
+  renderMinePage()
   bindEvents()
 }
 
 const main = () => {
-  // test()
-  initApi()
-  bind(document, 'DOMContentLoaded', initDom)
+  bind(document, 'DOMContentLoaded', init)
 }
 
 main()
