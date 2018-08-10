@@ -3,15 +3,15 @@ import { dappsLoaded } from './dappsApi'
 import noData from 'src/imgs/noData.png'
 
 const tDappListCell = (img, name, url) => {
-  const t = `<div class="dappsListItem" href="${url}">
+  const t = `<a class="dappsListItem" href="${url}">
                 <div class="dappsListImgContainer">
                   <img class="dappsListImg" src=${img} alt="">
                 </div>
                 <div class="dappsListContent">
                   <div class="dappsListName">${name}</div>
-                  <a class="dappsListUrl" >${url}</a>
+                  <div class="dappsListUrl" >${url}</div>
                 </div>
-            </div>`
+            </a>`
   return t
 }
 
