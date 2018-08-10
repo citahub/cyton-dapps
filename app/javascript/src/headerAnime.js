@@ -52,8 +52,8 @@ const createHeaderAnime = () => {
   }
 
   const iconTop = transition(150, 50)
-  const headerBackColor1 = transitionsColor([54, 95, 255], [255, 255, 255])
-  const headerBackColor2 = transitionsColor([79, 114, 255], [255, 255, 255])
+  const headerBackColor1 = transitionsColor([79, 114, 255], [255, 255, 255])
+  // const headerBackColor2 = transitionsColor([79, 114, 255], [255, 255, 255])
   const headerBorderColor = transitionsColor([79, 114, 255], [248, 248, 250])
   const itemsColor = transitionsColor([187, 201, 255], [138, 141, 159])
   const itemActiveColor = transitionsColor([255, 255, 255], [38, 42, 68])
@@ -66,9 +66,9 @@ const createHeaderAnime = () => {
       transform: 'translate(0%, 0%)',
     })
     setStyle(header, {
-      background: 'linear-gradient(to bottom, #365FFF, #4F72FF)',
+      background: 'rgb(79, 114, 255)',
       position: 'relative',
-      borderBottom: '1px solid #4F72FF',
+      borderBottom: '1px solid rgb(79, 114, 255)',
     })
     setStyle(title, {
       display: 'block',
@@ -90,7 +90,7 @@ const createHeaderAnime = () => {
       top: `${iconTop(n)}%`,
     })
     setStyle(header, {
-      background: `linear-gradient(to bottom, ${headerBackColor1(n)}, ${headerBackColor2(n)})`,
+      background: `${headerBackColor1(n)}`,
       borderBottom: `1px solid ${headerBorderColor(n)}`,
       position: 'relative',
     })
@@ -115,7 +115,7 @@ const createHeaderAnime = () => {
       transform: 'translate(0%, -53%)',
     })
     setStyle(header, {
-      background: 'linear-gradient(to bottom, #fff, #fff)',
+      background: 'rgb(255, 255, 255)',
       borderBottom: `1px solid #f8f8fa`,
       position: 'fixed',
       // top: `${-h}px`,
