@@ -45,7 +45,7 @@ const dappsAdd = (dapp, { local, method = 'unshift', maxlength }) => {
   dappsSave(dapps, local)
 }
 
-const dappsRemove = (url, local) => {
+const dappsRemove = (url, {local}) => {
   const dapps = dappsLoaded(local)
   const len = dapps.length
   for (let i = 0; i < len; i++) {
@@ -63,7 +63,7 @@ const initApi = () => {
   const table = GlobalTable.renderkeyTable
   if (window.__mydapp === undefined) {
     const info = table.mydapps
-    const remove = (dapp) => dappsRemove(dapp, info)
+    const remove = (url) => dappsRemove(url, info)
     const add = (dapp) => dappsAdd(dapp, info)
     window.__mydapp = {
       remove,
