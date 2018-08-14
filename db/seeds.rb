@@ -37,7 +37,7 @@ data = [
     url_address: "https://www.cryptape.com/#/about",
     d_type: :exchange,
     logo_url: "http://gravatar.com/avatar/673bb775f58719a6ea46c44f9d2a282e.png"
-  }
+  },
 ]
 
 Dapp.transaction do
