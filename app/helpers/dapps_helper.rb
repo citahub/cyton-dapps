@@ -2,11 +2,11 @@ module DappsHelper
   def tag_to_text(tag)
     case tag
     when "new_dapp"
-      return "New Dapp"
+      "AppChain 应用"
     when "popular"
-      return "Popular"
+      "热门应用"
     else
-      return tag.to_s
+      tag.to_s
     end
   end
 end
