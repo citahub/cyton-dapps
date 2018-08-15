@@ -9,34 +9,28 @@
 # for develop
 data = [
   {
-    name: "Dapp 1",
-    url_address: "https://www.cryptape.com/#/about",
+    name: "First Forever",
+    url_address: "https://dapp.cryptape.com/demo/first-forever",
     d_type: :new_dapp,
-    logo_url: "http://gravatar.com/avatar/673bb775f58719a6ea46c44f9d2a282e.png"
+    logo_url: "https://cdn.cryptape.com/neuron/Artboard3.png"
   },
   {
-    name: "Dapp 2",
-    url_address: "https://www.cryptape.com/#/about",
+    name: "AppChain Testnet Faucet",
+    url_address: "https://dapp.cryptape.com/appchain-testnet-faucet",
     d_type: :new_dapp,
-    logo_url: "http://gravatar.com/avatar/673bb775f58719a6ea46c44f9d2a282e.png"
+    logo_url: "https://avatars1.githubusercontent.com/u/35361817"
   },
   {
-    name: "Dapp 3",
-    url_address: "https://www.cryptape.com/#/about",
-    d_type: :new_dapp,
-    logo_url: "http://gravatar.com/avatar/673bb775f58719a6ea46c44f9d2a282e.png"
-  },
-  {
-    name: "Dapp Popular 1",
-    url_address: "https://www.cryptape.com/#/about",
+    name: "Hyperdragon",
+    url_address: "https://hyperdragons.alfakingdom.com/",
     d_type: :popular,
-    logo_url: "http://gravatar.com/avatar/673bb775f58719a6ea46c44f9d2a282e.png"
+    logo_url: "https://hyperdragons.alfakingdom.com/favicon.ico"
   },
   {
-    name: "Dapp Exchange 1",
-    url_address: "https://www.cryptape.com/#/about",
-    d_type: :exchange,
-    logo_url: "http://gravatar.com/avatar/673bb775f58719a6ea46c44f9d2a282e.png"
+    name: "DApp Review",
+    url_address: "https://dapp.review/explore",
+    d_type: :popular,
+    logo_url: "https://dapp.review/favicon.ico"
   }
 ]
 
