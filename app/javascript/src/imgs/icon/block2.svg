@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 9</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="应用" transform="translate(-15.000000, -418.000000)">
+            <rect id="Rectangle-2" fill="#F8F8FA" x="0" y="0" width="375" height="667"></rect>
+            <rect id="Rectangle-53" fill="#FFFFFF" fill-rule="nonzero" x="0" y="76" width="375" height="540"></rect>
+            <g id="Group-9" transform="translate(15.000000, 418.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-50-Copy" fill="#7793FF" x="0" y="0" width="16" height="16" rx="2"></rect>
+                <path d="M5.87419085,7.18532522 C5.46451359,6.55312573 4.46413161,4.59063424 4.06992873,4.72621967 C3.9505137,5.16124545 3.02434857,5.87137293 3.37153199,8.75220706 C3.71871542,11.6330412 7.17279758,13.8170319 9.82184768,12.7044394 C12.4708978,11.5918469 13.489329,9.0672804 12.0537189,5.2639883 C11.8254065,4.87395282 10.8206178,7.52973523 10.4964238,7.52973523 C10.2264746,7.32125995 10.1080614,6.16908785 9.5999808,5.05861786 C9.49180183,4.82217996 9.36595782,4.58763256 9.21722491,4.36448705 C8.82009833,3.76867392 8.25979109,3.25414759 7.43686415,3.00196224 C7.19472881,2.93069751 7.84888496,4.81427324 6.77909302,6.41897389" id="Path-24" stroke="#FFFFFF" stroke-linecap="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

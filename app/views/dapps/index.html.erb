@@ -1,9 +1,9 @@
 <div id="id-dapps" class="dappsContainer">
-<% @dapps.keys.each do |key| %>
+<% @dapps.keys.each_with_index do |key, index| %>
   <div class="popularContainer">
     <div class="popularTitle">
       <%= image_tag asset_pack_path("src/imgs/icon/test.svg"), class: 'popularIcon', alt: "Logo" %>
-      <div class="popularText"><%= key.to_s %></div>
+      <div class="popularText"><%= tag_to_text key %></div>
     </div>
     <% @dapps[key].each do |dapp| %>
 

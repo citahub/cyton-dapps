@@ -49,8 +49,8 @@ const renderMinePage = () => {
     const container = GlobalTable.elementTable.dapps
     const table = GlobalTable.renderkeyTable
     // TODO: 这里可以抽一个函数
-    const mydapps = tDappsContainer(table.mydapps)
-    const myhistory = tDappsContainer(table.myhistory)
+    const mydapps = tDappsContainer(table.mydapps) || ''
+    const myhistory = tDappsContainer(table.myhistory) || ''
     if (mydapps === null && myhistory === null) {
       container.innerHTML = tMyDappsDefault()
     } else {
