@@ -16,7 +16,7 @@ data = [
   },
   {
     name: "AppChain Testnet Faucet",
-    url_address: "https://dapp.cryptape.com/appchain-testnet-faucet",
+    url_address: "https://dapp.cryptape.com/faucet",
     d_type: :new_dapp,
     logo_url: "https://avatars1.githubusercontent.com/u/35361817"
   },
