@@ -27,11 +27,11 @@ data = [
     logo_url: "https://hyperdragons.alfakingdom.com/favicon.ico"
   },
   {
-    name: "DApp Review",
-    url_address: "https://dapp.review/explore",
-    d_type: :popular,
-    logo_url: "https://dapp.review/favicon.ico"
-  }
+    name: "Dapp Exchange 1",
+    url_address: "https://www.cryptape.com/#/about",
+    d_type: :exchange,
+    logo_url: "http://gravatar.com/avatar/673bb775f58719a6ea46c44f9d2a282e.png"
+  },
 ]
 
 Dapp.transaction do
