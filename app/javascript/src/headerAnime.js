@@ -51,7 +51,7 @@ const createHeaderAnime = () => {
     return colorfunc
   }
 
-  const iconTop = transition(150, 50)
+  const iconTop = transition(150, 53)
   const headerBackColor1 = transitionsColor([79, 114, 255], [255, 255, 255])
   // const headerBackColor2 = transitionsColor([79, 114, 255], [255, 255, 255])
   const headerBorderColor = transitionsColor([79, 114, 255], [248, 248, 250])
@@ -129,9 +129,14 @@ const createHeaderAnime = () => {
     setStyle(itemActive, {
       color: '#262a44',
     })
+    const headerbase = _e('#id-header-base')
+    const titlebase = _e('.headerTitleContainer', headerbase)
+    let { height: h1 } = headerbase.getBoundingClientRect()
+    let { height: h2 } = titlebase.getBoundingClientRect()
     setStyle(dapps, {
-      marginTop: `${h + n}px`,
+      marginTop: `${h1}px`,
     })
+    log(h, n, h1, h2)
     // window.scroll(0, n)
     changing = false
   }

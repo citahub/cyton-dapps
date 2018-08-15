@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 5@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="应用" transform="translate(-15.000000, -134.000000)">
+            <rect id="Rectangle-2" fill="#F8F8FA" x="0" y="0" width="375" height="667"></rect>
+            <rect id="Rectangle-53" fill="#FFFFFF" fill-rule="nonzero" x="0" y="76" width="375" height="540"></rect>
+            <g id="Group-5" transform="translate(15.000000, 134.000000)">
+                <rect id="Rectangle-50" fill="#7793FF" fill-rule="nonzero" x="0" y="0" width="16" height="16" rx="2"></rect>
+                <g id="Group-Copy-2" transform="translate(3.000000, 2.000000)" stroke="#FFFFFF">
+                    <g id="Group-Copy-4">
+                        <rect id="Rectangle-16" x="0.5" y="1.92857143" width="3.48979571" height="3.48979571" rx="1"></rect>
+                        <path d="M7.66018125,0.862278918 L9.10315786,0.822384326 C9.41838875,0.813669003 9.68099905,1.06214897 9.68971437,1.37737986 C9.68985977,1.38263877 9.68993248,1.38789943 9.68993248,1.39316035 L9.68993248,3.66328576 C9.68993248,3.91781175 9.66343104,4.01010902 9.61366687,4.10315991 C9.56390271,4.19621081 9.49087582,4.26923769 9.39782493,4.31900186 C9.30477403,4.36876602 9.21247676,4.39526746 8.95795078,4.39526746 L6.83280823,4.39526746 C6.57828225,4.39526746 6.48598498,4.36876602 6.39293408,4.31900186 C6.29988319,4.26923769 6.2268563,4.19621081 6.17709214,4.10315991 C6.12732797,4.01010902 6.10082653,3.91781175 6.10082653,3.66328576 L6.10082653,1.39807397" id="Rectangle-16-Copy" stroke-linecap="round" stroke-linejoin="round" transform="translate(7.895380, 2.608715) rotate(-330.000000) translate(-7.895380, -2.608715) "></path>
+                        <rect id="Rectangle-16-Copy-2" x="0.5" y="6.92857143" width="3.48979571" height="3.48979571" rx="1"></rect>
+                        <rect id="Rectangle-16-Copy-3" x="6.21428571" y="6.92857143" width="3.48979571" height="3.48979571" rx="1"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,4 +1,4 @@
-import { log, _e, bind } from './utils.js'
+import { log, _e, _es, bind } from './utils.js'
 import { GlobalTable } from './global'
 import { createHeaderAnime } from './headerAnime'
 
@@ -18,8 +18,8 @@ const startNativePage = (event) => {
 }
 
 const bindEvents = () => {
-  const { searchBar, headerAnime2 } = GlobalTable.elementTable
-  const earth = _e('.headerSearchIcon', headerAnime2)
+  const { searchBar } = GlobalTable.elementTable
+  const earth = _es('.headerSearchIcon')[1]
   bind(searchBar, 'click', startNativePage)
   bind(earth, 'click', startNativePage)
 
