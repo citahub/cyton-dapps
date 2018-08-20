@@ -1,11 +1,17 @@
 import { GlobalTable } from './global'
 import { dappsLoaded } from './dappsApi'
+// import { log } from './utils'
 import noData from 'src/imgs/noData.png'
+import defaultimg from 'src/imgs/noData.png'
 
 const tDappListCell = (img, name, url) => {
+  let realimg = img
+  if (!img) {
+    realimg = defaultimg
+  }
   const t = `<a class="dappsListItem" href="${url}">
                 <div class="dappsListImgContainer">
-                  <img class="dappsListImg" src=${img} alt="">
+                  <img class="dappsListImg" src=${realimg} alt="">
                 </div>
                 <div class="dappsListContent">
                   <div class="dappsListName">${name}</div>
@@ -18,7 +24,7 @@ const tDappListCell = (img, name, url) => {
 const tDappsContainer = ({ local, title, icon }) => {
   const l = dappsLoaded(local)
   if (l.length === 0) {
-    return null
+    return ''
   }
   const len = l.length
   let t = ''
@@ -49,9 +55,9 @@ const renderMinePage = () => {
     const container = GlobalTable.elementTable.dapps
     const table = GlobalTable.renderkeyTable
     // TODO: 这里可以抽一个函数
-    const mydapps = tDappsContainer(table.mydapps) || ''
-    const myhistory = tDappsContainer(table.myhistory) || ''
-    if (mydapps === null && myhistory === null) {
+    const mydapps = tDappsContainer(table.mydapps)
+    const myhistory = tDappsContainer(table.myhistory)
+    if (mydapps === '' && myhistory === '') {
       container.innerHTML = tMyDappsDefault()
     } else {
       container.innerHTML = mydapps + myhistory
