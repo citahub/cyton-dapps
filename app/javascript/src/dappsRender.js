@@ -1,12 +1,12 @@
 import { GlobalTable } from './global'
 import { dappsLoaded } from './dappsApi'
-import { log } from './utils'
+// import { log } from './utils'
 import noData from 'src/imgs/noData.png'
 import defaultimg from 'src/imgs/noData.png'
 
 const tDappListCell = (img, name, url) => {
   let realimg = img
-  if (img === '' || !img) {
+  if (!img) {
     realimg = defaultimg
   }
   const t = `<a class="dappsListItem" href="${url}">
