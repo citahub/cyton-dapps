@@ -13,9 +13,16 @@ const createHeaderAnime = () => {
   const headerbase = _e('#id-header-base')
   const titlebase = _e('.headerTitleContainer', headerbase)
   let { height: h } = titlebase.getBoundingClientRect()
+  let h1 = headerbase.getBoundingClientRect().height
   bind(window, 'load', () => {
     setTimeout(() => {
       h = titlebase.getBoundingClientRect().height
+      h1 = headerbase.getBoundingClientRect().height
+      const body = document.body
+      const documentElement = document.documentElement
+      setStyles([body, documentElement], {
+        minHeight: window.innerHeight + h + 'px',
+      })
     }, 0)
   })
   const transition = (start, end) => {
@@ -129,14 +136,10 @@ const createHeaderAnime = () => {
     setStyle(itemActive, {
       color: '#262a44',
     })
-    const headerbase = _e('#id-header-base')
-    const titlebase = _e('.headerTitleContainer', headerbase)
-    let { height: h1 } = headerbase.getBoundingClientRect()
-    let { height: h2 } = titlebase.getBoundingClientRect()
     setStyle(dapps, {
       marginTop: `${h1}px`,
     })
-    log(h, n, h1, h2)
+    // log(h, n, h1)
     // window.scroll(0, n)
     changing = false
   }
