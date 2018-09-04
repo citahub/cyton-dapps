@@ -40,3 +40,6 @@ yarn-debug.log*
 # ignore env local configs
 .env.local
 .env.*.local
+
+# docker database
+docker/data
