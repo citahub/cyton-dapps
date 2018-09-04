@@ -34,6 +34,12 @@ yarn-debug.log*
 .yarn-integrity
 
 # Ignore config files
-/config/database.yml
 /config/puma.rb
 .ruby-gemset
+
+# ignore env local configs
+.env.local
+.env.*.local
+
+# docker database
+docker/data
