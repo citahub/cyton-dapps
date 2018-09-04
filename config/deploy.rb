@@ -41,7 +41,8 @@ set :shared_dirs, fetch(:shared_dirs, []).push(
 set :shared_files, fetch(:shared_files, []).push(
   'config/puma.rb',
   'config/database.yml',
-  'config/master.key'
+  'config/master.key',
+  '.env.local'
 )
 
 # This task is the environment that is loaded for all remote run commands, such as
@@ -61,8 +62,7 @@ end
 task :setup do
   # command %{rbenv install 2.3.0 --skip-existing}
   command %[touch "#{fetch(:shared_path)}/config/puma.rb"]
-  command %[touch "#{fetch(:shared_path)}/config/master.key"]
-  command %[touch "#{fetch(:shared_path)}/config/database.yml"]
+  command %[touch "#{fetch(:shared_path)}/.env.local"]
   comment color_str("Be sure to edit config files")
 end
 

@@ -47,6 +47,9 @@ gem 'pry'
 gem 'pry-rails'
 gem 'awesome_print'
 
+# config ENV by dotenv
+gem 'dotenv-rails'
+
 # Deployment
 gem 'mina', require: false
 gem 'mina-puma', require: false
