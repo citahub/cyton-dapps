@@ -1,4 +1,4 @@
-import { _e, _es } from './utils.js'
+import { _e, _es } from './utils'
 import test from 'src/imgs/icon/test.svg'
 import foot from 'src/imgs/icon/foot.svg'
 

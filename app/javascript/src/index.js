@@ -1,10 +1,11 @@
-import { _es, bind, localStoreStore } from './utils.js'
+import { _es, bind, localStoreStore, log } from './utils'
 import { initGlobalTable, GlobalTable } from './global'
 import { renderMinePage } from './dappsRender'
 import { initApi } from './dappsApi'
 import { bindEvents } from './events'
 import './imgs/index'
 import './stylesheets'
+import j from 'jquery'
 
 const test = () => {
   const img = 'http://p1.music.126.net/sr9yP4Kt4xxYap5T7CbMqQ==/109951162955032377.jpg?param=180y180'
@@ -61,12 +62,12 @@ const setActiveNav = () => {
 // }
 
 const init = () => {
-  initGlobalTable()
-  initApi()
-  // test()
-  setActiveNav()
-  renderMinePage()
-  bindEvents()
+  // initGlobalTable()
+  // initApi()
+  // // test()
+  // setActiveNav()
+  // renderMinePage()
+  // bindEvents()
 }
 
 const main = () => {

@@ -1,5 +1,5 @@
 import { GlobalTable } from './global'
-import { _e, _es, setStyle, setStyles, log, bind, newElement } from './utils.js'
+import { _e, _es, setStyle, setStyles, log, bind, newElement } from './utils'
 
 const createHeaderAnime = () => {
   const { header, dapps } = GlobalTable.elementTable

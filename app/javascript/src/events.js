@@ -1,4 +1,4 @@
-import { log, _e, _es, bind } from './utils.js'
+import { log, _e, _es, bind } from './utils'
 import { GlobalTable } from './global'
 import { createHeaderAnime } from './headerAnime'
 

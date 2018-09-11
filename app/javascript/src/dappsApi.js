@@ -1,4 +1,4 @@
-import { log, localStoreParsed, localStoreStore } from './utils.js'
+import { log, localStoreParsed, localStoreStore } from './utils'
 import { GlobalTable } from './global'
 
 const dappsLoaded = (local) => {
