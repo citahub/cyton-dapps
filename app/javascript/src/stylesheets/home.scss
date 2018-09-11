@@ -66,6 +66,7 @@
   #id-container-banner {
     & {
       height: 50vw;
+      max-height: 160px;
       overflow: hidden;
       white-space: nowrap;
       text-align: center;
@@ -88,8 +89,6 @@
     .bannerimg.right {
       right: 0;
       transform: translate(90%) scale(0.9);
-    }
-    .bannerScroller {
     }
   }
 
