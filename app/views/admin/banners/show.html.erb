@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= link_to @banner.image_url, @banner.image_url, target: '_blank' %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= link_to @banner.address, @banner.address, target: '_blank' %>
+</p>
+
+<p>
+  <strong>Start at:</strong>
+  <%= @banner.start_at %>
+</p>
+
+<p>
+  <strong>End at:</strong>
+  <%= @banner.end_at %>
+</p>
+
+<p>
+  <strong>Ios version:</strong>
+  <%= @banner.ios_version %>
+</p>
+
+<p>
+  <strong>Android version:</strong>
+  <%= @banner.android_version %>
+</p>
+
+<%= link_to 'Edit', edit_admin_banner_path(@banner) %> |
+<%= link_to 'Back', admin_banners_path %>

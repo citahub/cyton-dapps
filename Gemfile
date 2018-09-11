@@ -53,6 +53,9 @@ gem 'dotenv-rails'
 # active storage qiniu plugin
 gem 'activestorage_qiniu'
 
+# better i18n
+gem 'rails-i18n', '~> 5.1'
+
 # Deployment
 gem 'mina', require: false
 gem 'mina-puma', require: false
