@@ -1,13 +1,27 @@
 @import './color.scss';
+@import './size.scss';
 
 #id-page-home {
-  background-color: #f8f8fa;
-  width: 100vw;
-  height: 100vh;
+  $headerheight: 75px;
+  $backcolor: $c-back-header;
+  
+  & {
+    background-color: $backcolor;
+    width: 100vw;
+    height: 100vh;
+    padding-top: $headerheight;
+  }
 
   #id-container-headerbar {
-    padding: 32px 15px 12px;
-    background-color: $c-back-header;
+    & {
+      padding: 32px 15px 12px;
+      background-color: $backcolor;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: $headerheight;
+      z-index: 100;
+    }
 
     .headerbarInner {
       position: relative;
@@ -46,6 +60,89 @@
       border-top: 1px solid;
       color: $c-main;
       margin: 7px 0;
+    }
+  }
+
+  #id-container-banner {
+    & {
+      height: 50vw;
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: center;
+      position: relative;
+    }
+
+    .bannerimg {
+      width: 320px;
+      max-width: 90%;
+      max-height: 100%;
+      border-radius: 5px;
+    }
+    .bannerimg.small {
+      position: absolute;
+    }
+    .bannerimg.left {
+      left: 0;
+      transform: translate(-90%) scale(0.9);
+    }
+    .bannerimg.right {
+      right: 0;
+      transform: translate(90%) scale(0.9);
+    }
+    .bannerScroller {
+    }
+  }
+
+  #id-container-dappblocks {
+    $bordercolor: #f7f7f7;
+    
+    .block {
+      margin-bottom: 10px;
+      padding: 15px;
+      padding-bottom: 0;
+      border-bottom: 10px solid $bordercolor
+    }
+    .block:last-child {
+      border-bottom: none;
+    }
+    .header {
+      margin-bottom: 12px;
+    }
+    .headertitle {
+      display: inline-block;
+      font-size: $s-h2;
+    }
+    .buttonmore {
+      float: right;
+      color: $c-conspicuous;
+    }
+    .dapp {
+      padding: 14px 0;
+      border-bottom: 1px solid $bordercolor;
+      display: flex;
+    }
+    .dapp:last-child {
+      border-bottom: none;
+    }
+    .dappimg {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+    .dappinfo {
+      display: inline-block;
+      display: inline-flex;
+      flex-flow: column;
+      justify-content: center;
+    }
+    .dapptitle {
+      font-size: $s-h1;
+      line-height: 22px;
+    }
+    .dappintro {
+      color: $c-auxiliary;
+      line-height: 18px;
     }
   }
 }

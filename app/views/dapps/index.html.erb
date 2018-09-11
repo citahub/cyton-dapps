@@ -1,23 +1,57 @@
 <div id='id-page-home'>
+
   <div id='id-container-headerbar'>
-  <div class='headerbarInner'>
-    <div id='id-button-search' class='search' type='text'>
-      <%= image_tag asset_pack_path('src/imgs/icon/earth1.svg'), class: 'headerSearchIcon', alt: 'Logo' %>
-      <div class='searchLabel'>请输入应用网址</div>
-    </div>
-    <div id='id-button-navigation' class='button'>
-      <div class='buttonLine'></div>
-      <div class='buttonLine'></div>
-      <div class='buttonLine'></div>
+    <div class='headerbarInner'>
+      <div id='id-button-search' class='search' type='text'>
+        <%= image_tag asset_pack_path('src/imgs/icon/earth1.svg'), class: 'headerSearchIcon', alt: 'Logo' %>
+        <div class='searchLabel'>请输入应用网址</div>
+      </div>
+      <div id='id-button-navigation' class='button'>
+        <div class='buttonLine'></div>
+        <div class='buttonLine'></div>
+        <div class='buttonLine'></div>
+      </div>
     </div>
   </div>
-  </div>
+
   <div id='id-container-banner'>
-    
+    <img class='bannerimg small left' src="https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg"
+      alt="">
+    <img class='bannerimg' src="https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg" alt="">
+    <img class='bannerimg small right' src="https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg"
+      alt="">
   </div>
+
   <div id='id-container-dappblocks'>
-    
+    <% @dapps.keys.each_with_index do |key, index| %>
+    <div class="block">
+      <div class="header">
+        <div class="headertitle">
+          <%= key %>
+        </div>
+        <div class="buttonmore">更多</div>
+      </div>
+
+      <div class="dapplist">
+        <% @dapps[key].each do |dapp| %>
+        <a href="/info?id=<%= dapp.id%>">
+          <div class="dapp">
+            <img class="dappimg" src="https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg">
+            <div class="dappinfo">
+              <div class="dapptitle">云斗龙</div>
+              <div class="dappintro">东半球最球最好好玩的游戏</div>
+            </div>
+          </div>
+        </a>
+        <% end %>
+      </div>
+
+    </div>
+
+    <% end %>
   </div>
+
+</div>
 </div>
 
 
