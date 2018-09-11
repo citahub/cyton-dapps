@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   root "dapps#index"
 
   resources :dapps, only: [:index]
-  get 'dapps/mine'
+  get 'info', to: 'dapps#info'
+  get 'more', to: 'dapps#more'
+  get 'mine', to: 'dapps#mine'
+  get 'history', to: 'dapps#history'
 end
