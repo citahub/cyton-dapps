@@ -8,4 +8,10 @@ Rails.application.routes.draw do
   get 'more', to: 'dapps#more'
   get 'mine', to: 'dapps#mine'
   get 'history', to: 'dapps#history'
+
+  namespace :admin do
+    resources :images
+    resources :banners
+  end
+
 end
