@@ -5,4 +5,9 @@ Rails.application.routes.draw do
 
   resources :dapps, only: [:index]
   get 'dapps/mine'
+
+  namespace :admin do
+    resources :images
+  end
+
 end

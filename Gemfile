@@ -50,6 +50,9 @@ gem 'awesome_print'
 # config ENV by dotenv
 gem 'dotenv-rails'
 
+# active storage qiniu plugin
+gem 'activestorage_qiniu'
+
 # Deployment
 gem 'mina', require: false
 gem 'mina-puma', require: false

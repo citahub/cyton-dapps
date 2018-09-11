@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @image.name %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag photo_path(@image) %>
+</p>
+
+<p>
+  <strong>URL:</strong>
+  <%= link_to real_url(@image), real_url(@image), target: '_blank' %>
+</p>
+
+<%= link_to 'Edit', edit_admin_image_path(@image) %> |
+<%= link_to 'Back', admin_images_path %>
