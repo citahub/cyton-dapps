@@ -1,2 +1,2 @@
 import './application.scss'
-import './header.scss'
+import './home.scss'

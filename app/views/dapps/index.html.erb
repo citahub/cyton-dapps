@@ -1,27 +1,46 @@
 <div id='id-page-home'>
-  <div id='id-'></div>
+  <div id='id-container-headerbar'>
+  <div class='headerbarInner'>
+    <div id='id-button-search' class='search' type='text'>
+      <%= image_tag asset_pack_path('src/imgs/icon/earth1.svg'), class: 'headerSearchIcon', alt: 'Logo' %>
+      <div class='searchLabel'>请输入应用网址</div>
+    </div>
+    <div id='id-button-navigation' class='button'>
+      <div class='buttonLine'></div>
+      <div class='buttonLine'></div>
+      <div class='buttonLine'></div>
+    </div>
+  </div>
+  </div>
+  <div id='id-container-banner'>
+    
+  </div>
+  <div id='id-container-dappblocks'>
+    
+  </div>
 </div>
 
 
 
 
-<!-- <div id="id-dapps" class="dappsContainer">
+
+<!-- <div id='id-dapps' class='dappsContainer'>
   <% @dapps.keys.each_with_index do |key, index| %>
-  <div class="popularContainer">
-    <div class="popularTitle">
-      <%= image_tag asset_pack_path("src/imgs/icon/test.svg"), class: 'popularIcon', alt: "Logo" %>
-      <div class="popularText">
+  <div class='popularContainer'>
+    <div class='popularTitle'>
+      <%= image_tag asset_pack_path('src/imgs/icon/test.svg'), class: 'popularIcon', alt: 'Logo' %>
+      <div class='popularText'>
         <%= tag_to_text key %>
       </div>
     </div>
     <% @dapps[key].each do |dapp| %>
 
-    <div class="dappsListItem">
-      <div class="dappsListImgContainer">
-        <%= image_tag dapp.logo_url, class: 'dappsListImg', alt: "Logo" %>
+    <div class='dappsListItem'>
+      <div class='dappsListImgContainer'>
+        <%= image_tag dapp.logo_url, class: 'dappsListImg', alt: 'Logo' %>
       </div>
-      <div class="dappsListContent">
-        <div class="dappsListName">
+      <div class='dappsListContent'>
+        <div class='dappsListName'>
           <%= dapp.name %>
         </div>
         <%= link_to dapp.url_address, dapp.url_address, class: 'dappsListUrl' %>

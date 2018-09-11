@@ -1,0 +1,134 @@
+@import './color.scss';
+
+#id-page-home {
+  background-color: #f8f8fa;
+  width: 100vw;
+  height: 100vh;
+
+  #id-container-headerbar {
+    padding: 32px 15px 12px;
+    background-color: $c-back-header;
+
+    .headerbarInner {
+      position: relative;
+      width: 100%;
+    }
+
+    .search {
+      display: block;
+      display: flex;
+      align-items: center;
+      padding-left: 9px;
+      height: 30px;
+      color: #4d5c91;
+      font-size: 12px;
+      background-color: #e9ebf0;
+      border-radius: 2px;
+      margin-right: 43px;
+    }
+
+    .searchLabel {
+      padding-left: 4px;
+    }
+
+    .button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: inline-block;
+      height: 30px;
+      vertical-align: top;
+      padding-left: 13px;
+    }
+
+    .buttonLine {
+      width: 22px;
+      border-top: 1px solid;
+      color: $c-main;
+      margin: 7px 0;
+    }
+  }
+}
+
+// .header {
+//   color: white;
+//   text-align: center;
+//   width: 100%;
+//   background-size: cover;
+//   background: rgb(79, 114, 255);
+// }
+
+// .headerTitleContainer {
+//   position: relative;
+//   font-size: 18px;
+//   padding: 21px 15px 0px;
+// }
+
+// .headerButton {
+//   position: absolute;
+//   top: 30px;
+//   right: 15px;
+// }
+
+// .headerSearchIcon {
+//   width: 16px;
+//   height: 16px;
+// }
+
+// .headerSearchIcon.big {
+//   width: 22px;
+//   height: 22px;
+// }
+
+// .headerNav {
+//   display: flex;
+//   justify-content: space-between;
+//   padding: 0 20%;
+//   position: relative;
+//   margin-top: 10px;
+//   overflow: hidden;
+
+//   .headerSearchIcon {
+//     position: absolute;
+//     width: 22px;
+//     height: 22px;
+//     left: 23px;
+//     top: 150%;
+//     transform: translate(0%, -50%);
+//   }
+// }
+
+// .headerNavItem {
+//   color: $c-text-button-sub;
+//   font-size: 16px;
+//   padding-bottom: 5px;
+//   margin-bottom: 7px;
+//   vertical-align: top;
+// }
+
+// .headerNavItem.active {
+//   color: $c-text-button;
+//   font-size: 16px;
+//   border-bottom: 2px solid;
+// }
+
+// .headerAnime.second {
+//   background: white;
+//   color: #262a44;
+//   position: fixed;
+//   border-bottom: 1px solid #f8f8fa;
+//   width: 100%;
+//   padding-top: 30px;
+//   top: 0;
+
+//   .headerNavItem {
+//     color: #8a8d9f;
+//     padding-bottom: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .headerNavItem.active {
+//     color: #262a44;
+//     border-bottom: 2px solid #365fff;
+//   }
+// }
