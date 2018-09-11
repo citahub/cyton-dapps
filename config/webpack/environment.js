@@ -1,4 +1,5 @@
 const { environment } = require('@rails/webpacker')
+const webpack = require('webpack')
 
 // resolve-url-loader must be used before sass-loader
 
