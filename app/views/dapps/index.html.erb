@@ -1,26 +1,36 @@
-<div id="id-dapps" class="dappsContainer">
-<% @dapps.keys.each_with_index do |key, index| %>
+<div id='id-page-home'>
+  <div id='id-'></div>
+</div>
+
+
+
+
+<!-- <div id="id-dapps" class="dappsContainer">
+  <% @dapps.keys.each_with_index do |key, index| %>
   <div class="popularContainer">
     <div class="popularTitle">
       <%= image_tag asset_pack_path("src/imgs/icon/test.svg"), class: 'popularIcon', alt: "Logo" %>
-      <div class="popularText"><%= tag_to_text key %></div>
+      <div class="popularText">
+        <%= tag_to_text key %>
+      </div>
     </div>
     <% @dapps[key].each do |dapp| %>
 
-      <div class="dappsListItem">
-        <div class="dappsListImgContainer">
-          <%= image_tag dapp.logo_url, class: 'dappsListImg', alt: "Logo" %>
-        </div>
-        <div class="dappsListContent">
-          <div class="dappsListName"><%= dapp.name %></div>
-          <%= link_to dapp.url_address, dapp.url_address, class: 'dappsListUrl' %>
-        </div>
+    <div class="dappsListItem">
+      <div class="dappsListImgContainer">
+        <%= image_tag dapp.logo_url, class: 'dappsListImg', alt: "Logo" %>
       </div>
+      <div class="dappsListContent">
+        <div class="dappsListName">
+          <%= dapp.name %>
+        </div>
+        <%= link_to dapp.url_address, dapp.url_address, class: 'dappsListUrl' %>
+      </div>
+
+    </div>
 
     <% end %>
 
   </div>
-<% end %>
-</div>
-
-
+  <% end %>
+</div> -->
