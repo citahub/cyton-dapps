@@ -2,6 +2,7 @@ require 'test_helper'
 
 class Admin::BannersControllerTest < ActionDispatch::IntegrationTest
   setup do
+    sign_in
     @banner = banners(:one)
   end
 

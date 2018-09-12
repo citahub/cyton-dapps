@@ -12,6 +12,8 @@
   </head>
 
   <body>
+    <%= render "layouts/admin_header" unless params[:controller] == "admin/sessions" %>
+
     <%= yield %>
   </body>
 </html>

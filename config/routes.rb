@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     resources :images
     resources :banners
     resources :dapps
+    resources :sessions, only: [:new, :create]
+    get 'login', to: "sessions#new", as: :login
+    match 'logout', to: "sessions#destroy", via: [:get, :delete], as: :logout
   end
 
 end

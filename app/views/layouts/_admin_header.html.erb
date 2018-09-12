@@ -1,0 +1,17 @@
+<header class="header-box">
+
+  <div class="header-limiter">
+    <nav>
+      <a href="<%= admin_images_path %>">Images</a>
+      <a href="<%= admin_banners_path %>">Banners</a>
+      <a href="<%= admin_dapps_path %>">Dapps</a>
+
+      <% if logged_in? %>
+        <a href="<%= admin_logout_path %>">退出登录</a>
+      <% else %>
+        <a href="<%= admin_login_path %>">登录</a>
+      <% end %>
+    </nav>
+  </div>
+
+</header>

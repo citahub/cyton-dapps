@@ -2,6 +2,7 @@ require 'test_helper'
 
 class Admin::ImagesControllerTest < ActionDispatch::IntegrationTest
   setup do
+    sign_in
     @image = images(:one)
   end
 

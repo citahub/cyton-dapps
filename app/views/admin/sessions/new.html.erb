@@ -1,0 +1,27 @@
+<h1>登录</h1>
+
+<%= form_with(scope: :session, url: admin_sessions_path, local: true) do |form| %>
+  <% if flash.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% flash.each do |_name, message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :username, '用户名' %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password, '密码' %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit '登录' %>
+  </div>
+<% end %>

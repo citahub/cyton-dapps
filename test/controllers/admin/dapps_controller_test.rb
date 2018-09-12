@@ -2,6 +2,7 @@ require 'test_helper'
 
 class Admin::DappsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    sign_in
     @dapp = dapps(:one)
   end
 
