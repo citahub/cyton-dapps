@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  android_version: 0.6.3.180920
+  desc: MyText
+  developer: MyString
+  end_at: 2018-09-12 11:07:17
+  intro: MyText
+  ios_version: 0.6.3.180920
+  logo_url: MyString
+  marketing_url: MyString
+  name: MyString
+  publish_at: 2018-09-12 11:07:17
+  score: 1
+  start_at: 2018-09-12 11:07:17
+  url_address: MyString
+
+two:
+  android_version: 0.6.3.180920
+  desc: MyText
+  developer: MyString
+  end_at: 2018-09-12 11:07:17
+  intro: MyText
+  ios_version: 0.6.3.180920
+  logo_url: MyString
+  marketing_url: MyString
+  name: MyString
+  publish_at: 2018-09-12 11:07:17
+  score: 1
+  start_at: 2018-09-12 11:07:17
+  url_address: MyString

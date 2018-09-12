@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>名称:</strong>
+  <%= @dapp.name %>
+</p>
+
+<p>
+  <strong>分数:</strong>
+  <%= @dapp.score %>
+</p>
+
+<p>
+  <strong>开发者:</strong>
+  <%= @dapp.developer %>
+</p>
+
+<p>
+  <strong>一句话描述:</strong>
+  <%= @dapp.desc %>
+</p>
+
+<p>
+  <strong>简介:</strong>
+  <%= @dapp.intro %>
+</p>
+
+<p>
+  <strong>iOS version:</strong>
+  <%= @dapp.ios_version %>
+</p>
+
+<p>
+  <strong>Android version:</strong>
+  <%= @dapp.android_version %>
+</p>
+
+<p>
+  <strong>上架时间:</strong>
+  <%= @dapp.start_at %>
+</p>
+
+<p>
+  <strong>下架时间:</strong>
+  <%= @dapp.end_at %>
+</p>
+
+<p>
+  <strong>发布时间:</strong>
+  <%= @dapp.publish_at %>
+</p>
+
+<p>
+  <strong>icon url:</strong>
+  <%= link_to @dapp.logo_url, @dapp.logo_url, target: '_blank' %>
+</p>
+
+<p>
+  <strong>Marketing url:</strong>
+  <%= link_to @dapp.marketing_url, @dapp.marketing_url, target: '_blank' %>
+</p>
+
+<p>
+  <strong>DApp 地址:</strong>
+  <%= link_to @dapp.url_address, @dapp.url_address, target: '_blank' %>
+</p>
+
+<%= link_to 'Edit', edit_admin_dapp_path(@dapp) %> |
+<%= link_to 'Back', admin_dapps_path %>
