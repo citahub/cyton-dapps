@@ -1,17 +1,47 @@
-<header class="header-box">
+<!--<header class="header-box">-->
 
-  <div class="header-limiter">
-    <nav>
-      <a href="<%= admin_images_path %>">Images</a>
-      <a href="<%= admin_banners_path %>">Banners</a>
-      <a href="<%= admin_dapps_path %>">Dapps</a>
+<!--  <div class="header-limiter">-->
+<!--    <nav>-->
+<!--      <a href="<%#= admin_images_path %>">Images</a>-->
+<!--      <a href="<%#= admin_banners_path %>">Banners</a>-->
+<!--      <a href="<%#= admin_dapps_path %>">Dapps</a>-->
+
+<%# if logged_in? %>
+<!--        <a href="<%#= admin_logout_path %>">退出登录</a>-->
+<%# else %>
+<!--        <a href="<%#= admin_login_path %>">登录</a>-->
+<%# end %>
+<!--    </nav>-->
+<!--  </div>-->
+
+<!--</header>-->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+  <a class="navbar-brand" href="#"><%= yield(:title) %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="<%= admin_images_path %>">Images
+        <span class="sr-only">(current)</span>
+      </a>
+      <a class="nav-item nav-link" href="<%= admin_banners_path %>">Banners</a>
+      <a class="nav-item nav-link" href="<%= admin_dapps_path %>">Dapps</a>
 
       <% if logged_in? %>
-        <a href="<%= admin_logout_path %>">退出登录</a>
+        <a class="nav-item nav-link" href="<%= admin_logout_path %>">退出登录</a>
       <% else %>
-        <a href="<%= admin_login_path %>">登录</a>
+        <a class="nav-item nav-link" href="<%= admin_login_path %>">登录</a>
       <% end %>
-    </nav>
-  </div>
+    </div>
 
-</header>
+  </div>
+  <div>
+    <a href="<%= yield(:back_url).blank? ? "javascript:history.back()" : yield(:back_url) %>">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+  </div>
+</nav>
+
+

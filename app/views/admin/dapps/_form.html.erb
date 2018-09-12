@@ -1,82 +1,84 @@
-<%= form_with(model: [:admin, dapp], local: true) do |form| %>
-  <% if dapp.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(dapp.errors.count, "error") %> prohibited this dapp from being saved:</h2>
+<div class="container mt-5">
+  <%= form_with(model: [:admin, dapp], scope: :dapp, local: true) do |form| %>
+    <% if dapp.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger" role="alert">
+        <h2><%= pluralize(dapp.errors.count, "error") %> prohibited this dapp from being saved:</h2>
 
-      <ul>
-      <% dapp.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+          <% dapp.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :name, '名称', class: "text-secondary" %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :score, '分数', class: "text-secondary" %>
+      <%= form.number_field :score, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :developer, '开发者', class: "text-secondary" %>
+      <%= form.text_field :developer, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :desc, '一句话描述', class: "text-secondary" %>
+      <%= form.text_area :desc, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :intro, '简介', class: "text-secondary" %>
+      <%= form.text_area :intro, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :ios_version, 'iOS 版本', class: "text-secondary" %>
+      <%= form.text_field :ios_version, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :android_version, 'Android 版本', class: "text-secondary" %>
+      <%= form.text_field :android_version, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :start_at, '上架时间', class: "text-secondary" %>
+      <%= form.datetime_select :start_at, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :end_at, '下架时间', class: "text-secondary" %>
+      <%= form.datetime_select :end_at, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :publish_at, '发布时间', class: "text-secondary" %>
+      <%= form.datetime_select :publish_at, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :logo_url, 'icon url', class: "text-secondary" %>
+      <%= form.text_field :logo_url, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :marketing_url, 'Marketing URL', class: "text-secondary" %>
+      <%= form.text_field :marketing_url, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :url_address, 'DApp 地址', class: "text-secondary" %>
+      <%= form.text_field :url_address, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit '提交', class: "btn btn-outline-primary float-right" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name, '名称' %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :score, '分数' %>
-    <%= form.number_field :score %>
-  </div>
-
-  <div class="field">
-    <%= form.label :developer, '开发者' %>
-    <%= form.text_field :developer %>
-  </div>
-
-  <div class="field">
-    <%= form.label :desc, '一句话描述' %>
-    <%= form.text_area :desc, class: 'dapp-text' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :intro, '简介' %>
-    <%= form.text_area :intro, class: 'dapp-text' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ios_version, 'iOS 版本' %>
-    <%= form.text_field :ios_version %>
-  </div>
-
-  <div class="field">
-    <%= form.label :android_version, 'Android 版本' %>
-    <%= form.text_field :android_version %>
-  </div>
-
-  <div class="field">
-    <%= form.label :start_at, '上架时间' %>
-    <%= form.datetime_select :start_at %>
-  </div>
-
-  <div class="field">
-    <%= form.label :end_at, '下架时间' %>
-    <%= form.datetime_select :end_at %>
-  </div>
-
-  <div class="field">
-    <%= form.label :publish_at, '发布时间' %>
-    <%= form.datetime_select :publish_at %>
-  </div>
-
-  <div class="field">
-    <%= form.label :logo_url, 'icon url' %>
-    <%= form.text_field :logo_url, class: "dapp-url" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :marketing_url, 'Marketing URL' %>
-    <%= form.text_field :marketing_url, class: "dapp-url" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :url_address, 'DApp 地址' %>
-    <%= form.text_field :url_address, class: "dapp-url" %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
