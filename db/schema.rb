@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_12_023022) do
+ActiveRecord::Schema.define(version: 2018_09_12_030109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,13 +67,15 @@ ActiveRecord::Schema.define(version: 2018_09_12_023022) do
     t.text "desc"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.decimal "ios_version"
-    t.decimal "android_version"
+    t.string "ios_version"
+    t.string "android_version"
     t.integer "score"
     t.text "intro"
     t.datetime "publish_at"
     t.string "developer"
     t.bigint "dapp_type_id"
+    t.bigint "ios_version_number"
+    t.bigint "android_version_number"
     t.index ["dapp_type_id"], name: "index_dapps_on_dapp_type_id"
   end
 
