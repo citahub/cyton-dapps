@@ -17,7 +17,6 @@
       <tr>
         <td><%= image.name %></td>
         <td><%= image_tag photo_path(image), style: "height: 50px; width: 50px;" %></td>
-        <td><%= link_to real_url(image), real_url(image), target: '_blank' %></td>
         <td><%= link_to_if_exist real_url(image) %></td>
         <td><%= link_to 'Show', admin_image_path(image) %></td>
         <td><%= link_to 'Edit', edit_admin_image_path(image) %></td>
