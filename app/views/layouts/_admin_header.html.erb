@@ -23,11 +23,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="<%= admin_images_path %>">Images
+      <a class="nav-item nav-link <%= 'active' if params[:controller] == "admin/images" %>" href="<%= admin_images_path %>">Images
         <span class="sr-only">(current)</span>
       </a>
-      <a class="nav-item nav-link" href="<%= admin_banners_path %>">Banners</a>
-      <a class="nav-item nav-link" href="<%= admin_dapps_path %>">Dapps</a>
+      <a class="nav-item nav-link <%= 'active' if params[:controller] == "admin/banners" %>" href="<%= admin_banners_path %>">Banners</a>
+      <a class="nav-item nav-link <%= 'active' if params[:controller] == "admin/dapps" %>" href="<%= admin_dapps_path %>">Dapps</a>
 
       <% if logged_in? %>
         <a class="nav-item nav-link" href="<%= admin_logout_path %>">退出登录</a>
