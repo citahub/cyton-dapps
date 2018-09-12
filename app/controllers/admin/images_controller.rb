@@ -4,7 +4,7 @@ class Admin::ImagesController < Admin::ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.order(updated_at: :desc).all
+    @images = Image.order(updated_at: :desc).page(params[:page])
   end
 
   # GET /images/1

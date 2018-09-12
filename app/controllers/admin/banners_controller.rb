@@ -4,7 +4,7 @@ class Admin::BannersController < Admin::ApplicationController
   # GET /banners
   # GET /banners.json
   def index
-    @banners = Banner.order(updated_at: :desc).all
+    @banners = Banner.order(updated_at: :desc).page(params[:page])
   end
 
   # GET /banners/1
