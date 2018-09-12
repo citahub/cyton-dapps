@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, '名称' %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :photo %>
+    <%= form.label :photo, '图片' %>
     <%= form.file_field :photo %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit '提交' %>
   </div>
 <% end %>

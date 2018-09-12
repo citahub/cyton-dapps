@@ -52,17 +52,17 @@
 
 <p>
   <strong>icon url:</strong>
-  <%= link_to @dapp.logo_url, @dapp.logo_url, target: '_blank' %>
+  <%= link_to_if_exist(@dapp.logo_url) %>
 </p>
 
 <p>
   <strong>Marketing url:</strong>
-  <%= link_to @dapp.marketing_url, @dapp.marketing_url, target: '_blank' %>
+  <%= link_to_if_exist(@dapp.marketing_url) %>
 </p>
 
 <p>
   <strong>DApp 地址:</strong>
-  <%= link_to @dapp.url_address, @dapp.url_address, target: '_blank' %>
+  <%= link_to_if_exist(@dapp.url_address) %>
 </p>
 
 <%= link_to 'Edit', edit_admin_dapp_path(@dapp) %> |

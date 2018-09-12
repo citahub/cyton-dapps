@@ -35,9 +35,9 @@
         <td><%= dapp.start_at %></td>
         <td><%= dapp.end_at %></td>
         <td><%= dapp.publish_at %></td>
-        <td><%= link_to dapp.logo_url, dapp.logo_url, target: '_blank' %></td>
-        <td><%= link_to dapp.marketing_url, dapp.marketing_url, target: '_blank' %></td>
-        <td><%= link_to dapp.url_address, dapp.url_address, target: '_blank' %></td>
+        <td><%= link_to_if_exist(dapp.logo_url) %></td>
+        <td><%= link_to_if_exist(dapp.marketing_url) %></td>
+        <td><%= link_to_if_exist(dapp.url_address) %></td>
         <td><%= link_to 'Show', admin_dapp_path(dapp) %></td>
         <td><%= link_to 'Edit', edit_admin_dapp_path(dapp) %></td>
         <td><%= link_to 'Destroy', admin_dapp_path(dapp), method: :delete, data: { confirm: 'Are you sure?' } %></td>

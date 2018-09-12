@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>名称:</strong>
   <%= @image.name %>
 </p>
 
 <p>
-  <strong>Photo:</strong>
+  <strong>图片:</strong>
   <%= image_tag photo_path(@image) %>
 </p>
 
 <p>
   <strong>URL:</strong>
-  <%= link_to real_url(@image), real_url(@image), target: '_blank' %>
+  <%= link_to_if_exist real_url(@image) %>
 </p>
 
 <%= link_to 'Edit', edit_admin_image_path(@image) %> |

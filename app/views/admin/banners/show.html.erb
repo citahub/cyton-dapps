@@ -1,32 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Image url:</strong>
-  <%= link_to @banner.image_url, @banner.image_url, target: '_blank' %>
+  <strong>图片:</strong>
+  <%= link_to_if_exist @banner.image_url %>
 </p>
 
 <p>
-  <strong>Address:</strong>
-  <%= link_to @banner.address, @banner.address, target: '_blank' %>
+  <strong>链接:</strong>
+  <%= link_to_if_exist @banner.address %>
 </p>
 
 <p>
-  <strong>Start at:</strong>
+  <strong>上架时间:</strong>
   <%= @banner.start_at %>
 </p>
 
 <p>
-  <strong>End at:</strong>
+  <strong>下架时间:</strong>
   <%= @banner.end_at %>
 </p>
 
 <p>
-  <strong>Ios version:</strong>
+  <strong>iOS 版本:</strong>
   <%= @banner.ios_version %>
 </p>
 
 <p>
-  <strong>Android version:</strong>
+  <strong>Android 版本:</strong>
   <%= @banner.android_version %>
 </p>
 
