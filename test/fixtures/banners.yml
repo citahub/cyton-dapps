@@ -5,13 +5,13 @@ one:
   address: MyString
   start_at: 2018-09-11 17:26:13
   end_at: 2018-09-11 17:26:13
-  ios_version: 9.99
-  android_version: 9.99
+  ios_version: 0.6.3.180920
+  android_version: 0.6.3.180920
 
 two:
   image_url: MyString
   address: MyString
   start_at: 2018-09-11 17:26:13
   end_at: 2018-09-11 17:26:13
-  ios_version: 9.99
-  android_version: 9.99
+  ios_version: 10.18.20.180912
+  android_version: 10.18.20.180912

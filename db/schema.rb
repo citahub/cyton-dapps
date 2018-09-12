@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_11_065129) do
+ActiveRecord::Schema.define(version: 2018_09_12_023022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,10 +41,12 @@ ActiveRecord::Schema.define(version: 2018_09_11_065129) do
     t.string "address"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.decimal "ios_version"
-    t.decimal "android_version"
+    t.string "ios_version"
+    t.string "android_version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "ios_version_number"
+    t.bigint "android_version_number"
   end
 
   create_table "dapp_types", force: :cascade do |t|
