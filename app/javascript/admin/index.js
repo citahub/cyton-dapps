@@ -13,4 +13,9 @@ Rails.start();
 
 $(document).ready(() => {
   let clipboard = new ClipboardJS('.clipboard-btn');
+
+  $('.img-pop').popover({
+    html: true,
+    trigger: 'hover'
+  })
 });

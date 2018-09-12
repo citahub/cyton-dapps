@@ -9,7 +9,7 @@
   <% end %>
 
   <div class="row">
-    <%= image_tag photo_path(@image) %>
+    <%= image_tag_if_exist photo_path(@image) %>
   </div>
 
   <div class="row">

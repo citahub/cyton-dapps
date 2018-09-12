@@ -21,7 +21,7 @@
       <% @images.each_with_index do |image, index| %>
         <tr>
           <td><%= image.name %></td>
-          <td><%= image_tag photo_path(image), style: "height: 50px; width: 50px;" %></td>
+          <td><%= handle_image_url photo_path(image) %></td>
           <td><%= link_to_if_exist real_url(image), id: "foo-#{index}" %></td>
           <td><i class="far fa-copy clipboard-btn" data-clipboard-target="<%= "#foo-#{index}" %>" style="cursor: pointer;"></i></td>
           <td>

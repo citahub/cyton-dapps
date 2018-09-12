@@ -24,7 +24,7 @@
 
       <% @banners.each do |banner| %>
         <tr>
-          <td><%= handle_image_url banner.image_url, class: "image-sm" %></td>
+          <td><%= handle_image_url banner.image_url %></td>
           <td><%= link_to_if_exist banner.address %></td>
           <td><%= banner.start_at %></td>
           <td><%= banner.end_at %></td>

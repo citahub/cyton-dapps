@@ -9,7 +9,7 @@
   <% end %>
 
   <div class="row">
-    <%= handle_image_url(@banner.image_url) %>
+    <%= image_tag_if_exist(@banner.image_url) %>
   </div>
 
   <div class="row">

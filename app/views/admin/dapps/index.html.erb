@@ -40,8 +40,8 @@
           <td><%= dapp.start_at %></td>
           <td><%= dapp.end_at %></td>
           <td><%= dapp.publish_at %></td>
-          <td><%= handle_image_url dapp.logo_url, class: "image-sm" %></td>
-          <td><%= handle_image_url dapp.marketing_url, class: "image-sm" %></td>
+          <td><%= handle_image_url dapp.logo_url %></td>
+          <td><%= handle_image_url dapp.marketing_url %></td>
           <td><%= link_to_if_exist(dapp.url_address) %></td>
           <td>
             <a href="<%= admin_dapp_path(dapp) %>">
