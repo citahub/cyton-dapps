@@ -30,6 +30,7 @@ cache:
   yarn: true
 
 install:
+  - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
   - bundle install
   - nvm install 8.11.2
   - node -v
