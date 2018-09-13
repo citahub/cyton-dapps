@@ -73,11 +73,9 @@ const bindNavigationButton = () => {
 }
 
 const main = () => {
-  if (location.pathname === '/') {
-    bindNavigationButton()
-    bindBanner()
-    bindBannerTouch()
-  }
+  bindNavigationButton()
+  bindBanner()
+  bindBannerTouch()
 }
 
 export default main

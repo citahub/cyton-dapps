@@ -1,7 +1,7 @@
 import { _es, bind, localStoreStore, log } from './utils'
 // import { initGlobalTable, GlobalTable } from './global'
 // import { renderMinePage } from './utils/templateDapps'
-// import { initApi } from './dappsApi'
+import { initApi } from './utils/dappsApi'
 // import { bindEvents } from './events'
 import './imgs/index'
 import './stylesheets'
@@ -64,19 +64,30 @@ const test = () => {
 //   }
 // }
 
+const routeswitch = () => {
+  const p = location.pathname
+  const routetable = {
+    '/history': pagehistory,
+    '/mine': pagemine,
+    '/': pagehome,
+  }
+  routetable[p]()
+  // pagehome()
+  // pagehistory()
+  // pagemine()
+}
+
 const init = () => {
   // initGlobalTable()
-  // initApi()
   // // test()
   // setActiveNav()
   // renderMinePage()
   // bindEvents()
-  pagehome()
-  pagehistory()
-  pagemine()
+  routeswitch()
 }
 
 const main = () => {
+  initApi()
   bind(document, 'DOMContentLoaded', init)
 }
 

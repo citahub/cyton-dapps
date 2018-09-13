@@ -3,6 +3,7 @@ import { dappsLoaded } from './dappsApi'
 // import { log } from './utils'
 import noData from 'src/imgs/noData.png'
 import defaultimg from 'src/imgs/noData.png'
+import linkto from 'src/imgs/icon/linkto.svg'
 
 const tDappListCell = (img, name, url) => {
   let realimg = img
@@ -32,11 +33,12 @@ const tDappsContainer = ({ local, title, icon }) => {
     const info = l[i]
     t += tDappListCell(info.img, info.name, info.url)
   }
-  t = `<div class="popularContainer">
+  const ttitle = `
           <div class="popularTitle">
             <img class="popularIcon" src=${icon}>
             <div class="popularText">${title}</div>
-          </div>
+          </div>`
+  t = `<div class="popularContainer">
           ${t}
         </div>`
   return t
@@ -48,6 +50,15 @@ const tDappsDefault = () => {
                 <span class="noDataText">无数据显示</span>
               </div>`
   return t
+}
+
+const renderbyList = (container, { local }) => {
+  const html = tDappsContainer({ local })
+  if (html === '') {
+    container.html(tDappsDefault())
+  } else {
+    container.html(html)
+  }
 }
 
 // const renderMinePage = () => {
@@ -65,4 +76,4 @@ const tDappsDefault = () => {
 //   }
 // }
 
-export { tDappsContainer, tDappsDefault }
+export { renderbyList, tDappsContainer, tDappsDefault }
