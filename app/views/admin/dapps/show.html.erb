@@ -1,74 +1,87 @@
-<p id="notice"><%= notice %></p>
+<% provide :title, "DApp 详情" %>
+<% provide :back_url, admin_dapps_path %>
 
-<p>
-  <strong>名称:</strong>
-  <%= @dapp.name %>
-</p>
+<div class="container mt-5">
+  <% unless notice.blank? %>
+    <div class="alert alert-info" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
 
-<p>
-  <strong>类型:</strong>
-  <%= @dapp.dapp_type&.name %>
-</p>
+  <div class="row">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td scope="col">名称</td>
+          <td><%= @dapp.name %></td>
+        </tr>
+        <tr>
+          <td scope="col">类型</td>
+          <td><%= @dapp.dapp_type&.name %></td>
+        </tr>
+        <tr>
+          <td scope="col">分数</td>
+          <td><%= @dapp.score %></td>
+        </tr>
+        <tr>
+          <td scope="col">开发者</td>
+          <td><%= @dapp.developer %></td>
+        </tr>
+        <tr>
+          <td scope="col">一句话描述</td>
+          <td><%= @dapp.desc %></td>
+        </tr>
+        <tr>
+          <td scope="col">简介</td>
+          <td><%= @dapp.intro %></td>
+        </tr>
+        <tr>
+          <td scope="col">iOS version</td>
+          <td><%= @dapp.ios_version %></td>
+        </tr>
+        <tr>
+          <td scope="col">Android version</td>
+          <td><%= @dapp.android_version %></td>
+        </tr>
+        <tr>
+          <td scope="col">上架时间</td>
+          <td><%= @dapp.start_at %></td>
+        </tr>
+        <tr>
+          <td scope="col">下架时间</td>
+          <td><%= @dapp.end_at %></td>
+        </tr>
+        <tr>
+          <td scope="col">发布时间</td>
+          <td><%= @dapp.publish_at %></td>
+        </tr>
+        <tr>
+          <td scope="col">icon</td>
+          <td><%= handle_image_url @dapp.logo_url %></td>
+        </tr>
+        <tr>
+          <td scope="col">icon url</td>
+          <td><%= link_to_if_exist(@dapp.logo_url) %></td>
+        </tr>
+        <tr>
+          <td scope="col">Marketing</td>
+          <td><%= handle_image_url @dapp.marketing_url %></td>
+        </tr>
+        <tr>
+          <td scope="col">Marketing url</td>
+          <td><%= link_to_if_exist(@dapp.marketing_url) %></td>
+        </tr>
+        <tr>
+          <td scope="col">DApp 地址</td>
+          <td><%= link_to_if_exist(@dapp.url_address) %></td>
+        </tr>
+      </tbody>
+    </table>
 
-<p>
-  <strong>分数:</strong>
-  <%= @dapp.score %>
-</p>
 
-<p>
-  <strong>开发者:</strong>
-  <%= @dapp.developer %>
-</p>
+  </div>
 
-<p>
-  <strong>一句话描述:</strong>
-  <%= @dapp.desc %>
-</p>
-
-<p>
-  <strong>简介:</strong>
-  <%= @dapp.intro %>
-</p>
-
-<p>
-  <strong>iOS version:</strong>
-  <%= @dapp.ios_version %>
-</p>
-
-<p>
-  <strong>Android version:</strong>
-  <%= @dapp.android_version %>
-</p>
-
-<p>
-  <strong>上架时间:</strong>
-  <%= @dapp.start_at %>
-</p>
-
-<p>
-  <strong>下架时间:</strong>
-  <%= @dapp.end_at %>
-</p>
-
-<p>
-  <strong>发布时间:</strong>
-  <%= @dapp.publish_at %>
-</p>
-
-<p>
-  <strong>icon url:</strong>
-  <%= link_to_if_exist(@dapp.logo_url) %>
-</p>
-
-<p>
-  <strong>Marketing url:</strong>
-  <%= link_to_if_exist(@dapp.marketing_url) %>
-</p>
-
-<p>
-  <strong>DApp 地址:</strong>
-  <%= link_to_if_exist(@dapp.url_address) %>
-</p>
-
-<%= link_to 'Edit', edit_admin_dapp_path(@dapp) %> |
-<%= link_to 'Back', admin_dapps_path %>
+  <a href="<%= edit_admin_dapp_path(@dapp) %>" class="btn btn-secondary bmd-btn-fab float-right center-button">
+    <i class="fas fa-edit"></i>
+  </a>
+</div>

@@ -4,7 +4,7 @@ class Admin::DappsController < Admin::ApplicationController
   # GET /dapps
   # GET /dapps.json
   def index
-    @dapps = Dapp.includes(:dapp_type).all
+    @dapps = Dapp.includes(:dapp_type).order(updated_at: :desc).page(params[:page])
   end
 
   # GET /dapps/1

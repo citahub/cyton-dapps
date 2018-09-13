@@ -1,5 +1,4 @@
-<h1>New Banner</h1>
+<% provide :title, '新建 Banner' %>
+<% provide :back_url, admin_banners_path %>
 
 <%= render 'form', banner: @banner %>
-
-<%= link_to 'Back', admin_banners_path %>

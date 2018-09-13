@@ -1,6 +1,8 @@
-<h1>Editing Image</h1>
+<% provide :title, "更新图片" %>
+<% provide :back_url, admin_images_path %>
 
-<%= render 'form', image: @image, update_page: true %>
+<%= render 'form', image: @image %>
 
-<%= link_to 'Show', admin_image_path(@image) %> |
-<%= link_to 'Back', admin_images_path %>
+<div class="container">
+  <%= link_to '显示详情', admin_image_path(@image), class: "btn btn-outline-secondary" %>
+</div>

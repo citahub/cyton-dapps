@@ -1,19 +1,35 @@
-<p id="notice"><%= notice %></p>
+<% provide :title, "图片详情" %>
+<% provide :back_url, admin_images_path %>
 
-<p>
-  <strong>名称:</strong>
-  <%= @image.name %>
-</p>
+<div class="container mt-5">
+  <% unless notice.blank? %>
+    <div class="alert alert-info" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
 
-<p>
-  <strong>图片:</strong>
-  <%= image_tag photo_path(@image) %>
-</p>
+  <div class="row">
+    <%= image_tag_if_exist photo_path(@image) %>
+  </div>
 
-<p>
-  <strong>URL:</strong>
-  <%= link_to_if_exist real_url(@image) %>
-</p>
+  <div class="row">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td scope="col">名称</td>
+          <td><%= @image.name %></td>
+        </tr>
+        <tr>
+          <td scope="col">URL</td>
+          <td><%= link_to_if_exist(real_url(@image), id: "foo") %></td>
+          <td><i class="far fa-copy clipboard-btn" data-clipboard-target="#foo" style="cursor: pointer;"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-<%= link_to 'Edit', edit_admin_image_path(@image) %> |
-<%= link_to 'Back', admin_images_path %>
+  <a href="<%= edit_admin_image_path(@image) %>" class="btn btn-secondary bmd-btn-fab float-right center-button">
+    <i class="fas fa-edit"></i>
+  </a>
+
+</div>
