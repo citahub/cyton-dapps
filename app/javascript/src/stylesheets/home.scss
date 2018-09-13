@@ -4,7 +4,7 @@
 #id-page-home {
   $headerheight: 75px;
   $backcolor: $c-back-header;
-  
+
   & {
     background-color: $backcolor;
     width: 100vw;
@@ -22,12 +22,10 @@
       height: $headerheight;
       z-index: 100;
     }
-
     .headerbarInner {
       position: relative;
       width: 100%;
     }
-
     .search {
       display: block;
       display: flex;
@@ -40,11 +38,9 @@
       border-radius: 2px;
       margin-right: 43px;
     }
-
     .searchLabel {
       padding-left: 4px;
     }
-
     .button {
       position: absolute;
       right: 0;
@@ -54,12 +50,33 @@
       vertical-align: top;
       padding-left: 13px;
     }
-
     .buttonLine {
       width: 22px;
       border-top: 1px solid;
       color: $c-main;
       margin: 7px 0;
+    }
+  }
+
+  #id-container-mask {
+    .menu {
+      background: #fff;
+      padding-left: 16px;
+      display: inline-block;
+      width: 155px;
+      height: 100px;
+      position: absolute;
+      top: 60px;
+      right: 14px;
+    }
+    .menucell {
+      display: block;
+      line-height: 51px;
+      font-size: $s-h2;
+      border-bottom: 1px solid #eee;
+    }
+    .menucell:last-child {
+      border-bottom: none;
     }
   }
 
@@ -72,34 +89,96 @@
       text-align: center;
       position: relative;
     }
-
+    .banner {
+      width: 375px;
+      max-width: 90%;
+      margin: auto;
+      // overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      font-size: 0px;
+      // display: flex;
+    }
     .bannerimg {
       width: 320px;
       max-width: 90%;
-      max-height: 100%;
+      // max-height: 100%;
       border-radius: 5px;
-    }
-    .bannerimg.small {
+      transition: 1s;
       position: absolute;
+      height: auto;
+      &:nth-child(1),
+      &:nth-child(5) {
+        // width: 0;
+        z-index: 0;
+        opacity: 0;
+        transform: scale(0)
+      }
+      &:nth-child(1) {
+        left: -500px;
+        transform: translate(-100%) scale(0);
+      }
+      &:nth-child(5) {
+        right: -500px;
+        transform: translate(100%) scale(0);
+      }
+      &:nth-child(3) {
+        position: relative;
+        z-index: 300;
+        // left: 50%;
+        // right: 50%;
+      }
+      &.moveleft {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+      }
+      &.moveright {
+        position: absolute;
+        right: 50%;
+        transform: translate(50%);
+      }
+      &:nth-child(2),
+      &:nth-child(4) {
+        z-index: 200;
+        opacity: 0.8;
+      }
+      &:nth-child(4) {
+        right: 0px;
+        // width: 288;
+        // max-width: 81%;
+        // right: -10px;
+        transform: translate(100%) scale(0.9);
+      }
+      &:nth-child(2) {
+        left: 0px;
+        // width: 288;
+        // max-width: 81%;
+        // left: -10px;
+        transform: translate(-100%) scale(0.9);
+      }
     }
-    .bannerimg.left {
-      left: 0;
-      transform: translate(-90%) scale(0.9);
-    }
-    .bannerimg.right {
-      right: 0;
-      transform: translate(90%) scale(0.9);
-    }
+    // .bannerimg.small {
+    //   position: absolute;
+    // }
+    // .bannerimg.left {
+    //   left: 0;
+    //   transform: translate(-90%) scale(0.9);
+    // }
+    // .bannerimg.right {
+    //   right: 0;
+    //   transform: translate(90%) scale(0.9);
+    // }
   }
 
   #id-container-dappblocks {
     $bordercolor: #f7f7f7;
-    
+
     .block {
       margin-bottom: 10px;
       padding: 15px;
       padding-bottom: 0;
-      border-bottom: 10px solid $bordercolor
+      border-bottom: 10px solid $bordercolor;
     }
     .block:last-child {
       border-bottom: none;

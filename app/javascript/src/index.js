@@ -6,6 +6,7 @@ import { bindEvents } from './events'
 import './imgs/index'
 import './stylesheets'
 import j from 'jquery'
+import pagehome from './pages/home'
 
 const test = () => {
   const img = 'http://p1.music.126.net/sr9yP4Kt4xxYap5T7CbMqQ==/109951162955032377.jpg?param=180y180'
@@ -68,6 +69,7 @@ const init = () => {
   // setActiveNav()
   // renderMinePage()
   // bindEvents()
+  pagehome()
 }
 
 const main = () => {
