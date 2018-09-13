@@ -36,7 +36,7 @@
         <div class="headertitle">
           <%= key %>
         </div>
-        <div class="buttonmore">更多</div>
+        <a href='/more' class="buttonmore">更多</a>
       </div>
 
       <div class="dapplist">
@@ -46,8 +46,10 @@
           <div class="dapp">
             <img class="dappimg" src=<%=dapp.logo_url%>>
             <div class="dappinfo">
-              <div class="dapptitle">云斗龙</div>
-              <div class="dappintro">东半球最球最好好玩的游戏</div>
+              <div class="dapptitle">
+                <%=dapp.name%>
+              </div>
+              <div class="dappintro">东半球最最好玩的游戏</div>
             </div>
           </div>
         </a>
