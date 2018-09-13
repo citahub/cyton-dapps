@@ -4,7 +4,7 @@ class Admin::DappsController < Admin::ApplicationController
   # GET /dapps
   # GET /dapps.json
   def index
-    @dapps = Dapp.all
+    @dapps = Dapp.includes(:dapp_type).all
   end
 
   # GET /dapps/1
@@ -69,6 +69,6 @@ class Admin::DappsController < Admin::ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def dapp_params
-    params.require(:dapp).permit(:android_version, :desc, :developer, :end_at, :intro, :ios_version, :logo_url, :marketing_url, :name, :publish_at, :score, :start_at, :url_address)
+    params.require(:dapp).permit(:android_version, :desc, :developer, :end_at, :intro, :ios_version, :logo_url, :marketing_url, :name, :publish_at, :score, :start_at, :url_address, :dapp_type_id)
   end
 end

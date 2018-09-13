@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :dapp_type_id, '类型' %>
+    <%= form.select :dapp_type_id,  options_from_collection_for_select(DappType.default_order, "id", "name", dapp.dapp_type_id) %>
+  </div>
+
+  <div class="field">
     <%= form.label :score, '分数' %>
     <%= form.number_field :score %>
   </div>
