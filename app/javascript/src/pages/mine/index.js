@@ -1,5 +1,5 @@
 const main = () => {
-  if (location.pathname === '/history') {
+  if (location.pathname === '/mine') {
     
   }
 }
