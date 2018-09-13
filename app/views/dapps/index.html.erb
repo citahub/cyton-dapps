@@ -36,13 +36,12 @@
         <div class="headertitle">
           <%= key %>
         </div>
-        <a href='/more' class="buttonmore">更多</a>
+        <a href='<%= more_dapps_path(key) %>' class="buttonmore">更多</a>
       </div>
 
       <div class="dapplist">
         <% @dapps[key].each do |dapp| %>
-        <!-- <a href="<%#= dapp_path(dapp) %>"> -->
-        <a href="/info?id=<%= dapp.id%>">
+         <a href="<%= dapp_path(dapp) %>">
           <div class="dapp">
             <img class="dappimg" src=<%=dapp.logo_url%>>
             <div class="dappinfo">

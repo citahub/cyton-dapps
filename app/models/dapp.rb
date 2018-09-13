@@ -6,6 +6,8 @@ class Dapp < ApplicationRecord
 
   belongs_to :dapp_type
 
+  scope :default_order, -> { order(updated_at: :desc) }
+
   enum d_type: {
     new_dapp: 10,
     popular: 20,
