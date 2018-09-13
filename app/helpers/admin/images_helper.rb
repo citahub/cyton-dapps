@@ -12,7 +12,7 @@ module Admin::ImagesHelper
   end
 
   def real_url(image)
-    if ENV['QINIU_CLOUD'] == 'true'
+    if (Rails.env.development? && ENV['QINIU_CLOUD'] == 'true') || Rails.env.production?
       cdn_url(image)
     else
       photo_url(image)
