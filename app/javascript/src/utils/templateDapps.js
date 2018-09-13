@@ -1,4 +1,4 @@
-import { GlobalTable } from './global'
+import { GlobalTable } from '../temp/global'
 import { dappsLoaded } from './dappsApi'
 // import { log } from './utils'
 import noData from 'src/imgs/noData.png'
@@ -42,7 +42,7 @@ const tDappsContainer = ({ local, title, icon }) => {
   return t
 }
 
-const tMyDappsDefault = () => {
+const tDappsDefault = () => {
   const t = `<div class="noData">
                 <img class="noDataImg" src="${noData}" alt="">
                 <span class="noDataText">无数据显示</span>
@@ -50,19 +50,19 @@ const tMyDappsDefault = () => {
   return t
 }
 
-const renderMinePage = () => {
-  if (location.pathname === '/dapps/mine') {
-    const container = GlobalTable.elementTable.dapps
-    const table = GlobalTable.renderkeyTable
-    // TODO: 这里可以抽一个函数
-    const mydapps = tDappsContainer(table.mydapps)
-    const myhistory = tDappsContainer(table.myhistory)
-    if (mydapps === '' && myhistory === '') {
-      container.innerHTML = tMyDappsDefault()
-    } else {
-      container.innerHTML = mydapps + myhistory
-    }
-  }
-}
+// const renderMinePage = () => {
+//   if (location.pathname === '/dapps/mine') {
+//     const container = GlobalTable.elementTable.dapps
+//     const table = GlobalTable.renderkeyTable
+//     // TODO: 这里可以抽一个函数
+//     const mydapps = tDappsContainer(table.mydapps)
+//     const myhistory = tDappsContainer(table.myhistory)
+//     if (mydapps === '' && myhistory === '') {
+//       container.innerHTML = tMyDappsDefault()
+//     } else {
+//       container.innerHTML = mydapps + myhistory
+//     }
+//   }
+// }
 
-export { renderMinePage }
+export { tDappsContainer, tDappsDefault }

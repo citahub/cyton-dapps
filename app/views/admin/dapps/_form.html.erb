@@ -18,6 +18,11 @@
     </div>
 
     <div class="form-group">
+      <%= form.label :dapp_type_id, '类型', class: "text-secondary" %>
+      <%= form.select :dapp_type_id, options_from_collection_for_select(DappType.default_order, "id", "name", dapp.dapp_type_id), {}, {class: "form-control"} %>
+    </div>
+
+    <div class="form-group">
       <%= form.label :score, '分数', class: "text-secondary" %>
       <%= form.number_field :score, class: "form-control" %>
     </div>

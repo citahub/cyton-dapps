@@ -1,5 +1,5 @@
-import { log, localStoreParsed, localStoreStore } from './utils'
-import { GlobalTable } from './global'
+import { log, localStoreParsed, localStoreStore } from '.'
+import { GlobalTable } from '../temp/global'
 
 const dappsLoaded = (local) => {
   let dapps

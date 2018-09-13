@@ -17,6 +17,7 @@ body {
   display: flex;
   height: 100%;
   width: 100%;
+  // max-width: 800px;
   flex-flow: column;
   // justify-content: stretch;
   // text-align: center;
@@ -40,6 +41,20 @@ div {
   //max-width: 800px;
   margin: 0 auto;
   background-color: white;
+}
+
+.ztop {
+  z-index: 9999999;
+}
+
+.mask {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
 }
 
 // .dappsContainer {

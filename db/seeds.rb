@@ -53,7 +53,37 @@ dapps = [
   }
 ]
 
+banners = [
+  {
+    image_url: "https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg",
+    ios_version: "0.0.0.000000",
+    android_version: "0.0.0.000000",
+  },
+  {
+    image_url: "https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg",
+    ios_version: "0.0.0.000000",
+    android_version: "0.0.0.000000",
+  },
+  {
+    image_url: "https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg",
+    ios_version: "0.0.0.000000",
+    android_version: "0.0.0.000000",
+  },
+  {
+    image_url: "https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg",
+    ios_version: "0.0.0.000000",
+    android_version: "0.0.0.000000",
+  },
+  {
+    image_url: "https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg",
+    ios_version: "0.0.0.000000",
+    android_version: "0.0.0.000000",
+  },
+]
+
 ApplicationRecord.transaction do
   DappType.create!(dapp_types)
-  Dapp.create!(dapps)
+  Banner.create!(banners)
+  popular_type = DappType.find_by(name: "人气推荐")
+  Dapp.create!(dapps.map{|n| n.merge(dapp_type_id: popular_type.id)})
 end

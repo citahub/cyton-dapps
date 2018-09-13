@@ -14,12 +14,19 @@
     </div>
   </div>
 
+  <div id='id-container-mask' class='ztop mask'>
+    <div class='ztop menu'>
+      <a href='/mine' class="menucell">我的藏品</a>
+      <a href='/history' class="menucell">我的足迹</a>
+    </div>
+  </div>
+
   <div id='id-container-banner'>
-    <img class='bannerimg small left' src="https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg"
-      alt="">
-    <img class='bannerimg' src="https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg" alt="">
-    <img class='bannerimg small right' src="https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg"
-      alt="">
+    <div class='banner'>
+      <% @banners.each_with_index do |banner, index| %>
+      <img class='bannerimg banneranime' src=<%=banner.image_url%> alt="">
+      <% end %>
+    </div>
   </div>
 
   <div id='id-container-dappblocks'>
@@ -29,17 +36,19 @@
         <div class="headertitle">
           <%= key %>
         </div>
-        <div class="buttonmore">更多</div>
+        <a href='<%= more_dapps_path(key) %>' class="buttonmore">更多</a>
       </div>
 
       <div class="dapplist">
         <% @dapps[key].each do |dapp| %>
-        <a href="/info?id=<%= dapp.id%>">
+         <a href="<%= dapp_path(dapp) %>">
           <div class="dapp">
-            <img class="dappimg" src="https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg">
+            <img class="dappimg" src=<%=dapp.logo_url%>>
             <div class="dappinfo">
-              <div class="dapptitle">云斗龙</div>
-              <div class="dappintro">东半球最球最好好玩的游戏</div>
+              <div class="dapptitle">
+                <%=dapp.name%>
+              </div>
+              <div class="dappintro">东半球最最好玩的游戏</div>
             </div>
           </div>
         </a>
