@@ -4,13 +4,15 @@ class DappsController < ApplicationController
     now = Time.now
     options = {
       start_at_lteq: now,
-      end_at_gteq: now
+      end_at_gteq: now,
+      ios_version_number_gteq: handle_version(params[:ios_version]),
+      android_version_number_gteq: handle_version(params[:android_version]),
     }
 
     @banners = Banner.ransack(options).result
     # @dapps = Dapp.all.group_by { |dapp| dapp.d_type }
-    @dapps = DappType.default_order.ransack(options).result.map do |dapp_type|
-      { dapp_type.name => dapp_type.dapps.default_order.limit(3) }
+    @dapps = DappType.default_order.map do |dapp_type|
+      { dapp_type.name => dapp_type.dapps.default_order.ransack(options).result.limit(3) }
     end.reduce({}, :merge).reject {|k, v| v.empty?}
   end
 
@@ -29,6 +31,11 @@ class DappsController < ApplicationController
   end
 
   def history
+  end
+
+  private def handle_version(version)
+    return if version.blank?
+    Dapp.handle_version(version)
   end
 
 end

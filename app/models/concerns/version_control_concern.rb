@@ -12,10 +12,13 @@ module VersionControlConcern
     private
 
     def set_version_number
-      self.ios_version_number = handle_version(self.ios_version)
-      self.android_version_number = handle_version(self.android_version)
+      self.ios_version_number = self.class.handle_version(self.ios_version)
+      self.android_version_number = self.class.handle_version(self.android_version)
     end
 
+  end
+
+  module ClassMethods
     def handle_version(version)
       version.split(".").map { |n| n.rjust(2, '0') }.join.to_i
     end

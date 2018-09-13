@@ -3,7 +3,9 @@ class BannersController < ApplicationController
     now = Time.now
     options = {
       start_at_lteq: now,
-      end_at_gteq: now
+      end_at_gteq: now,
+      ios_version_number_gteq: handle_version(params[:ios_version]),
+      android_version_number_gteq: handle_version(params[:android_version]),
     }
 
     @banners = Banner.ransack(options).result
@@ -12,4 +14,10 @@ class BannersController < ApplicationController
   def show
     @banner = Banner.find_by(id: params[:id])
   end
+
+  private def handle_version(version)
+    return if version.blank?
+    Dapp.handle_version(version)
+  end
+
 end
