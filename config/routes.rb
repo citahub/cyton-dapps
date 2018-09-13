@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "dapps#index"
 
   resources :dapps, only: [:index, :show]
+  resources :banners, only: [:index, :show]
   # get 'info', to: 'dapps#info'
   get 'more/:type_name', to: 'dapps#more', as: "more_dapps"
   get 'mine', to: 'dapps#mine'

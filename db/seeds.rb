@@ -9,14 +9,17 @@
 # for develop
 
 dapp_types = [
-  {name: "人气推荐"},
-  {name: "游戏"},
-  {name: "去中心化交易所"},
-  {name: "行情"},
-  {name: "效率"},
-  {name: "探索"},
-  {name: "其它"}
+  { name: "人气推荐" },
+  { name: "游戏" },
+  { name: "去中心化交易所" },
+  { name: "行情" },
+  { name: "效率" },
+  { name: "探索" },
+  { name: "其它" }
 ]
+
+start_at = Time.now
+end_at = Time.now + 1.day
 
 dapps = [
   {
@@ -83,7 +86,7 @@ banners = [
 
 ApplicationRecord.transaction do
   DappType.create!(dapp_types)
-  Banner.create!(banners)
+  Banner.create!(banners.map { |n| n.merge(start_at: start_at, end_at: end_at) })
   popular_type = DappType.find_by(name: "人气推荐")
-  Dapp.create!(dapps.map{|n| n.merge(dapp_type_id: popular_type.id)})
+  Dapp.create!(dapps.map { |n| n.merge(dapp_type_id: popular_type.id, start_at: start_at, end_at: end_at) })
 end

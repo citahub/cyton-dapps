@@ -1,9 +1,15 @@
 class DappsController < ApplicationController
 
   def index
-    @banners = Banner.all
+    now = Time.now
+    options = {
+      start_at_lteq: now,
+      end_at_gteq: now
+    }
+
+    @banners = Banner.ransack(options).result
     # @dapps = Dapp.all.group_by { |dapp| dapp.d_type }
-    @dapps = DappType.default_order.map do |dapp_type|
+    @dapps = DappType.default_order.ransack(options).result.map do |dapp_type|
       { dapp_type.name => dapp_type.dapps.default_order.limit(3) }
     end.reduce({}, :merge).reject {|k, v| v.empty?}
   end

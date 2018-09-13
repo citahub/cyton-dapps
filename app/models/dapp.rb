@@ -1,8 +1,8 @@
 class Dapp < ApplicationRecord
   include VersionControlConcern
 
-  validates :ios_version, presence: true
-  validates :android_version, presence: true
+  validates :start_at, presence: true
+  validates :end_at, presence: true
 
   belongs_to :dapp_type
 
