@@ -14,6 +14,7 @@ one:
   score: 1
   start_at: 2018-09-12 11:07:17
   url_address: MyString
+  dapp_type_id: 1
 
 two:
   android_version: 0.6.3.180920
@@ -29,3 +30,4 @@ two:
   score: 1
   start_at: 2018-09-12 11:07:17
   url_address: MyString
+  dapp_type_id: 1

@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>名称</th>
+      <th>类型</th>
       <th>分数</th>
       <th>开发者</th>
       <th>一句话描述</th>
@@ -26,6 +27,7 @@
     <% @dapps.each do |dapp| %>
       <tr>
         <td><%= dapp.name %></td>
+        <td><%= dapp.dapp_type&.name %></td>
         <td><%= dapp.score %></td>
         <td><%= dapp.developer %></td>
         <td><%= dapp.desc %></td>

@@ -83,6 +83,7 @@ banners = [
 
 ApplicationRecord.transaction do
   DappType.create!(dapp_types)
-  Dapp.create!(dapps)
   Banner.create!(banners)
+  popular_type = DappType.find_by(name: "人气推荐")
+  Dapp.create!(dapps.map{|n| n.merge(dapp_type_id: popular_type.id)})
 end
