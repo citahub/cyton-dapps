@@ -19,6 +19,14 @@ class DappsController < ApplicationController
   # GET /dapps/:id
   def show
     @dapp = Dapp.find_by(id: params[:id])
+    @start_at = @dapp.start_at.to_s.split(' ')[0]
+    @star = @dapp.score
+    if @star < 0
+      @star = 0
+    elsif @star > 5
+      @star = 5
+    end
+    @stargray = 5 - @star
   end
 
   # GET /dapp/more/:type_name

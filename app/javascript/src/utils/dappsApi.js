@@ -96,7 +96,7 @@ const initApi = () => {
     window.__myhistory = {
       add,
     }
-    Object.freeze(window.__mydapp)
+    Object.freeze(window.__myhistory)
   }
 }
 

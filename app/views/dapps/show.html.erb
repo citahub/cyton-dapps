@@ -1,29 +1,30 @@
 <div id='id-page-info' class='dappsContainer'>
   <div id='id-container-main'>
-    <img class="mainimg" src="https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg" alt="mainimg">
-    <div class="title">云斗龙</div>
-    <a class="link" href="https://hyperdragons.alfakingdom.com">https://hyperdragons.alfakingdom.com</a>
+    <img class="mainimg" src=<%= @dapp.logo_url %> alt="mainimg">
+    <div class="title"><%= @dapp.name %></div>
+    <a class="link" href=<%= @dapp.marketing_url %>><%= @dapp.marketing_url %></a>
     <div id='id-div-stars'>
-      <%= image_tag asset_pack_path('src/imgs/icon/star.svg'), class: 'dappsListImg', alt: 'Logo' %>
-      <%= image_tag asset_pack_path('src/imgs/icon/stargray.svg'), class: 'dappsListImg', alt: 'Logo' %>
-      <%= image_tag asset_pack_path('src/imgs/icon/stargray.svg'), class: 'dappsListImg', alt: 'Logo' %>
-      <%= image_tag asset_pack_path('src/imgs/icon/stargray.svg'), class: 'dappsListImg', alt: 'Logo' %>
-      <%= image_tag asset_pack_path('src/imgs/icon/stargray.svg'), class: 'dappsListImg', alt: 'Logo' %>
+      <% @star.times do |i| %>
+        <%= image_tag asset_pack_path('src/imgs/icon/star.svg'), class: 'dappsListImg', alt: 'Logo' %>
+      <% end %>
+
+      <% @stargray.times do |i| %>
+        <%= image_tag asset_pack_path('src/imgs/icon/stargray.svg'), class: 'dappsListImg', alt: 'Logo' %>
+      <% end %>
     </div>
   </div>
 
   <div id='id-container-intro'>
     <div class="title">藏品描述</div>
-    <div class="intro">全球潮流音乐，搭配舞蹈、表演等内容形式，还有超多原创
-    特效、滤镜、场景切换帮你一秒变大片，为你打造刷爆朋友
-    圈的魔性短视频。脑洞有多大，舞台就有多大！好玩的人都
-    在这儿！</div>
-    <div class="time">发布时间：2018-9-20</div>
-    <div class="author">开发者：谜语啊科技</div>
+    <div class="intro">
+      <%= @dapp.desc%>
+    </div>
+    <div class="time"><%= @start_at%></div>
+    <div class="author"><%= @dapp.developer%></div>
   </div>
 
   <div id="id-container-other">
-    <div class="goto">立即前往</div>
+    <a class="goto" href=<%= @dapp.marketing_url %>>立即前往</a>
     <div class="warning">您即将进入第三方Dapp平台，该服务不由Neruon提供</div>
   </div>
 </div>

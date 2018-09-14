@@ -14,10 +14,12 @@ const test = () => {
   const img = 'http://p1.music.126.net/sr9yP4Kt4xxYap5T7CbMqQ==/109951162955032377.jpg?param=180y180'
   const name = 'Yuki'
   const url = 'http://p1.music.126.net/sr9yP4Kt4xxYap5T7CbMqQ==/109951162955032377.jpg?param=180y180'
+  const time = '2019-1-31'
   const info = {
     img,
     name,
     url,
+    time,
   }
   let i = 0
   window.testinfo = () => {
@@ -79,7 +81,7 @@ const routeswitch = () => {
 
 const init = () => {
   // initGlobalTable()
-  // // test()
+  // test()
   // setActiveNav()
   // renderMinePage()
   // bindEvents()

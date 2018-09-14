@@ -84,9 +84,17 @@ banners = [
   },
 ]
 
+dapp_desc = '全球潮流音乐，搭配舞蹈、表演等内容形式，还有超多原创
+    特效、滤镜、场景切换帮你一秒变大片，为你打造刷爆朋友
+    圈的魔性短视频。脑洞有多大，舞台就有多大！好玩的人都
+    在这儿！'
+
+dapp_marketing_url = 'https://dapp.cryptape.com/faucet/'
+
 ApplicationRecord.transaction do
   DappType.create!(dapp_types)
   Banner.create!(banners.map { |n| n.merge(start_at: start_at, end_at: end_at) })
   popular_type = DappType.find_by(name: "人气推荐")
-  Dapp.create!(dapps.map { |n| n.merge(dapp_type_id: popular_type.id, start_at: start_at, end_at: end_at) })
+  Dapp.create!(dapps.map { |n| n.merge(dapp_type_id: popular_type.id, start_at: start_at, end_at: end_at, desc: dapp_desc, score: 1, developer: 'developer', marketing_url: dapp_marketing_url,
+    ) })
 end
