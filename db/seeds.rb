@@ -95,6 +95,6 @@ ApplicationRecord.transaction do
   DappType.create!(dapp_types)
   Banner.create!(banners.map { |n| n.merge(start_at: start_at, end_at: end_at) })
   popular_type = DappType.find_by(name: "人气推荐")
-  Dapp.create!(dapps.map { |n| n.merge(dapp_type_id: popular_type.id, start_at: start_at, end_at: end_at, desc: dapp_desc, score: 1, developer: 'developer', marketing_url: dapp_marketing_url,
+  Dapp.create!(dapps.map { |n| n.merge(dapp_type_id: popular_type.id, start_at: start_at, end_at: end_at, desc: dapp_desc, score: 1, developer: 'developer', marketing_url: dapp_marketing_url, intro: '东半球最最好玩的游戏',
     ) })
 end

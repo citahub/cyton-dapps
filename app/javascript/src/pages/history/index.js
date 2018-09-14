@@ -5,7 +5,7 @@ import { log } from '../../utils'
 import Config from '../../config'
 
 const main = () => {
-  const container = j('#id-container-localdapplist')
+  const container = j('#id-container-dapplist')
   renderbyList(container, Config.history)
 }
 

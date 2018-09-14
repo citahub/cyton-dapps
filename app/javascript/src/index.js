@@ -9,6 +9,7 @@ import './stylesheets'
 import pagehome from './pages/home'
 import pagehistory from './pages/history'
 import pagemine from './pages/mine'
+import pagemore from './pages/more'
 
 const test = () => {
   const img = 'http://p1.music.126.net/sr9yP4Kt4xxYap5T7CbMqQ==/109951162955032377.jpg?param=180y180'
@@ -67,16 +68,18 @@ const test = () => {
 // }
 
 const routeswitch = () => {
-  const p = location.pathname
+  const ps = location.pathname.split('/')
+  const p = decodeURI(ps[1])
+  const pname = decodeURI(ps[2])
+  const voidfunc = () => {}
   const routetable = {
-    '/history': pagehistory,
-    '/mine': pagemine,
-    '/': pagehome,
+    history: pagehistory,
+    mine: pagemine,
+    more: pagemore,
+    dapps: voidfunc,
+    '': pagehome,
   }
-  routetable[p]()
-  // pagehome()
-  // pagehistory()
-  // pagemine()
+  routetable[p]({ pname })
 }
 
 const init = () => {
