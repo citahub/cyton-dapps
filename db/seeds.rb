@@ -58,27 +58,27 @@ dapps = [
 
 banners = [
   {
-    image_url: "https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg",
+    image_url: "https://img.chainnews.com/material/images/f15b61d0a3256e8af33eaebadc735cba.jpg",
     ios_version: "0.0.0.000000",
     android_version: "0.0.0.000000",
   },
   {
-    image_url: "https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg",
+    image_url: "https://img.chainnews.com/material/images/f15b61d0a3256e8af33eaebadc735cba.jpg",
     ios_version: "0.0.0.000000",
     android_version: "0.0.0.000000",
   },
   {
-    image_url: "https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg",
+    image_url: "https://img.chainnews.com/material/images/f15b61d0a3256e8af33eaebadc735cba.jpg",
     ios_version: "0.0.0.000000",
     android_version: "0.0.0.000000",
   },
   {
-    image_url: "https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg",
+    image_url: "https://img.chainnews.com/material/images/f15b61d0a3256e8af33eaebadc735cba.jpg",
     ios_version: "0.0.0.000000",
     android_version: "0.0.0.000000",
   },
   {
-    image_url: "https://hyperdragons.alfakingdom.com/5ac2bef1e76efb93acee02b72391282f.jpg",
+    image_url: "https://img.chainnews.com/material/images/f15b61d0a3256e8af33eaebadc735cba.jpg",
     ios_version: "0.0.0.000000",
     android_version: "0.0.0.000000",
   },

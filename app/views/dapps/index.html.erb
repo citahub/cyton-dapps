@@ -22,43 +22,11 @@
   </div>
 
   <div id='id-container-banner'>
-    <div class='banner'>
-      <% @banners.each_with_index do |banner, index| %>
-      <img class='bannerimg banneranime' src=<%=banner.image_url%> alt="">
-      <% end %>
-    </div>
+
   </div>
 
   <div id='id-container-dappblocks'>
-    <% @dapps.keys.each_with_index do |key, index| %>
-    <div class="block">
-      <div class="header">
-        <div class="headertitle">
-          <%= key %>
-        </div>
-        <a href='<%= more_dapps_path(key) %>' class="buttonmore">更多</a>
-      </div>
 
-      <div class="dapplist">
-        <% @dapps[key].each do |dapp| %>
-         <a href="<%= dapp_path(dapp) %>">
-          <div class="dapp">
-            <img class="dappimg" src=<%=dapp.logo_url%>>
-            <div class="dappinfo">
-              <div class="dapptitle">
-                <%=dapp.name%>
-              </div>
-              <div class="dappintro"><%=dapp.intro%></div>
-            </div>
-          </div>
-        </a>
-        <% end %>
-      </div>
-
-    </div>
-
-    <% end %>
   </div>
 
-</div>
 </div>
