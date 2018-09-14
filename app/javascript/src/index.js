@@ -67,7 +67,7 @@ const test = () => {
 //   }
 // }
 
-const routeswitch = () => {
+const routeSwitch = () => {
   const ps = location.pathname.split('/')
   const p = decodeURI(ps[1])
   const pname = decodeURI(ps[2])
@@ -88,7 +88,7 @@ const init = () => {
   // setActiveNav()
   // renderMinePage()
   // bindEvents()
-  routeswitch()
+  routeSwitch()
 }
 
 const main = () => {

@@ -47,7 +47,7 @@ $commentcolor: #989caa;
     }
     .time {
       color: $commentcolor;
-      margin-bottom: 16px;
+      margin-bottom: 6px;
     }
     .author {
       color: $commentcolor;
@@ -58,6 +58,7 @@ $commentcolor: #989caa;
     & {
       text-align: center;
       padding: 20px 15px;
+      background-color: $c-back-body;
     }
     .goto {
       color: white;

@@ -39,15 +39,13 @@ const tDappblocksCell = (list) => {
   list.forEach((info) => {
     const { name, logo_url, intro, id } = info
     t += `
-         <a href=${dappshowPath(id)}>
-          <div class="dapp">
-            <img class="dappimg" src=${logo_url}>
-            <div class="dappinfo">
-              <div class="dapptitle">
-                ${name}
-              </div>
-              <div class="dappintro">${intro}</div>
+         <a class="dapp" href=${dappshowPath(id)}>
+          <img class="dappimg" src=${logo_url}>
+          <div class="dappinfo">
+            <div class="dapptitle">
+              ${name}
             </div>
+            <div class="dappintro">${intro}</div>
           </div>
         </a>
         `
@@ -72,11 +70,9 @@ const tDappblocks = (list) => {
         </div>
         <a href=${dappmorePath(type)} class="buttonmore">更多</a>
       </div>
-
       <div class="dapplist">
         ${cell}
       </div>
-
     </div>
     `
   })
