@@ -1,5 +1,13 @@
 import j from 'jquery'
 import { log } from '../../utils'
+import jsontable from '../../utils/jsonApi'
+import { tBannerimg } from './template'
+
+const createBannerImgs = (list) => {
+  return list.map((info) => {
+    return j(tBannerimg(info))
+  })
+}
 
 const bindBannerTouch = () => {
   const banner = j('#id-container-banner').children()
@@ -35,17 +43,17 @@ const bindBannerClick = () => {
   }
 
   const eventMoveRemove = () => {
-    banner.children()[1].removeEventListener('click', moveleft)
-    banner.children()[3].removeEventListener('click', moveright)
+    banner.children()[0].removeEventListener('click', moveleft)
+    banner.children()[2].removeEventListener('click', moveright)
   }
 
   const eventMoveAdd = () => {
-    banner.children()[1].addEventListener('click', moveleft)
-    banner.children()[3].addEventListener('click', moveright)
+    banner.children()[0].addEventListener('click', moveleft)
+    banner.children()[2].addEventListener('click', moveright)
   }
 
   const moveleft = (event) => {
-    const oldmiddle = banner.children()[2]
+    const oldmiddle = banner.children()[1]
     oldmiddle.className = 'bannerimg banneranime middletoleft'
     eventMoveRemove()
     oldmiddle.className = 'bannerimg moveleft'
@@ -54,24 +62,24 @@ const bindBannerClick = () => {
       oldmiddle.className = 'bannerimg'
     }, 0)
     eventMoveAdd()
-    automove()
+    // automove()
   }
 
   const moveright = (event) => {
     eventMoveRemove()
-    banner.children()[2].className = 'bannerimg moveright'
-    banner.prepend(banner.children()[4])
+    banner.children()[0].className = 'bannerimg moveright'
+    banner.prepend(banner.children()[2])
     setTimeout(() => {
-      banner.children()[3].className = 'bannerimg'
+      banner.children()[1].className = 'bannerimg'
     }, 0)
     eventMoveAdd()
-    automove()
+    // automove()
   }
-  imgs[1].addEventListener('click', moveleft)
-  imgs[3].addEventListener('click', moveright)
-  timeout = setTimeout(() => {
-    moveright()
-  }, 3000)
+  imgs[0].addEventListener('click', moveleft)
+  imgs[2].addEventListener('click', moveright)
+  // timeout = setTimeout(() => {
+  //   moveright()
+  // }, 3000)
 }
 
 const bindBanner = () => {
@@ -79,4 +87,19 @@ const bindBanner = () => {
   bindBannerClick()
 }
 
+const renderBanner = () => {
+  const url = jsontable.banners
+  const container = j('#id-container-banner .banner')
+  return j.get(url, (data) => {
+    const l = createBannerImgs(data)
+    l.unshift(l.pop())
+    const lrender = l.slice(0, 2)
+    lrender.unshift(l.pop())
+    container.append(lrender)
+    bindBanner()
+    // container.promise().done(bindBanner)
+  })
+}
+
+export default renderBanner
 export { bindBanner }

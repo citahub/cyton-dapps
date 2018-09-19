@@ -1,7 +1,8 @@
 import j from 'jquery'
 import { log } from '../../utils'
 import { renderbyList, renderBlockbyList } from './template'
-import { bindBanner } from './bannerAction'
+import jsontable from '../../utils/jsonApi'
+import renderBanner, { bindBanner } from './banner'
 
 const bindNavigationButton = () => {
   const navbutton = j('#id-button-navigation')
@@ -15,23 +16,12 @@ const bindNavigationButton = () => {
   })
 }
 
-const renderBanner = () => {
-  const ios = 'ios_version=0.0.0.000000'
-  const url = `${location.origin}/banners.json?/${ios}`
-  const container = j('#id-container-banner')
-  return j.get(url, (data) => {
-    renderbyList(container, data)
-    container.promise().done(bindBanner)
-  })
-}
-
 const renderRecommand = () => {
-  const ios = 'ios_version=0.0.0.000000'
-  const url = `${location.origin}/dapps.json?/${ios}`
+  const url = jsontable.dapps
   const container = j('#id-container-dappblocks')
   return j.get(url, (data) => {
-    log(data)
     renderBlockbyList(container, data)
+    bindNavigationButton()
   })
 }
 
@@ -40,13 +30,8 @@ const render = () => {
   renderRecommand()
 }
 
-const bindevents = () => {
-  bindNavigationButton()
-}
-
 const main = () => {
   render()
-  bindevents()
 }
 
 export default main

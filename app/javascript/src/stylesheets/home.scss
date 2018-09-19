@@ -107,26 +107,15 @@
       transition: 1s;
       position: absolute;
       height: auto;
-      &:nth-child(1),
-      &:nth-child(5) {
-        // width: 0;
-        z-index: 0;
-        opacity: 0;
-        transform: scale(0)
-      }
       &:nth-child(1) {
-        left: -500px;
-        transform: translate(-100%) scale(0);
+        z-index: 0;
+        transform: scale(0);
+        left: 0px;
+        transform: translate(-93%) scale(0.9);
       }
-      &:nth-child(5) {
-        right: -500px;
-        transform: translate(100%) scale(0);
-      }
-      &:nth-child(3) {
+      &:nth-child(2) {
         position: relative;
         z-index: 300;
-        // left: 50%;
-        // right: 50%;
       }
       &.moveleft {
         position: absolute;
@@ -138,37 +127,13 @@
         right: 50%;
         transform: translate(50%);
       }
-      &:nth-child(2),
-      &:nth-child(4) {
+      &:nth-child(3) {
+        right: 0px;
         z-index: 200;
         opacity: 0.8;
-      }
-      &:nth-child(4) {
-        right: 0px;
-        // width: 288;
-        // max-width: 81%;
-        // right: -10px;
         transform: translate(93%) scale(0.9);
       }
-      &:nth-child(2) {
-        left: 0px;
-        // width: 288;
-        // max-width: 81%;
-        // left: -10px;
-        transform: translate(-93%) scale(0.9);
-      }
     }
-    // .bannerimg.small {
-    //   position: absolute;
-    // }
-    // .bannerimg.left {
-    //   left: 0;
-    //   transform: translate(-90%) scale(0.9);
-    // }
-    // .bannerimg.right {
-    //   right: 0;
-    //   transform: translate(90%) scale(0.9);
-    // }
   }
 
   #id-container-dappblocks {

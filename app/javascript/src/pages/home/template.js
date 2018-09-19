@@ -101,4 +101,4 @@ const renderBlockbyList = (container, list) => {
   container.html(html)
 }
 
-export { renderbyList, tDappblocks, renderBlockbyList }
+export { renderbyList, tDappblocks, renderBlockbyList, tBannerimg }
