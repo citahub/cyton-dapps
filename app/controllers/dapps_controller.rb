@@ -31,8 +31,16 @@ class DappsController < ApplicationController
 
   # GET /dapp/more/:type_name
   def more
+    now = Time.now
+    options = {
+      start_at_lteq: now,
+      end_at_gteq: now,
+      ios_version_number_gteq: handle_version(params[:ios_version]),
+      android_version_number_gteq: handle_version(params[:android_version]),
+    }
+
     @dapp_type = DappType.find_by name: params[:type_name]
-    @dapps = Dapp.default_order.where(dapp_type_id: @dapp_type&.id)
+    @dapps = @dapp_type.dapps.default_order.ransack(options).result
   end
 
   def mine
