@@ -1,4 +1,3 @@
-import { GlobalTable } from '../temp/global'
 import { dappsLoaded } from './dappsApi'
 // import { log } from './utils'
 import noData from 'src/imgs/noData.png'
