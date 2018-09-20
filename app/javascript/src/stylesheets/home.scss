@@ -83,11 +83,11 @@
   #id-container-banner {
     & {
       height: 38vw;
-    
       overflow: hidden;
       white-space: nowrap;
       text-align: center;
       position: relative;
+      z-index: 0;
     }
     .banner {
       width: 85.33vw;
@@ -113,6 +113,7 @@
       }
       &:nth-child(2) {
         position: absolute;
+        z-index: 100;
         // left: 50%;
         // transform: translate(-50%);
       }
