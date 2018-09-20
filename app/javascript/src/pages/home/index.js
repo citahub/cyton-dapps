@@ -1,6 +1,6 @@
 import j from 'jquery'
 import { log } from '../../utils'
-import { renderbyList, renderBlockbyList } from './template'
+import { renderbyList, renderBlockbyList } from '../../template/home'
 import jsontable from '../../utils/jsonApi'
 import renderBanner, { bindBanner } from './banner'
 

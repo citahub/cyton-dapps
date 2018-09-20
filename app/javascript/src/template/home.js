@@ -1,5 +1,5 @@
 import j from 'jquery'
-import { log } from '../../utils'
+import { log } from '../utils'
 import noData from 'src/imgs/noData.png'
 import defaultimg from 'src/imgs/noData.png'
 
@@ -101,4 +101,4 @@ const renderBlockbyList = (container, list) => {
   container.html(html)
 }
 
-export { renderbyList, tDappblocks, renderBlockbyList, tBannerimg }
+export { renderbyList, tDappblocks, renderBlockbyList, tBannerimg, dappshowPath }

@@ -1,8 +1,5 @@
 import { _es, bind, localStoreStore, log } from './utils'
-// import { initGlobalTable, GlobalTable } from './global'
-// import { renderMinePage } from './utils/templateDapps'
 import { initApi } from './utils/dappsApi'
-// import { bindEvents } from './events'
 import './imgs/index'
 import './stylesheets'
 // import j from 'jquery'

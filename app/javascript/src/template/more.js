@@ -1,29 +1,30 @@
-import { dappsLoaded } from './dappsApi'
+import { dappsLoaded } from '../utils/dappsApi'
 // import { log } from './utils'
 import noData from 'src/imgs/noData.png'
 import defaultimg from 'src/imgs/noData.png'
 import linkto from 'src/imgs/icon/linkto.png'
+import { dappshowPath } from './home'
 
-const tDappListCell = ({ img, name, url, time }) => {
-  let realimg = img
-  if (!img) {
+const tDappListCell = ({ logo_url, name, id, intro }) => {
+  let realimg = logo_url
+  if (!realimg) {
     realimg = defaultimg
   }
-  const t = `<a class="dappsListItem" href="${url}">
+  const t = `<a class="dappsListItem" href="${dappshowPath(id)}">
                 <div class='dappsListImgContainer'>
                   <img class="dappsListImg" src=${realimg} alt="">
                 </div>
                 <div class="dappsListContent">
                   <div class="dappsListName">${name}</div>
-                  <div class="dappsListUrl" >${time}</div>
+                  <div class="dappsListUrl" >${intro}</div>
                 </div>
                 <img class="linkto" src=${linkto} alt="linkto">
             </a>`
   return t
 }
 
-const tDappsContainer = ({ local, title, icon }) => {
-  const l = dappsLoaded(local)
+const tDappsContainer = (dappinfoList) => {
+  const l = dappinfoList
   if (l.length === 0) {
     return ''
   }
@@ -33,11 +34,6 @@ const tDappsContainer = ({ local, title, icon }) => {
     const info = l[i]
     t += tDappListCell(info)
   }
-  const ttitle = `
-          <div class="popularTitle">
-            <img class="popularIcon" src=${icon}>
-            <div class="popularText">${title}</div>
-          </div>`
   t = `<div class="popularContainer">
           ${t}
         </div>`
@@ -52,8 +48,8 @@ const tDappsDefault = () => {
   return t
 }
 
-const renderbyList = (container, { local }) => {
-  const html = tDappsContainer({ local })
+const renderbyList = (container, list) => {
+  const html = tDappsContainer(list)
   if (html === '') {
     container.html(tDappsDefault())
   } else {

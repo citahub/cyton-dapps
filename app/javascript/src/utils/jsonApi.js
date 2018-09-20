@@ -37,7 +37,7 @@ const initJsonApiTable = () => {
   const origin = location.origin
   
   const createdUrl = (pathname) => {
-    return `${origin}/${pathname}.json?/${version}`
+    return `${origin}/${pathname}.json?${version}`
   }
   
   const keylist = ['banners', 'dapps']
@@ -45,6 +45,10 @@ const initJsonApiTable = () => {
   keylist.forEach((key) => {
     table[key] = createdUrl(key)
   })
+
+  table.more = (href) => {
+    return `${href}.json?${version}`
+  }
 
   return table
 }

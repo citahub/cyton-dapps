@@ -1,5 +1,5 @@
 import j from 'jquery'
-import { renderbyList } from '../../utils/templateDapps'
+import { renderbyList } from '../../template/dapps'
 import { dappsLoaded } from '../../utils/dappsApi'
 import { log } from '../../utils'
 import Config from '../../config'
