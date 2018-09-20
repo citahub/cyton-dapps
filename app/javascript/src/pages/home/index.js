@@ -3,6 +3,7 @@ import { log } from '../../utils'
 import { renderbyList, renderBlockbyList } from '../../template/home'
 import jsontable from '../../utils/jsonApi'
 import renderBanner, { bindBanner } from './banner'
+import neuronapi from '../../utils/neuron'
 
 const bindNavigationButton = () => {
   const navbutton = j('#id-button-navigation')
@@ -13,6 +14,14 @@ const bindNavigationButton = () => {
   })
   navbutton.click(() => {
     mask.show()
+  })
+}
+
+const bindSearchBar = () => {
+  const bar = j('#id-button-search')
+  bar.click((e) => {
+    neuronapi.openSearchPage()
+    e.stopPropagation()
   })
 }
 
@@ -30,7 +39,12 @@ const render = () => {
   renderRecommand()
 }
 
+const bindEvent = () => {
+  bindSearchBar()
+}
+
 const main = () => {
+  bindEvent()
   render()
 }
 
