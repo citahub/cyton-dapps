@@ -16,9 +16,10 @@ const bindBannerTouch = () => {
   const pstart = {}
   const pcurrent = {}
   let pend = {}
+  let lefttop = {}
 
   img.on('touchstart', (e) => {
-    const lefttop = img.offset()
+    lefttop = img.offset()
     const touch = e.touches[0]
     pstart.x = touch.clientX
     pstart.y = touch.clientY
@@ -32,9 +33,10 @@ const bindBannerTouch = () => {
     const touch = e.touches[0]
     pcurrent.x = touch.clientX
     pcurrent.y = touch.clientY
-    const top = (pcurrent.y - space.y * img.innerHeight()) / window.innerHeight / 2
-    const left = (pcurrent.x - space.x * img.innerWidth()) / window.innerWidth / 10
-    log(left, top)
+    
+    const top = lefttop.top + ((pcurrent.y - pstart.y) * img.innerHeight()) / window.innerHeight / 5
+    
+    const left = lefttop.left + ((pcurrent.x - pstart.x) * img.innerWidth()) / window.innerWidth / 3
 
     img.css({
       position: 'fixed',
