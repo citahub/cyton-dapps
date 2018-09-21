@@ -46,9 +46,11 @@ const renderBanner = () => {
   const container = j('#id-container-banner .banner')
   j.get(url, (data) => {
     const l = createBannerImgs(data)
-    l.unshift(l.pop())
-    const lrender = l.splice(0, 3)
-    container.append(lrender)
+    const img1 = l.shift()
+    const img2 = l.shift()
+    const imgLast = l.pop()
+    const inner = [img2, img1, imgLast]
+    container.append(inner)
     bindBanner(l)
   })
 }

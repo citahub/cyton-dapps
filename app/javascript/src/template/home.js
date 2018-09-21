@@ -3,10 +3,22 @@ import { log } from '../utils'
 import noData from 'src/imgs/noData.png'
 import defaultimg from 'src/imgs/noData.png'
 
-const tBannerimg = ({ image_url: img }) => {
+const tBannerimg = ({ image_url: img, address }) => {
   let realimg = img || defaultimg
+  let href
+  if (!isNaN(Number(address))) {
+    href = `/dapps/${address}`
+  } else if (address.startWith('http')) {
+    href = address
+  } else if (address.startWith('/')) {
+    href = address
+  } else {
+    console.error('Banner Error: Not fetch vaild address')
+    href = address
+  }
+
   const t = `
-    <img class='bannerimg banneranime' src=${realimg} alt="">
+    <a class='bannerimg' href=${href}><img  src=${realimg} alt=""></a>
   `
   return t
 }

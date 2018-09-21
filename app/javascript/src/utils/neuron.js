@@ -1,29 +1,17 @@
-// with native
 import platforminfo from './platform'
-// const startNativePage = (event) => {
-//   try {
-//     touchSearchbar()
-//   } catch (err) {
-//     log(err)
-//   }
-//   try {
-//     appHybrid.startAddWebsitePage()
-//   } catch (err) {
-//     log(err)
-//   }
-//   event.stopPropagation()
-// }
 
 const initAndroidApi = () => {
+  const openSearchPage = () => window.appHybrid.startAddWebsitePage()
   const table = {
-    openSearchPage: appHybrid.startAddWebsitePage,
+    openSearchPage,
   }
   return table
 }
 
 const initIosApi = () => {
+  const openSearchPage = () => window.touchSearchbar()
   const table = {
-    openSearchPage: touchSearchbar,
+    openSearchPage,
   }
   return table
 }

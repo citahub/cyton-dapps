@@ -87,13 +87,33 @@ dapps = [
 ]
 
 banners = [
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
+  {
+    address: '1',
+    image_url: 'http://img.newyx.net/article/image/201611/23/f5b8a4546b.jpg',
+
+  },
+  {
+    address: '2',
+    image_url: 'http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/07/maliao.jpg',
+
+  },
+  {
+    address: '3',
+    image_url: 'https://driver.cool3c.com/files/7/playstation-now.jpg',
+  },
+  {
+    address: '4',
+    image_url: 'https://photo.sofun.tw/2014/08/Plants-VS-Zombies-2-Logo.jpg',
+  },
+  {
+    address: '5',
+  },
+  {
+    address: '6',
+  },
+  {
+    address: '7',
+  },
 ]
 
 ApplicationRecord.transaction do

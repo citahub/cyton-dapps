@@ -76,34 +76,43 @@ const bindBanner = (bannerDoms) => {
     automoveStop()
     timeout = setTimeout(() => {
       moveright()
-    }, 5000)
+    }, 1000)
   }
-
+  let i = 0
   const moveleft = (event) => {
+    // 向左,
+    // 移除外部最后一个, 加到内部最后一个
+    log('向左移动', i++)
     const newdom = bannerDoms.pop()
     newdom.attr('class', 'bannerimg newright')
     banner.append(newdom)
+    // 移除内部第一个加到外部第一个,
+    const unused = banner.children(':first-child')
+    bannerDoms.unshift(unused)
+    unused.remove()
+    bindMiddleimg(j(banner.children(':nth-child(2)')))
+    automoveStart()
 
     setTimeout(() => {
-      const unused = banner.children(':first-child')
-      bannerDoms.unshift(unused)
-      unused.remove()
       newdom.attr('class', 'bannerimg')
-      bindMiddleimg(j(banner.children(':nth-child(2)')))
     }, 0)
   }
 
   const moveright = (event) => {
+    // 向右
+    // 移除外部第一个, 加入内部第一个
     const newdom = bannerDoms.shift()
     newdom.attr('class', 'bannerimg newleft')
     banner.prepend(newdom)
+    // 移除内部最后一个, 加入外部最后一个
+    const unused = banner.children(':last-child')
+    bannerDoms.push(unused)
+    unused.remove()
+    bindMiddleimg(j(banner.children(':nth-child(2)')))
+    automoveStart()
 
     setTimeout(() => {
-      const unused = banner.children(':last-child')
-      bannerDoms.push(unused)
-      unused.remove()
       newdom.attr('class', 'bannerimg')
-      bindMiddleimg(j(banner.children(':nth-child(2)')))
     }, 0)
   }
 
@@ -121,11 +130,9 @@ const bindBanner = (bannerDoms) => {
     const touch = e.touches[0]
     pcurrent.x = touch.clientX
 
-
     const left = lefttop.left + ((pcurrent.x - pstart.x) * img.innerWidth()) / window.innerWidth / 3
 
     const right = banner.innerWidth() - left - img.innerWidth()
-    log(right)
 
     img.css({
       left,
@@ -137,7 +144,7 @@ const bindBanner = (bannerDoms) => {
 
   const onTouchend = (e) => {
     const img = j(e.target)
-    unbindMiddleimg(img)
+    unbindMiddleimg()
     if (pcurrent.x < pstart.x) {
       img.css('transition', 'right')
       moveleft()
@@ -154,16 +161,15 @@ const bindBanner = (bannerDoms) => {
     middleimg.on('touchstart', onTouchstart)
     middleimg.on('touchmove', onTouchmove)
     middleimg.on('touchend', onTouchend)
-    // automoveStart()
   }
 
-  const unbindMiddleimg = (middleimg) => {
-    middleimg.off('touchstart', onTouchstart)
-    middleimg.off('touchmove', onTouchmove)
-    middleimg.off('touchend', onTouchend)
+  const unbindMiddleimg = () => {
+    banner.children().off('touchstart', onTouchstart)
+    banner.children().off('touchmove', onTouchmove)
+    banner.children().off('touchend', onTouchend)
   }
 
-  bindMiddleimg(j(imgs[1]))
+  bindMiddleimg(banner.children(':nth-child(2)'))
 }
 
 export default bindBanner
