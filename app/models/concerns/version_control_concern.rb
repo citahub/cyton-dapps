@@ -19,8 +19,9 @@ module VersionControlConcern
   end
 
   module ClassMethods
+    # only handle first three version number, ignore build version and debug version
     def handle_version(version)
-      version.split(".").map { |n| n.rjust(2, '0') }.join.to_i
+      version.split(".").first(3).map { |n| n.rjust(2, '0') }.join.to_i
     end
   end
 
