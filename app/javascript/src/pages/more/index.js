@@ -7,6 +7,8 @@ import jsontable from '../../utils/jsonApi'
 
 const main = ({ pname }) => {
   const url = jsontable.more(location.href)
+  const pathnames = location.pathname.split('/')
+  document.title = decodeURI(pathnames[pathnames.length - 1])
   const container = j('#id-container-dapplist')
   j.get(url, (data) => {
     // const info = data.find((obj) => {

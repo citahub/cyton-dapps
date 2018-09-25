@@ -1,8 +1,10 @@
+<% @page_title = @dapp.name %>
+
 <div id='id-page-info' class='dappsContainer'>
   <div id='id-container-main'>
     <img class="mainimg" src=<%= @dapp.logo_url %> alt="mainimg">
     <div class="title"><%= @dapp.name %></div>
-    <a class="link" href=<%= @dapp.marketing_url %>><%= @dapp.marketing_url %></a>
+    <a class="link" href=<%= @dapp.marketing_url %>><%= @dapp.url_address %></a>
     <div id='id-div-stars'>
       <% @star.times do |i| %>
         <%= image_tag asset_pack_path('src/imgs/icon/star.svg'), class: 'dappsListImg', alt: 'Logo' %>
@@ -15,16 +17,20 @@
   </div>
 
   <div id='id-container-intro'>
-    <div class="title">藏品描述</div>
+    <div class="title">应用描述</div>
     <div class="intro">
-      <%= @dapp.desc%>
+      <%= @dapp.intro%>
     </div>
-    <div class="time"><%= @start_at%></div>
-    <div class="author"><%= @dapp.developer%></div>
+    <div class="time">
+      发布时间: <%= @start_at%>
+    </div>
+    <div class="author">
+      开发者: <%= @dapp.developer%>
+    </div>
   </div>
 
   <div id="id-container-other">
-    <a class="goto" href=<%= @dapp.marketing_url %>>立即前往</a>
-    <div class="warning">您即将进入第三方Dapp平台，该服务不由Neruon提供</div>
+    <a class="goto" href=<%= @dapp.url_address %>>立即前往</a>
+    <div class="warning">您即将进入第三方 Dapp 平台，该服务不由 Neuron 提供</div>
   </div>
 </div>

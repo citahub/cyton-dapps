@@ -62,7 +62,8 @@ const bindBanner = (bannerDoms) => {
   const banner = j('#id-container-banner .banner')
   const pstart = {}
   const pcurrent = {}
-  let lefttop
+  let imgInnerPosition
+  let imgLeft
   let timeout = null
 
   const automoveStop = () => {
@@ -111,7 +112,8 @@ const bindBanner = (bannerDoms) => {
   const onTouchstart = (e) => {
     automoveStop()
     const img = j(e.delegateTarget)
-    lefttop = img.position()
+    imgInnerPosition = img.position()
+    imgLeft = img.offset().left
     const touch = e.touches[0]
     pstart.x = touch.clientX
     pcurrent.x = pstart.x
@@ -122,8 +124,9 @@ const bindBanner = (bannerDoms) => {
     const img = j(e.delegateTarget)
     const touch = e.touches[0]
     pcurrent.x = touch.clientX
+    log(img.offset().left, imgLeft)
 
-    const left = lefttop.left + ((pcurrent.x - pstart.x) * img.innerWidth()) / window.innerWidth / 3
+    const left = imgInnerPosition.left + ((pcurrent.x - pstart.x) * img.innerWidth()) / window.innerWidth / 3
 
     const right = banner.innerWidth() - left - img.innerWidth()
 
@@ -137,12 +140,12 @@ const bindBanner = (bannerDoms) => {
 
   const onTouchend = (e) => {
     const img = j(e.delegateTarget)
+    const elementPend = img
     unbindMiddleimg()
-    log(pcurrent.x, pstart.x)
-    if (pcurrent.x < pstart.x) {
+    if (img.offset().left < imgLeft) {
       img.css('transition', 'right')
       moveleft()
-    } else if (pcurrent.x > pstart.x) {
+    } else if (img.offset().left > imgLeft) {
       img.css('transition', 'left')
       moveright()
     } else {

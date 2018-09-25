@@ -49,7 +49,7 @@ const dappshowPath = (id) => {
 const tDappblocksCell = (list) => {
   let t = ''
   list.forEach((info) => {
-    const { name, logo_url, intro, id } = info
+    const { name, logo_url, desc, id } = info
     t += `
          <a class="dapp" href=${dappshowPath(id)}>
           <img class="dappimg" src=${logo_url}>
@@ -57,7 +57,7 @@ const tDappblocksCell = (list) => {
             <div class="dapptitle">
               ${name}
             </div>
-            <div class="dappintro">${intro}</div>
+            <div class="dappintro">${desc}</div>
           </div>
         </a>
         `
