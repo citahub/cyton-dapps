@@ -65,6 +65,7 @@ const bindBanner = (bannerDoms) => {
   let imgInnerPosition
   let imgLeft
   let timeout = null
+  let mousedown = false
 
   const automoveStop = () => {
     if (timeout !== null) {
@@ -117,14 +118,32 @@ const bindBanner = (bannerDoms) => {
     const touch = e.touches[0]
     pstart.x = touch.clientX
     pcurrent.x = pstart.x
+    
+    const left = imgInnerPosition.left
+    const right = banner.innerWidth() - left - img.innerWidth()
+    img.css({
+      left,
+      right,
+      transform: 'translate(0)',
+      transition: 'left 0s',
+    })
   }
+
+  // const onMousedown = (e) => {
+  //   automoveStop()
+  //   const img = j(e.delegateTarget)
+  //   imgInnerPosition = img.position()
+  //   imgLeft = img.offset().left
+  //   pstart.x = e.offsetX
+  //   pcurrent.x = pstart.x
+  //   mousedown = true
+  // }
 
   const onTouchmove = (e) => {
     event.preventDefault()
     const img = j(e.delegateTarget)
     const touch = e.touches[0]
     pcurrent.x = touch.clientX
-    log(img.offset().left, imgLeft)
 
     const left = imgInnerPosition.left + ((pcurrent.x - pstart.x) * img.innerWidth()) / window.innerWidth / 3
 
@@ -138,9 +157,31 @@ const bindBanner = (bannerDoms) => {
     })
   }
 
+  // const onMousemove = (e) => {
+  //   if (mousedown) {
+  //     event.preventDefault()
+  //     event.stopPropagation()
+  //     event.stopImmediatePropagation()
+  //     const img = j(e.delegateTarget)
+  //     pcurrent.x = e.offsetX
+
+  //     log(imgInnerPosition)
+  //     const left = imgInnerPosition.left + ((pcurrent.x - pstart.x) * img.innerWidth()) / window.innerWidth / 3
+
+  //     const right = banner.innerWidth() - left - img.innerWidth()
+
+  //     img.css({
+  //       left,
+  //       right,
+  //       transform: 'translate(0)',
+  //       transition: 'left 0s',
+  //     })
+  //   }
+  // }
+
   const onTouchend = (e) => {
+    mousedown = false
     const img = j(e.delegateTarget)
-    const elementPend = img
     unbindMiddleimg()
     if (img.offset().left < imgLeft) {
       img.css('transition', 'right')
@@ -159,15 +200,21 @@ const bindBanner = (bannerDoms) => {
 
   const bindMiddleimg = (middleimg) => {
     middleimg.on('touchstart', onTouchstart)
+    // middleimg.on('mousedown', onMousedown)
     middleimg.on('touchmove', onTouchmove)
+    // middleimg.on('mousemove', onMousemove)
     middleimg.on('touchend', onTouchend)
+    // middleimg.on('mouseup', onTouchend)
     automoveStart()
   }
 
   const unbindMiddleimg = () => {
     banner.children().off('touchstart', onTouchstart)
+    // banner.children().off('mousedown', onMousedown)
     banner.children().off('touchmove', onTouchmove)
+    // banner.children().off('mousemove', onMousemove)
     banner.children().off('touchend', onTouchend)
+    // banner.children().off('mouseup', onTouchend)
   }
 
   bindMiddleimg(banner.children(':nth-child(2)'))
