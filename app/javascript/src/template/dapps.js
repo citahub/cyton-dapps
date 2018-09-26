@@ -1,5 +1,5 @@
 import { dappsLoaded } from '../utils/dappsApi'
-// import { log } from './utils'
+import { log } from '../utils'
 import noData from 'src/imgs/noData.png'
 import defaultimg from 'src/imgs/noData.png'
 import linkto from 'src/imgs/icon/linkto.png'
@@ -9,13 +9,17 @@ const tDappListCell = ({ img, name, url, time }) => {
   if (!img) {
     realimg = defaultimg
   }
+
+  const date = new Date(time)
+  const tim = `${date.getFullYear() || 2000}-${date.getMonth() || 0 + 1}-${date.getDate() || 1}`
   const t = `<a class="dappsListItem" href="${url}">
                 <div class='dappsListImgContainer'>
                   <img class="dappsListImg" src=${realimg} alt="">
+                  
                 </div>
                 <div class="dappsListContent">
                   <div class="dappsListName">${name}</div>
-                  <div class="dappsListUrl" >${time}</div>
+                  <div class="dappsListUrl" >${tim}</div>
                 </div>
                 <img class="linkto" src=${linkto} alt="linkto">
             </a>`

@@ -49,13 +49,23 @@ const dappshowPath = (id) => {
 const tDappblocksCell = (list) => {
   let t = ''
   list.forEach((info) => {
-    const { name, logo_url, desc, id } = info
+    const { name, logo_url, desc, id, marketing_url } = info
+
+    let marketing = ''
+    log(marketing_url)
+    if (marketing_url) {
+      marketing = `<img class="dappMarketing" src=${marketing_url} alt="">`
+    }
+
     t += `
          <a class="dapp" href=${dappshowPath(id)}>
-          <img class="dappimg" src=${logo_url}>
-          <div class="dappinfo">
+          <div class='dappsimgContainer'>
+            <img class="dappimg" src=${logo_url}>
+            </div>
+            <div class="dappinfo">
             <div class="dapptitle">
               ${name}
+              ${marketing}
             </div>
             <div class="dappintro">${desc}</div>
           </div>
