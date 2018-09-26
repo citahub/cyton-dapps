@@ -35,12 +35,12 @@ const dappsSave = (dapps, local) => {
   localStoreStore(local, dapps)
 }
 
-const dappsAdd = (dapp, { local, method = 'unshift', maxlength }) => {
-  const { entry, icon, name } = dapp
+const dappsAdd = ({ entry, icon, name, timestamp }, { local, method = 'unshift', maxlength }) => {
   const o = {
     img: icon,
     url: entry,
     name: name,
+    time: timestamp,
   }
   const dapps = dappsLoaded(local)
   const len = dapps.length
