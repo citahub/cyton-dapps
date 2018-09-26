@@ -76,7 +76,7 @@ const bindBanner = (bannerDoms) => {
   const automoveStart = () => {
     automoveStop()
     timeout = setTimeout(() => {
-      moveright()
+      moveleft()
     }, 5000)
   }
 

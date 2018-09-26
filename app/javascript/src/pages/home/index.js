@@ -36,7 +36,7 @@ const renderRecommand = () => {
 }
 
 const createBannerImgs = (list) => {
-  return list.map((info) => {
+  return list.reverse().map((info) => {
     return j(tBannerimg(info))
   })
 }
