@@ -118,7 +118,7 @@ const bindBanner = (bannerDoms) => {
     const touch = e.touches[0]
     pstart.x = touch.clientX
     pcurrent.x = pstart.x
-    
+
     const left = imgInnerPosition.left
     const right = banner.innerWidth() - left - img.innerWidth()
     img.css({
@@ -140,6 +140,7 @@ const bindBanner = (bannerDoms) => {
   // }
 
   const onTouchmove = (e) => {
+    log(e)
     event.preventDefault()
     const img = j(e.delegateTarget)
     const touch = e.touches[0]
@@ -180,6 +181,8 @@ const bindBanner = (bannerDoms) => {
   // }
 
   const onTouchend = (e) => {
+    log('end', e)
+    alert('touchend')
     mousedown = false
     const img = j(e.delegateTarget)
     unbindMiddleimg()
