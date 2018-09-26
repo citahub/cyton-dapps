@@ -10,6 +10,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th scope="col">ID</th>
         <th scope="col">名称</th>
         <th scope="col">类型</th>
         <th scope="col">分数</th>
@@ -31,6 +32,7 @@
     <tbody>
       <% @dapps.each do |dapp| %>
         <tr>
+          <td><%= dapp.id %></td>
           <td><%= dapp.name %></td>
           <td><%= dapp.dapp_type&.name %></td>
           <td><%= dapp.score %></td>
