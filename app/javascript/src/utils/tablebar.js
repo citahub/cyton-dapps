@@ -1,4 +1,5 @@
 import neuronMethods from './neuron'
+import { log } from './index'
 
 /*
   {
@@ -45,6 +46,7 @@ const titlebarShow = () => {
       type: 'share',
     },
   }
+  log('title bar show')
   const json = JSON.stringify(o)
   neuronMethods.setTitlebar(json)
 }

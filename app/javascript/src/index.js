@@ -7,6 +7,7 @@ import pagehome from './pages/home'
 import pagehistory from './pages/history'
 import pagemine from './pages/mine'
 import pagemore from './pages/more'
+import pageshow from './pages/show'
 
 const test = () => {
   const img = 'http://p1.music.126.net/sr9yP4Kt4xxYap5T7CbMqQ==/109951162955032377.jpg?param=180y180'
@@ -73,7 +74,7 @@ const routeSwitch = () => {
     history: pagehistory,
     mine: pagemine,
     more: pagemore,
-    dapps: voidfunc,
+    dapps: pageshow,
     '': pagehome,
   }
   routetable[p]({ pname })
