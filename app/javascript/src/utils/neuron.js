@@ -2,7 +2,15 @@ import platforminfo from './platform'
 
 const initAndroidApi = () => {
   const openSearchPage = () => window.appHybrid.startAddWebsitePage()
-  const setTitlebar = (json) => window.webTitleBar.getTitleBar(json)
+  const setTitlebar = function(json) {
+    console.log(json)
+    try {
+      window.webTitleBar.getTitleBar(json)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // const setTitlebar = (json) => {}
   const table = {
     openSearchPage,
     setTitlebar,
@@ -12,9 +20,7 @@ const initAndroidApi = () => {
 
 const initIosApi = () => {
   const openSearchPage = () => window.touchSearchbar()
-  const setTitlebar = (json) => {
-    window.appHybrid.getTitleBar(json)
-  }
+  const setTitlebar = (json) => {}
   const table = {
     openSearchPage,
     setTitlebar,
