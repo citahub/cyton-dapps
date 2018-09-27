@@ -1,5 +1,21 @@
-import { log, localStoreParsed, localStoreStore } from './utils.js'
-import { GlobalTable } from './global'
+import { log, localStoreParsed, localStoreStore } from '.'
+// import { _e, _es } from './utils'
+import test from 'src/imgs/icon/test.svg'
+import foot from 'src/imgs/icon/foot.svg'
+
+const renderkeyTable = {
+  mydapps: {
+    local: '__viewInfoList_mydapps',
+    title: '我的收藏',
+    icon: test,
+  },
+  myhistory: {
+    local: '__viewInfoList_myhistory',
+    title: '我的足迹',
+    icon: foot,
+    maxlength: 20,
+  },
+}
 
 const dappsLoaded = (local) => {
   let dapps
@@ -19,12 +35,12 @@ const dappsSave = (dapps, local) => {
   localStoreStore(local, dapps)
 }
 
-const dappsAdd = (dapp, { local, method = 'unshift', maxlength }) => {
-  const { entry, icon, name } = dapp
+const dappsAdd = ({ entry, icon, name, timestamp }, { local, method = 'unshift', maxlength }) => {
   const o = {
     img: icon,
     url: entry,
     name: name,
+    time: timestamp,
   }
   const dapps = dappsLoaded(local)
   const len = dapps.length
@@ -45,7 +61,7 @@ const dappsAdd = (dapp, { local, method = 'unshift', maxlength }) => {
   dappsSave(dapps, local)
 }
 
-const dappsRemove = (url, {local}) => {
+const dappsRemove = (url, { local }) => {
   const dapps = dappsLoaded(local)
   const len = dapps.length
   for (let i = 0; i < len; i++) {
@@ -60,7 +76,7 @@ const dappsRemove = (url, {local}) => {
 
 // 提供给外部的接口
 const initApi = () => {
-  const table = GlobalTable.renderkeyTable
+  const table = renderkeyTable
   if (window.__mydapp === undefined) {
     const info = table.mydapps
     const remove = (url) => dappsRemove(url, info)
@@ -80,7 +96,7 @@ const initApi = () => {
     window.__myhistory = {
       add,
     }
-    Object.freeze(window.__mydapp)
+    Object.freeze(window.__myhistory)
   }
 }
 

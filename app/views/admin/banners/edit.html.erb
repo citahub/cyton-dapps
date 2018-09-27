@@ -1,0 +1,8 @@
+<% provide :title, "更新 Banner" %>
+<% provide :back_url, admin_banners_path %>
+
+<%= render 'form', banner: @banner %>
+
+<div class="container">
+  <%= link_to '显示详情', admin_banner_path(@banner) , class: "btn btn-outline-secondary" %>
+</div>

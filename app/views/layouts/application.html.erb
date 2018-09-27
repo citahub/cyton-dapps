@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dapps</title>
+    <title><%= @page_title || "Dapps" %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,6 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
     <%= yield %>
   </body>
 </html>

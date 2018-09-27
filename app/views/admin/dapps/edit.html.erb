@@ -1,0 +1,8 @@
+<% provide :title, "编辑 Banner" %>
+<% provide :back_url, admin_dapps_path %>
+
+<%= render 'form', dapp: @dapp %>
+
+<div class="container">
+  <%= link_to '显示详情', admin_dapp_path(@dapp) , class: "btn btn-outline-secondary" %>
+</div>
