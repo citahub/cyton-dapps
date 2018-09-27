@@ -14,7 +14,6 @@ const initJsonApiTable = () => {
 
   const createdUrl = (pathname) => {
     // 临时性测试用
-    return `${origin}/${pathname}.json?`
     return `${origin}/${pathname}.json?${version}`
   }
 
