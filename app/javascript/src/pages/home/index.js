@@ -47,7 +47,13 @@ const renderBanner = () => {
   const url = jsontable.banners
   const container = j('#id-container-banner .banner')
   j.get(url, (data) => {
-    const l = createBannerImgs(data)
+    let dat = data
+    if (data.length <= 3) {
+      dat = [...data, ...data, ...data]
+    } else {
+      dat = data
+    }
+    let l = createBannerImgs(dat)
     const img1 = l.shift()
     const img2 = l.shift()
     const imgLast = l.pop()
