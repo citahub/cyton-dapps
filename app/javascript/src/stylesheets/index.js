@@ -1,2 +1,4 @@
 import './application.scss'
-import './header.scss'
+import './home.scss'
+import './info.scss'
+import './dapplist.scss'

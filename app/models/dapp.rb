@@ -1,4 +1,12 @@
 class Dapp < ApplicationRecord
+  include VersionControlConcern
+
+  validates :start_at, presence: true
+  validates :end_at, presence: true
+
+  belongs_to :dapp_type
+
+  scope :default_order, -> { order(updated_at: :desc) }
 
   enum d_type: {
     new_dapp: 10,

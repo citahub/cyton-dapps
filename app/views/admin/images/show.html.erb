@@ -1,0 +1,35 @@
+<% provide :title, "图片详情" %>
+<% provide :back_url, admin_images_path %>
+
+<div class="container mt-5">
+  <% unless notice.blank? %>
+    <div class="alert alert-info" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <%= image_tag_if_exist photo_path(@image) %>
+  </div>
+
+  <div class="row">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td scope="col">名称</td>
+          <td><%= @image.name %></td>
+        </tr>
+        <tr>
+          <td scope="col">URL</td>
+          <td><%= link_to_if_exist(real_url(@image), id: "foo") %></td>
+          <td><i class="far fa-copy clipboard-btn" data-clipboard-target="#foo" style="cursor: pointer;"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <a href="<%= edit_admin_image_path(@image) %>" class="btn btn-secondary bmd-btn-fab float-right center-button">
+    <i class="fas fa-edit"></i>
+  </a>
+
+</div>

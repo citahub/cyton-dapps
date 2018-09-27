@@ -1,0 +1,77 @@
+<% provide :title, 'DApps' %>
+
+<div class="container mt-5">
+  <% unless notice.blank? %>
+    <div class="alert alert-info" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">名称</th>
+        <th scope="col">类型</th>
+        <th scope="col">分数</th>
+        <th scope="col">开发者</th>
+        <th scope="col">一句话描述</th>
+        <th scope="col">简介</th>
+        <th scope="col">iOS version</th>
+        <th scope="col">Android version</th>
+        <th scope="col">上架时间</th>
+        <th scope="col">下架时间</th>
+        <th scope="col">发布时间</th>
+        <th scope="col">icon</th>
+        <th scope="col">Marketing</th>
+        <th scope="col">DApp 地址</th>
+        <th scope="col" colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @dapps.each do |dapp| %>
+        <tr>
+          <td><%= dapp.id %></td>
+          <td><%= dapp.name %></td>
+          <td><%= dapp.dapp_type&.name %></td>
+          <td><%= dapp.score %></td>
+          <td><%= dapp.developer %></td>
+          <td><%= dapp.desc %></td>
+          <td><%= dapp.intro %></td>
+          <td><%= dapp.ios_version %></td>
+          <td><%= dapp.android_version %></td>
+          <td><%= dapp.start_at %></td>
+          <td><%= dapp.end_at %></td>
+          <td><%= dapp.publish_at %></td>
+          <td><%= handle_image_url dapp.logo_url %></td>
+          <td><%= handle_image_url dapp.marketing_url %></td>
+          <td><%= link_to_if_exist(dapp.url_address) %></td>
+          <td>
+            <a href="<%= admin_dapp_path(dapp) %>">
+              <i class="fas fa-info-circle"></i>
+            </a>
+          </td>
+          <td>
+            <a href="<%= edit_admin_dapp_path(dapp) %>">
+              <i class="far fa-edit"></i>
+            </a>
+          </td>
+          <td>
+            <%= link_to admin_dapp_path(dapp), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+
+  <a href="<%= new_admin_dapp_path %>" class="btn btn-primary bmd-btn-fab float-right center-button">
+    <i class="fas fa-plus"></i>
+  </a>
+
+  <%= paginate @dapps, views_prefix: "admin" %>
+
+</div>

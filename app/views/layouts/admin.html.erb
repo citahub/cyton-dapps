@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dapp Admin</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'admin' %>
+    <%= stylesheet_pack_tag 'admin', media: 'all' %>
+  </head>
+
+  <body>
+    <%= render "layouts/admin_header" unless params[:controller] == "admin/sessions" %>
+
+    <%= yield %>
+
+    <%# console if Rails.env.development? %>
+  </body>
+</html>

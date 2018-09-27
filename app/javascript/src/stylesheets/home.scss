@@ -1,0 +1,290 @@
+@import './color.scss';
+@import './size.scss';
+
+#id-page-home {
+  $headerheight: 75px;
+  $backcolor: $c-back-header;
+
+  & {
+    background-color: $backcolor;
+    width: 100vw;
+    height: 100vh;
+    padding-top: $headerheight;
+  }
+
+  #id-container-headerbar {
+    & {
+      padding: 32px 15px 12px;
+      background-color: $backcolor;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: $headerheight;
+      z-index: 100;
+    }
+    .headerbarInner {
+      position: relative;
+      width: 100%;
+    }
+    .search {
+      display: block;
+      display: flex;
+      align-items: center;
+      padding-left: 9px;
+      height: 30px;
+      color: #4d5c91;
+      font-size: 12px;
+      background-color: #e9ebf0;
+      border-radius: 2px;
+      margin-right: 43px;
+    }
+    .searchLabel {
+      padding-left: 4px;
+    }
+    .button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: inline-block;
+      height: 30px;
+      vertical-align: top;
+      padding-left: 13px;
+    }
+    .buttonLine {
+      width: 22px;
+      border-top: 1px solid;
+      color: $c-main;
+      margin: 7px 0;
+    }
+  }
+
+  #id-container-mask {
+    .menu {
+      background: #fff;
+      padding-left: 16px;
+      display: inline-block;
+      width: 155px;
+      position: absolute;
+      top: 60px;
+      right: 14px;
+    }
+    .menucell {
+      display: block;
+      line-height: 51px;
+      font-size: $s-h2;
+      border-bottom: 1px solid #eee;
+    }
+    .menucell:last-child {
+      border-bottom: none;
+    }
+  }
+
+  #id-container-banner {
+    & {
+      height: 38vw;
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: center;
+      position: relative;
+      z-index: 0;
+    }
+    .banner {
+      width: 85.33vw;
+      height: 37.33vw;
+      margin: auto;
+      // overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      font-size: 0px;
+      text-align: left;
+      // display: flex;
+    }
+    .bannerimg {
+      width: 100%;
+      height: 100%;
+      transition: 0.6s;
+      position: absolute;
+
+      img {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        border-radius: 5px;
+      }
+
+      &:nth-child(1) {
+        left: 0px;
+        transform: translate(-100%) scale(0.9);
+      }
+      &:nth-child(2) {
+        position: absolute;
+        z-index: 100;
+        // left: 50%;
+        // transform: translate(-50%);
+      }
+      &:nth-child(3) {
+        right: 0px;
+        transform: translate(100%) scale(0.9);
+      }
+      &.newleft {
+        opacity: 0;
+        left: 0px;
+        transform: translate(-200%) scale(0.9);
+      }
+      &.newright {
+        opacity: 0;
+        right: 0px;
+        transform: translate(200%) scale(0.9);
+      }
+    }
+  }
+
+  #id-container-dappblocks {
+    $bordercolor: #f7f7f7;
+
+    .block {
+      margin-bottom: 10px;
+      padding: 15px;
+      padding-bottom: 0;
+      border-bottom: 10px solid $bordercolor;
+    }
+    .block:last-child {
+      border-bottom: none;
+    }
+    .header {
+      margin-bottom: 12px;
+    }
+    .headertitle {
+      display: inline-block;
+      font-size: $s-h2;
+    }
+    .buttonmore {
+      float: right;
+      color: $c-conspicuous;
+    }
+    .dapp {
+      padding: 14px 0;
+      border-bottom: 1px solid $bordercolor;
+      display: flex;
+    }
+    .dapp:last-child {
+      border-bottom: none;
+    }
+    .dappsimgContainer {
+      position: relative;
+    }
+    .dappimg {
+      width: 50px;
+      min-width: 50px;
+      height: 50px;
+      min-height: 50px;
+      margin-right: 10px;
+      border-radius: 10px;
+    }
+    .dappinfo {
+      display: inline-block;
+      display: inline-flex;
+      flex-flow: column;
+      justify-content: center;
+    }
+    .dapptitle {
+      font-size: $s-h1;
+      line-height: 22px;
+      position: relative;
+    }
+    .dappMarketing {
+      width: 27px;
+      height: 12px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-left: 6px;
+    }
+    .dappintro {
+      color: $c-auxiliary;
+      line-height: 18px;
+    }
+  }
+}
+
+// .header {
+//   color: white;
+//   text-align: center;
+//   width: 100%;
+//   background-size: cover;
+//   background: rgb(79, 114, 255);
+// }
+
+// .headerTitleContainer {
+//   position: relative;
+//   font-size: 18px;
+//   padding: 21px 15px 0px;
+// }
+
+// .headerButton {
+//   position: absolute;
+//   top: 30px;
+//   right: 15px;
+// }
+
+// .headerSearchIcon {
+//   width: 16px;
+//   height: 16px;
+// }
+
+// .headerSearchIcon.big {
+//   width: 22px;
+//   height: 22px;
+// }
+
+// .headerNav {
+//   display: flex;
+//   justify-content: space-between;
+//   padding: 0 20%;
+//   position: relative;
+//   margin-top: 10px;
+//   overflow: hidden;
+
+//   .headerSearchIcon {
+//     position: absolute;
+//     width: 22px;
+//     height: 22px;
+//     left: 23px;
+//     top: 150%;
+//     transform: translate(0%, -50%);
+//   }
+// }
+
+// .headerNavItem {
+//   color: $c-text-button-sub;
+//   font-size: 16px;
+//   padding-bottom: 5px;
+//   margin-bottom: 7px;
+//   vertical-align: top;
+// }
+
+// .headerNavItem.active {
+//   color: $c-text-button;
+//   font-size: 16px;
+//   border-bottom: 2px solid;
+// }
+
+// .headerAnime.second {
+//   background: white;
+//   color: #262a44;
+//   position: fixed;
+//   border-bottom: 1px solid #f8f8fa;
+//   width: 100%;
+//   padding-top: 30px;
+//   top: 0;
+
+//   .headerNavItem {
+//     color: #8a8d9f;
+//     padding-bottom: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .headerNavItem.active {
+//     color: #262a44;
+//     border-bottom: 2px solid #365fff;
+//   }
+// }

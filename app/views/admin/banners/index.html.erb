@@ -1,0 +1,60 @@
+<% provide :title, 'Banners' %>
+
+<div class="container mt-5">
+  <% unless notice.blank? %>
+    <div class="alert alert-info" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">图片</th>
+        <th scope="col">链接</th>
+        <th scope="col">上架时间</th>
+        <th scope="col">下架时间</th>
+        <th scope="col">iOS 版本</th>
+        <th scope="col">Android 版本</th>
+        <th scope="col" colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <% @banners.each do |banner| %>
+        <tr>
+          <td><%= handle_image_url banner.image_url %></td>
+          <td><%= link_to_if_exist banner.address %></td>
+          <td><%= banner.start_at %></td>
+          <td><%= banner.end_at %></td>
+          <td><%= banner.ios_version %></td>
+          <td><%= banner.android_version %></td>
+          <td>
+            <a href="<%= admin_banner_path(banner) %>">
+              <i class="fas fa-info-circle"></i>
+            </a>
+          </td>
+          <td>
+            <a href="<%= edit_admin_banner_path(banner) %>">
+              <i class="far fa-edit"></i>
+            </a>
+          </td>
+          <td>
+            <%= link_to admin_banner_path(banner), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+
+  <a href="<%= new_admin_banner_path %>" class="btn btn-primary bmd-btn-fab float-right center-button">
+    <i class="fas fa-plus"></i>
+  </a>
+
+  <%= paginate @banners, views_prefix: "admin" %>
+
+</div>

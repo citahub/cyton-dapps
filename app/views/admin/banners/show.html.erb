@@ -1,0 +1,51 @@
+<% provide :title, "Banner 详情" %>
+<% provide :back_url, admin_banners_path %>
+
+<div class="container mt-5">
+  <% unless notice.blank? %>
+    <div class="alert alert-info" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <%= image_tag_if_exist(@banner.image_url) %>
+  </div>
+
+  <div class="row">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td scope="col">图片</td>
+          <td><%= link_to_if_exist @banner.image_url %></td>
+        </tr>
+        <tr>
+          <td scope="col">链接</td>
+          <td><%= link_to_if_exist @banner.address %></td>
+        </tr>
+        <tr>
+          <td scope="col">上架时间</td>
+          <td><%= @banner.start_at %></td>
+        </tr>
+        <tr>
+          <td scope="col">下架时间</td>
+          <td><%= @banner.end_at %></td>
+        </tr>
+        <tr>
+          <td scope="col">iOS 版本</td>
+          <td><%= @banner.ios_version %></td>
+        </tr>
+        <tr>
+          <td scope="col">Android 版本</td>
+          <td><%= @banner.android_version %></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+
+  <a href="<%= edit_admin_banner_path(@banner) %>" class="btn btn-secondary bmd-btn-fab float-right center-button">
+    <i class="fas fa-edit"></i>
+  </a>
+</div>

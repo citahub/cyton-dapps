@@ -1,0 +1,49 @@
+<div class="container mt-5">
+  <%= form_with(model: [:admin, banner], scope: :banner, local: true) do |form| %>
+    <% if banner.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger" role="alert">
+        <h2><%= pluralize(banner.errors.count, "error") %> prohibited this banner from being saved:</h2>
+
+        <ul>
+          <% banner.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :name, '图片' %>
+      <%= form.text_field :image_url, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :photo, '链接' %>
+      <%= form.text_field :address, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :start_at, '上架时间' %>
+      <%= form.datetime_select :start_at, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :end_at, '下架时间' %>
+      <%= form.datetime_select :end_at, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :ios_version, 'iOS 版本' %>
+      <%= form.text_field :ios_version, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :android_version, 'Android 版本' %>
+      <%= form.text_field :android_version, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit '提交', class: "btn btn-outline-primary float-right" %>
+    </div>
+  <% end %>
+</div>
