@@ -8,9 +8,9 @@ const tBannerimg = ({ image_url: img, address }) => {
   let href
   if (!isNaN(Number(address))) {
     href = `/dapps/${address}`
-  } else if (address.startWith('http')) {
+  } else if (address.startsWith('http')) {
     href = address
-  } else if (address.startWith('/')) {
+  } else if (address.startsWith('/')) {
     href = address
   } else {
     console.error('Banner Error: Not fetch vaild address')
