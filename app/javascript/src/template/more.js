@@ -5,7 +5,7 @@ import defaultimg from 'src/imgs/noData.png'
 import linkto from 'src/imgs/icon/linkto.png'
 import { dappshowPath } from './home'
 
-const tDappListCell = ({ logo_url, name, id, intro, marketing_url }) => {
+const tDappListCell = ({ logo_url, name, id, desc, marketing_url }) => {
   let realimg = logo_url
   if (!realimg) {
     realimg = defaultimg
@@ -22,7 +22,7 @@ const tDappListCell = ({ logo_url, name, id, intro, marketing_url }) => {
                 </div>
                 <div class="dappsListContent">
                   <div class="dappsListName">${name}${marketing}</div>
-                  <div class="dappsListUrl" >${intro}</div>
+                  <div class="dappsListUrl" >${desc}</div>
                 </div>
                 <img class="linkto" src=${linkto} alt="linkto">
             </a>`
