@@ -180,6 +180,7 @@ const bindBanner = (bannerDoms) => {
   // }
 
   const onTouchend = (e) => {
+    e.stopPropagation()
     mousedown = false
     const img = j(e.delegateTarget)
     unbindMiddleimg()

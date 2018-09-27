@@ -5,6 +5,7 @@ import jsontable from '../../utils/jsonApi'
 import { tBannerimg } from '../../template/home'
 import bindBanner from './bannerAction'
 import neuronapi from '../../utils/neuron'
+import { bindPulldownRefresh } from './pulldownRefresh'
 
 const bindNavigationButton = () => {
   const navbutton = j('#id-button-navigation')
@@ -61,6 +62,7 @@ const render = () => {
 }
 
 const bindEvent = () => {
+  bindPulldownRefresh()
   bindSearchBar()
 }
 
