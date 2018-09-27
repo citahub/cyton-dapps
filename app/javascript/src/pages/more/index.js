@@ -4,8 +4,10 @@ import { dappsLoaded } from '../../utils/dappsApi'
 import { log } from '../../utils'
 import Config from '../../config'
 import jsontable from '../../utils/jsonApi'
+import { titlebarShow } from '../../utils/tablebar'
 
 const main = ({ pname }) => {
+  titlebarShow()
   const url = jsontable.more(location.href)
   const pathnames = location.pathname.split('/')
   document.title = decodeURI(pathnames[pathnames.length - 1])

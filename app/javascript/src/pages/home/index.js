@@ -6,6 +6,7 @@ import { tBannerimg } from '../../template/home'
 import bindBanner from './bannerAction'
 import neuronapi from '../../utils/neuron'
 import { bindPulldownRefresh } from './pulldownRefresh'
+import { titlebarNormal } from '../../utils/tablebar'
 
 const bindNavigationButton = () => {
   const navbutton = j('#id-button-navigation')
@@ -67,6 +68,7 @@ const bindEvent = () => {
 }
 
 const main = () => {
+  // titlebarNormal()
   bindEvent()
   render()
 }

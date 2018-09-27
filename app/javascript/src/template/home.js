@@ -52,7 +52,6 @@ const tDappblocksCell = (list) => {
     const { name, logo_url, desc, id, marketing_url } = info
 
     let marketing = ''
-    log(marketing_url)
     if (marketing_url) {
       marketing = `<img class="dappMarketing" src=${marketing_url} alt="">`
     }

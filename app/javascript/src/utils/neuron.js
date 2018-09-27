@@ -2,22 +2,28 @@ import platforminfo from './platform'
 
 const initAndroidApi = () => {
   const openSearchPage = () => window.appHybrid.startAddWebsitePage()
+  const setTitlebar = (json) => window.appHybrid.getTitleBar(json)
   const table = {
     openSearchPage,
+    setTitlebar,
   }
   return table
 }
 
 const initIosApi = () => {
   const openSearchPage = () => window.touchSearchbar()
+  const setTitlebar = (json) => {
+    window.appHybrid.getTitleBar(json)
+  }
   const table = {
     openSearchPage,
+    setTitlebar,
   }
   return table
 }
 
 const initWebApi = () => {
-  const funcnames = ['openSearchPage']
+  const funcnames = ['openSearchPage', 'setTitlebar']
   const table = {}
   funcnames.forEach((name) => {
     table[name] = () => console.warn('no method:', name)
@@ -35,7 +41,8 @@ const initNeuronTable = () => {
     ios: initIosApi,
     [null]: initWebApi,
   }
-  return initTable[platform]()
+  const methods = initTable[platform]()
+  return methods
 }
 
 export default initNeuronTable()
