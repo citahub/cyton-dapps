@@ -53,6 +53,7 @@ const renderBanner = () => {
     const imgLast = l.pop()
     const inner = [img2, img1, imgLast]
     container.append(inner)
+    log(l)
     bindBanner(l)
   })
 }

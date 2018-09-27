@@ -59,6 +59,7 @@ const bindBannerTouch = () => {}
 // }
 
 const bindBanner = (bannerDoms) => {
+  log(bannerDoms)
   const banner = j('#id-container-banner .banner')
   const pstart = {}
   const pcurrent = {}
