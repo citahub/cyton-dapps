@@ -8,6 +8,13 @@ module Admin
 
     # POST /admin/sessions
     def create
+      admin_username = ENV["ADMIN_USERNAME"]
+      admin_password = ENV["ADMIN_PASSWORD"]
+
+      if !admin_username.blank? && !admin_password.blank? && User.find_by(username: admin_username).nil?
+        User.create(username: admin_username, password: admin_password)
+      end
+
       @user = User.find_by(username: permit_params[:username])
 
       if @user&.authenticate(permit_params[:password])
