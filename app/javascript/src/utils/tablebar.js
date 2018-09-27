@@ -7,7 +7,7 @@ import neuronMethods from './neuron'
         "backgroundColor": "AAFFFFFF"
     },
     "left": {
-        "name": "back",     // back：返回箭头  close：关闭叉号
+        "type": "back",     // back：返回箭头  close：关闭叉号
         "action": "jsFunction",
     },
     "right": {
@@ -22,7 +22,7 @@ import neuronMethods from './neuron'
 const titlebarNormal = () => {
   const o = {
     left: {
-      name: 'back',
+      type: 'back',
       action: 'jsFunction',
     },
     right: {
@@ -36,7 +36,7 @@ const titlebarNormal = () => {
 const titlebarShow = () => {
   const o = {
     left: {
-      name: 'back',
+      type: 'back',
       action: 'jsFunction',
     },
     right: {
