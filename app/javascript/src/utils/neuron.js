@@ -2,7 +2,7 @@ import platforminfo from './platform'
 
 const initAndroidApi = () => {
   const openSearchPage = () => window.appHybrid.startAddWebsitePage()
-  const setTitlebar = (json) => window.appHybrid.getTitleBar(json)
+  const setTitlebar = (json) => window.webTitleBar.getTitleBar(json)
   const table = {
     openSearchPage,
     setTitlebar,
