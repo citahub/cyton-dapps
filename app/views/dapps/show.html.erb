@@ -19,13 +19,13 @@
   <div id='id-container-intro'>
     <div class="title">应用描述</div>
     <div class="intro">
-      <%= @dapp.intro%>
+      <%= @dapp.intro %>
     </div>
     <div class="time">
-      发布时间: <%= @dapp.publish_at%>
+      发布时间: <%= @dapp.publish_at&.strftime("%Y-%m-%d") %>
     </div>
     <div class="author">
-      开发者: <%= @dapp.developer%>
+      开发者: <%= @dapp.developer %>
     </div>
   </div>
 
