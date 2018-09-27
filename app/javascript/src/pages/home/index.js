@@ -62,7 +62,7 @@ const render = () => {
 }
 
 const bindEvent = () => {
-  bindPulldownRefresh()
+  // bindPulldownRefresh()
   bindSearchBar()
 }
 
