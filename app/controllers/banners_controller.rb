@@ -4,8 +4,8 @@ class BannersController < ApplicationController
     options = {
       start_at_lteq: now,
       end_at_gteq: now,
-      ios_version_number_gteq: handle_version(params[:ios_version]),
-      android_version_number_gteq: handle_version(params[:android_version]),
+      ios_version_number_lteq: handle_version(params[:ios_version]),
+      android_version_number_lteq: handle_version(params[:android_version]),
     }
 
     @banners = Banner.ransack(options).result

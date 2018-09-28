@@ -2,7 +2,7 @@
 @import './size.scss';
 
 #id-page-home {
-  $headerheight: 75px;
+  $headerheight: 64px;
   $backcolor: $c-back-header;
 
   & {
@@ -14,12 +14,12 @@
 
   #id-container-headerbar {
     & {
-      padding: 14px 15px 12px;
-      background-color: $backcolor;
+      padding: 14px 15px 20px;
+      background-color: #fff;
       position: fixed;
       top: 0;
       width: 100%;
-      height: $headerheight;
+      /* height: 75px; */
       z-index: 100;
     }
     .headerbarInner {
@@ -143,16 +143,16 @@
     $bordercolor: #f7f7f7;
 
     .block {
-      margin-bottom: 10px;
-      padding: 15px;
-      padding-bottom: 0;
-      border-bottom: 10px solid $bordercolor;
-    }
+    // margin-bottom: 10px;
+    padding: 20px 15px 15px;
+    padding-bottom: 0;
+    border-bottom: 10px solid #f7f7f7;
+}
     .block:last-child {
       border-bottom: none;
     }
     .header {
-      margin-bottom: 12px;
+      // margin-bottom: 12px;
     }
     .headertitle {
       display: inline-block;
@@ -163,7 +163,7 @@
       color: $c-conspicuous;
     }
     .dapp {
-      padding: 14px 0;
+      padding: 15px 0;
       border-bottom: 1px solid $bordercolor;
       display: flex;
     }
