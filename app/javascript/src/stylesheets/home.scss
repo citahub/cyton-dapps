@@ -143,11 +143,11 @@
     $bordercolor: #f7f7f7;
 
     .block {
-    // margin-bottom: 10px;
-    padding: 20px 15px 15px;
-    padding-bottom: 0;
-    border-bottom: 10px solid #f7f7f7;
-}
+      // margin-bottom: 10px;
+      padding: 20px 15px 15px;
+      padding-bottom: 0;
+      border-bottom: 10px solid #f7f7f7;
+    }
     .block:last-child {
       border-bottom: none;
     }
