@@ -51,7 +51,7 @@ const tDappsContainer = ({ local, title, icon }) => {
 const tDappsDefault = () => {
   const t = `<div class="noData">
                 <img class="noDataImg" src="${noData}" alt="">
-                <span class="noDataText">无数据显示</span>
+                <span class="noDataText">空空如也</span>
               </div>`
   return t
 }
