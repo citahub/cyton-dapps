@@ -1,5 +1,6 @@
 import { _es, bind, localStoreStore, log } from './utils'
 import { initApi } from './utils/dappsApi'
+import { sensors } from './utils/sensors'
 import './imgs/index'
 import './stylesheets'
 // import j from 'jquery'

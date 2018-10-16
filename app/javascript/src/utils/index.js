@@ -1,6 +1,11 @@
+import environment from './environment'
+
 let _log = () => {
-  // return () => {}
-  return console.log.bind(console, '>>>')
+  if (environment === 'development') {
+    return console.log.bind(console, '>>>')
+  } else {
+    return () => {}
+  }
 }
 const log = _log()
 
