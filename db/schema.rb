@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_12_040712) do
+ActiveRecord::Schema.define(version: 2018_10_25_031650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2018_09_12_040712) do
     t.bigint "dapp_type_id"
     t.bigint "ios_version_number"
     t.bigint "android_version_number"
+    t.boolean "filter_ip", default: false
     t.index ["dapp_type_id"], name: "index_dapps_on_dapp_type_id"
   end
 

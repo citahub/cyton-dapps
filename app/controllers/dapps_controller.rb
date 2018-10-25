@@ -9,6 +9,10 @@ class DappsController < ApplicationController
       android_version_number_lteq: handle_version(params[:android_version]),
     }
 
+    if FilterIpUtils.china?(request.remote_ip)
+      options.merge!(filter_ip_eq: false)
+    end
+
     @banners = Banner.ransack(options).result
     # @dapps = Dapp.all.group_by { |dapp| dapp.d_type }
     @dapps = DappType.default_order.map do |dapp_type|
