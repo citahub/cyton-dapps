@@ -1,5 +1,10 @@
 <% @page_title = @dapp.name %>
 
+<div id='id-store' class='storeinfo' 
+  data-category=<%=@dapp.dapp_type.name %>
+  data-name=<%=@dapp.name %>
+  ></div>
+
 <div id='id-page-info' class='dappsContainer'>
   <div id='id-container-main'>
     <img class="mainimg" src=<%= @dapp.logo_url %> alt="mainimg">

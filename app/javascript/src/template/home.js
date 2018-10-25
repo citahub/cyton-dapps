@@ -46,7 +46,7 @@ const dappshowPath = (id) => {
   return `/dapps/${id}`
 }
 
-const tDappblocksCell = (list) => {
+const tDappblocksCell = (type, list) => {
   let t = ''
   list.forEach((info) => {
     const { name, logo_url, desc, id, marketing_url } = info
@@ -57,7 +57,7 @@ const tDappblocksCell = (list) => {
     }
 
     t += `
-         <a class="dapp" href=${dappshowPath(id)}>
+         <a class="dapp" href=${dappshowPath(id)}  data-catagory='${type}' data-name='${name}'>
           <div class='dappsimgContainer'>
             <img class="dappimg" src=${logo_url}>
             </div>
@@ -82,7 +82,7 @@ const tDappblocks = (list) => {
   let t = ''
   list.forEach((info) => {
     const { type, value } = info
-    const cell = tDappblocksCell(value)
+    const cell = tDappblocksCell(type, value)
     t += `
     <div class="block">
       <div class="header">

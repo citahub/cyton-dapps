@@ -1,11 +1,11 @@
 import { dappsLoaded } from '../utils/dappsApi'
-// import { log } from './utils'
+import { log } from '../utils'
 import noData from 'src/imgs/noData.png'
 import defaultimg from 'src/imgs/noData.png'
 import linkto from 'src/imgs/icon/linkto.png'
 import { dappshowPath } from './home'
 
-const tDappListCell = ({ logo_url, name, id, desc, marketing_url }) => {
+const tDappListCell = (type, { logo_url, name, id, desc, marketing_url }) => {
   let realimg = logo_url
   if (!realimg) {
     realimg = defaultimg
@@ -15,7 +15,7 @@ const tDappListCell = ({ logo_url, name, id, desc, marketing_url }) => {
     marketing = `<img class="dappsListMarketing" src=${marketing_url} alt="">`
   }
   console.log(marketing)
-  const t = `<a class="dappsListItem" href="${dappshowPath(id)}">
+  const t = `<a class="dappsListItem" href="${dappshowPath(id)}" data-catagory='${type}' data-name='${name}'>
                 <div class='dappsListImgContainer'>
                   <img class="dappsListImg" src=${realimg} alt="">
                   
@@ -29,7 +29,7 @@ const tDappListCell = ({ logo_url, name, id, desc, marketing_url }) => {
   return t
 }
 
-const tDappsContainer = (dappinfoList) => {
+const tDappsContainer = (type, dappinfoList) => {
   const l = dappinfoList
   if (l.length === 0) {
     return ''
@@ -38,7 +38,7 @@ const tDappsContainer = (dappinfoList) => {
   let t = ''
   for (let i = 0; i < len; i++) {
     const info = l[i]
-    t += tDappListCell(info)
+    t += tDappListCell(type, info)
   }
   t = `<div class="popularContainer">
           ${t}
@@ -54,8 +54,8 @@ const tDappsDefault = () => {
   return t
 }
 
-const renderbyList = (container, list) => {
-  const html = tDappsContainer(list)
+const renderbyList = (container, list, type) => {
+  const html = tDappsContainer(type, list)
   if (html === '') {
     container.html(tDappsDefault())
   } else {

@@ -5,6 +5,21 @@ import { log } from '../../utils'
 import Config from '../../config'
 import jsontable from '../../utils/jsonApi'
 import { titlebarNormal } from '../../utils/tablebar'
+import { trackDapplist } from '../../utils/sensors'
+
+const bindTrackDapplist = (container) => {
+  container.find('.dappsListItem').on('click', function(event) {
+    const dom = this
+    const dapp = j(dom)
+    const category = dapp.attr('data-category')
+    const name = dapp.attr('data-name')
+
+    trackDapplist(dom, {
+      DApp_category: category,
+      DApp_name: name,
+    })
+  })
+}
 
 const main = ({ pname }) => {
   titlebarNormal()
@@ -16,7 +31,9 @@ const main = ({ pname }) => {
     // const info = data.find((obj) => {
     //   return obj.type === pname
     // })
-    renderbyList(container, data)
+    const type = document.title
+    renderbyList(container, data, type)
+    bindTrackDapplist(container)
   })
 }
 
