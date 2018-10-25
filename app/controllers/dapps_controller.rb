@@ -9,7 +9,7 @@ class DappsController < ApplicationController
       android_version_number_lteq: handle_version(params[:android_version]),
     }
 
-    if FilterIpUtils.china?(request.remote_ip)
+    if FilterIpUtils.china_mainland?(request.remote_ip)
       options.merge!(filter_ip_eq: false)
     end
 

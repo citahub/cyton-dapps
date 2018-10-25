@@ -9,8 +9,8 @@ class FilterIpUtils
       db.lookup(ip)
     end
 
-    # check ip belongs to China?
-    def china?(ip)
+    # check ip belongs to China mainland
+    def china_mainland?(ip)
       ret = lookup(ip)
       ret.country.iso_code == "CN"
     end
