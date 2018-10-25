@@ -1,71 +1,24 @@
 import j from 'jquery'
 import { log } from '../../utils'
 import jsontable from '../../utils/jsonApi'
+import { trackDappbanner } from '../../utils/sensors'
 
-const bindBannerTouch = () => {}
-
-// const bindBannerClick = () => {
-//   const banner = j('#id-container-banner').children(0)
-//   const imgs = banner.children()
-//   let timeout = null
-
-//   const automove = () => {
-//     if (timeout !== null) {
-//       clearTimeout(timeout)
-//     }
-//     timeout = setTimeout(() => {
-//       moveright()
-//     }, 3000)
-//   }
-
-//   const eventMoveRemove = () => {
-//     banner.children()[0].removeEventListener('click', moveleft)
-//     banner.children()[2].removeEventListener('click', moveright)
-//   }
-
-//   const eventMoveAdd = () => {
-//     banner.children()[0].addEventListener('click', moveleft)
-//     banner.children()[2].addEventListener('click', moveright)
-//   }
-
-//   const moveleft = (event) => {
-//     const oldmiddle = banner.children()[1]
-//     oldmiddle.className = 'bannerimg banneranime middletoleft'
-//     eventMoveRemove()
-//     oldmiddle.className = 'bannerimg moveleft'
-//     banner.append(banner.children()[0])
-//     setTimeout(() => {
-//       oldmiddle.className = 'bannerimg'
-//     }, 0)
-//     eventMoveAdd()
-//     // automove()
-//   }
-
-//   const moveright = (event) => {
-//     eventMoveRemove()
-//     banner.children()[0].className = 'bannerimg moveright'
-//     banner.prepend(banner.children()[2])
-//     setTimeout(() => {
-//       banner.children()[1].className = 'bannerimg'
-//     }, 0)
-//     eventMoveAdd()
-//     // automove()
-//   }
-//   imgs[0].addEventListener('click', moveleft)
-//   imgs[2].addEventListener('click', moveright)
-//   // timeout = setTimeout(() => {
-//   //   moveright()
-//   // }, 3000)
-// }
-
-const bindBanner = (bannerDoms) => {
+const bindBanner = (bannerList) => {
   const banner = j('#id-container-banner .banner')
+  const bannerLength = bannerList.length
   const pstart = {}
   const pcurrent = {}
+  let currentindex = 0
+  let nextindex = 1
   let imgInnerPosition
   let imgLeft
   let timeout = null
   let mousedown = false
+
+  const initBanner = () => {
+    const domlist = [bannerList[0].jquery, bannerList[1].jquery, bannerList[bannerLength - 1].jquery]
+    banner.append(domlist)
+  }
 
   const automoveStop = () => {
     if (timeout !== null) {
@@ -83,31 +36,48 @@ const bindBanner = (bannerDoms) => {
   const moveleft = (event) => {
     // 向左,
     // 移除外部最后一个, 加到内部最后一个
-    const newdom = bannerDoms.pop()
+    let newindex = currentindex + 2
+    if (newindex > bannerLength - 1) {
+      newindex = newindex - bannerLength
+    }
+    currentindex += 1
+    if (currentindex > bannerLength - 1) {
+      currentindex = currentindex - bannerLength
+    }
+    const newinfo = bannerList[newindex]
+    const newdom = newinfo.jquery
     newdom.attr('class', 'bannerimg newright')
     banner.append(newdom)
 
     // 移除内部第一个加到外部第一个
     const unused = banner.children(':first-child')
-    bannerDoms.unshift(unused)
     unused.remove()
     newdom.attr('class', 'bannerimg')
-    bindMiddleimg(j(banner.children(':nth-child(2)')))
+    bindMiddleimg(j(banner.children(':nth-child(2)')), bannerList[currentindex].props)
   }
 
   const moveright = (event) => {
     // 向右
     // 移除外部第一个, 加入内部第一个
-    const newdom = bannerDoms.shift()
+    let newindex = currentindex - 2
+    if (newindex < 0) {
+      newindex = newindex + bannerLength
+    }
+    currentindex -= 1
+    if (currentindex < 0) {
+      currentindex = currentindex + bannerLength
+    }
+    const newinfo = bannerList[newindex]
+    const newdom = newinfo.jquery
     newdom.attr('class', 'bannerimg newleft')
     banner.prepend(newdom)
 
     // 移除内部最后一个, 加入外部最后一个
     const unused = banner.children(':last-child')
-    bannerDoms.push(unused)
+    bannerList.push(unused)
     unused.remove()
     newdom.attr('class', 'bannerimg')
-    bindMiddleimg(j(banner.children(':nth-child(2)')))
+    bindMiddleimg(j(banner.children(':nth-child(2)')), bannerList[currentindex].props)
   }
 
   const onTouchstart = (e) => {
@@ -179,7 +149,7 @@ const bindBanner = (bannerDoms) => {
   //   }
   // }
 
-  const onTouchend = (e) => {
+  const onTouchend = (props) => (e) => {
     e.stopPropagation()
     mousedown = false
     const img = j(e.delegateTarget)
@@ -191,20 +161,39 @@ const bindBanner = (bannerDoms) => {
       img.css('transition', 'left')
       moveright()
     } else {
-      bindMiddleimg(img)
-      img.click()
+      bindMiddleimg(img, props)
+      onClick(img, props)
+      // img.click()
     }
     setTimeout(() => {
       img.removeAttr('style')
     }, 0)
   }
 
+  const onClick = (element, props) => () => {
+    log('on click props', props)
+    trackDappbanner(element, props, console.log.bind('track dapp banner'))
+  }
+
+  const eventtable = {
+    touchend: null,
+    click: null,
+  }
+
   const bindMiddleimg = (middleimg) => {
     middleimg.on('touchstart', onTouchstart)
     // middleimg.on('mousedown', onMousedown)
+
     middleimg.on('touchmove', onTouchmove)
     // middleimg.on('mousemove', onMousemove)
-    middleimg.on('touchend', onTouchend)
+
+    const props = bannerList[currentindex].props
+    eventtable.touchend = onTouchend(props)
+    middleimg.on('touchend', eventtable.touchend)
+
+    eventtable.click = onClick(middleimg[0], props)
+    middleimg.on('click', eventtable.click)
+
     // middleimg.on('mouseup', onTouchend)
     automoveStart()
   }
@@ -214,11 +203,17 @@ const bindBanner = (bannerDoms) => {
     // banner.children().off('mousedown', onMousedown)
     banner.children().off('touchmove', onTouchmove)
     // banner.children().off('mousemove', onMousemove)
-    banner.children().off('touchend', onTouchend)
+    banner.children().off('touchend', eventtable.touchend)
+    banner.children().off('click', eventtable.click)
     // banner.children().off('mouseup', onTouchend)
   }
 
-  bindMiddleimg(banner.children(':nth-child(2)'))
+  const main = () => {
+    initBanner()
+    bindMiddleimg(banner.children(':nth-child(2)'))
+  }
+
+  main()
 }
 
 export default bindBanner

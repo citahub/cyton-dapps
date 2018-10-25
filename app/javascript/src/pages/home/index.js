@@ -7,6 +7,7 @@ import bindBanner from './bannerAction'
 import neuronapi from '../../utils/neuron'
 import { bindPulldownRefresh } from './pulldownRefresh'
 import { titlebarNormal } from '../../utils/tablebar'
+import { trackDapplist } from '../../utils/sensors'
 
 const bindNavigationButton = () => {
   const navbutton = j('#id-button-navigation')
@@ -28,37 +29,59 @@ const bindSearchBar = () => {
   })
 }
 
+const bindTrackDapplist = (container) => {
+  container.find('.dapp').on('click', function(event) {
+    const dom = this
+    const dapp = j(dom)
+    const category = dapp.attr('data-category')
+    const name = dapp.attr('data-name')
+
+    trackDapplist(dom, {
+      DApp_category: category,
+      DApp_name: name,
+    })
+  })
+}
+
 const renderRecommand = () => {
   const url = jsontable.dapps
   const container = j('#id-container-dappblocks')
   return j.get(url, (data) => {
     renderBlockbyList(container, data)
+    bindTrackDapplist(container)
     bindNavigationButton()
   })
 }
 
 const createBannerImgs = (list) => {
-  return list.reverse().map((info) => {
-    return j(tBannerimg(info))
+  return list.reverse().map((info, i) => {
+    const jquery = j(tBannerimg(info))
+    const props = {
+      index: i,
+      id: info.id,
+    }
+    return {
+      jquery,
+      props,
+    }
   })
 }
 
 const renderBanner = () => {
   const url = jsontable.banners
-  const container = j('#id-container-banner .banner')
   j.get(url, (data) => {
-    let dat = data
-    if (data.length <= 3) {
-      dat = [...data, ...data, ...data]
-    } else {
+    let dat
+    const length = data.length
+    if (length > 3) {
       dat = data
+    } else if (length === 3 || length === 2) {
+      dat = [...data, ...data]
+    } else if (length === 1) {
+      dat = [...data, ...data, ...data, ...data]
+    } else {
+      console.error('banners info error')
     }
     let l = createBannerImgs(dat)
-    const img1 = l.shift()
-    const img2 = l.shift()
-    const imgLast = l.pop()
-    const inner = [img2, img1, imgLast]
-    container.append(inner)
     bindBanner(l)
   })
 }

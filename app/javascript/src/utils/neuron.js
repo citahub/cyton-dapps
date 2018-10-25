@@ -22,7 +22,9 @@ const initAndroidApi = function() {
 
 const initIosApi = function() {
   const openSearchPage = () => window.touchSearchbar()
-  const setTitlebar = (json) => {}
+  const setTitlebar = function(json) {
+    window.webkit.messageHandlers.getTitleBar.postMessage({ body: json })
+  }
   const table = {
     openSearchPage,
     setTitlebar,
