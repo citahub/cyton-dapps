@@ -1,13 +1,7 @@
 class DappsController < ApplicationController
 
   def index
-    now = Time.now
-    options = {
-      start_at_lteq: now,
-      end_at_gteq: now,
-      ios_version_number_lteq: handle_version(params[:ios_version]),
-      android_version_number_lteq: handle_version(params[:android_version]),
-    }
+    options = get_options
 
     @banners = Banner.ransack(options).result
     # @dapps = Dapp.all.group_by { |dapp| dapp.d_type }
@@ -31,13 +25,7 @@ class DappsController < ApplicationController
 
   # GET /dapp/more/:type_name
   def more
-    now = Time.now
-    options = {
-      start_at_lteq: now,
-      end_at_gteq: now,
-      ios_version_number_lteq: handle_version(params[:ios_version]),
-      android_version_number_lteq: handle_version(params[:android_version]),
-    }
+    options = get_options
 
     @dapp_type = DappType.find_by name: params[:type_name]
     @dapps = @dapp_type.dapps.default_order.ransack(options).result
@@ -49,9 +37,27 @@ class DappsController < ApplicationController
   def history
   end
 
-  private def handle_version(version)
+  private
+
+  def handle_version(version)
     return if version.blank?
     Dapp.handle_version(version)
+  end
+
+  def get_options
+    now = Time.now
+    opt = {
+      start_at_lteq: now,
+      end_at_gteq: now,
+      ios_version_number_lteq: handle_version(params[:ios_version]),
+      android_version_number_lteq: handle_version(params[:android_version]),
+    }
+
+    if FilterIpUtils.china_mainland?(request.remote_ip)
+      opt.merge!(filter_ip_eq: false)
+    end
+
+    opt
   end
 
 end

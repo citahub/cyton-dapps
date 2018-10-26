@@ -43,6 +43,11 @@
     </div>
 
     <div class="form-group">
+      <%= form.label :intro, 'IP筛选', class: "text-secondary" %>
+      <%= form.select :filter_ip, options_for_select([true, false], dapp.filter_ip), {}, {class: "form-control"} %>
+    </div>
+
+    <div class="form-group">
       <%= form.label :ios_version, 'iOS 版本', class: "text-secondary" %>
       <%= form.text_field :ios_version, class: "form-control" %>
     </div>
