@@ -2,8 +2,6 @@ import sensors from 'sa-sdk-javascript'
 import environment from './environment'
 import { log } from './index'
 
-var i = 0
-
 const init = () => {
   sensors.init({
     server_url: 'https://banana.cryptape.com:8106/sa?project=default',
@@ -29,22 +27,18 @@ const init = () => {
 }
 
 const trackDappbanner = (element, props, callback = null) => {
-  log('trackDappbanner')
   sensors.trackLink(element, 'DApp_banner', props, callback)
 }
 
 const trackDappdetails = (props, callback = null) => {
-  log('trackDappdetails')
   sensors.track('DApp_details', props, callback)
 }
 
 const trackDappbutton = (element, props, callback = null) => {
-  log('trackDappbutton')
   sensors.trackLink(element, 'DApp_button', props, callback)
 }
 
 const trackDapplist = (element, props, callback = null) => {
-  log('trackDapplist')
   sensors.trackLink(element, 'DApp_list', props, callback)
 }
 
