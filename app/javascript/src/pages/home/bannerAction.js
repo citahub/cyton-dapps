@@ -170,10 +170,10 @@ const bindBanner = (bannerList) => {
     }, 0)
   }
 
-  const onClick = (element, props) => () => {
-    log('on click props', props)
-    trackDappbanner(element, props, console.log.bind('track dapp banner'))
-  }
+  // const onClick = (element, props) => () => {
+  //   log('on click props', props)
+  //   trackDappbanner(element, props, console.log.bind('track dapp banner'))
+  // }
 
   const eventtable = {
     touchend: null,
@@ -191,9 +191,9 @@ const bindBanner = (bannerList) => {
     eventtable.touchend = onTouchend(props)
     middleimg.on('touchend', eventtable.touchend)
 
-    eventtable.click = onClick(middleimg[0], props)
-    middleimg.on('click', eventtable.click)
-
+    // eventtable.click = onClick(middleimg[0], props)
+    // middleimg.on('click', eventtable.click)
+    trackDappbanner(middleimg.get(), props, console.log.bind('track dapp banner'))
     // middleimg.on('mouseup', onTouchend)
     automoveStart()
   }
