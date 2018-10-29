@@ -8,16 +8,21 @@ import { titlebarNormal } from '../../utils/tablebar'
 import { trackDapplist } from '../../utils/sensors'
 
 const bindTrackDapplist = (container) => {
-  container.find('.dappsListItem').on('click', function(event) {
-    const dom = this
-    const dapp = j(dom)
+  container.each(function() {
+    const dapp = j(this)
     const category = dapp.attr('data-category')
     const name = dapp.attr('data-name')
-
-    trackDapplist(dom, {
-      DApp_category: category,
-      DApp_name: name,
+    dapp.on('click', function() {
+      trackDapplist({
+        DApp_category: category,
+        DApp_name: name,
+      })
     })
+
+    // trackDapplist(this, {
+    //   DApp_category: category,
+    //   DApp_name: name,
+    // })
   })
 }
 
