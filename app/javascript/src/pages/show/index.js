@@ -16,10 +16,16 @@ const main = ({ pname }) => {
     DApp_category: category,
   })
   const gotobutton = j('#id-container-other .goto')
-  trackDappbutton(gotobutton, {
-    DApp_category: category,
-    DApp_name: name,
+  gotobutton.on('click', function() {
+    trackDappbutton({
+      DApp_category: category,
+      DApp_name: name,
+    })
   })
+  // trackDappbutton(gotobutton, {
+  //   DApp_category: category,
+  //   DApp_name: name,
+  // })
 }
 
 export default main

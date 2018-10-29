@@ -34,9 +34,15 @@ const bindTrackDapplist = (container) => {
     const dapp = $(this)
     const category = dapp.attr('data-category')
     const name = dapp.attr('data-name')
-    trackDapplist(this, {
-      DApp_category: category,
-      DApp_name: name,
+    // trackDapplist(this, {
+    //   DApp_category: category,
+    //   DApp_name: name,
+    // })
+    dapp.on('click', function() {
+      trackDapplist({
+        DApp_category: category,
+        DApp_name: name,
+      })
     })
   })
 }
