@@ -27,7 +27,8 @@ const init = () => {
 }
 
 const trackDappbanner = (element, props, callback = null) => {
-  sensors.trackLink(element, 'DApp_banner', props, callback)
+  // sensors.trackLink(element, 'DApp_banner', props, callback)
+  sensors.track('DApp_banner', props, callback)
 }
 
 const trackDappdetails = (props, callback = null) => {
@@ -35,11 +36,13 @@ const trackDappdetails = (props, callback = null) => {
 }
 
 const trackDappbutton = (element, props, callback = null) => {
-  sensors.trackLink(element, 'DApp_button', props, callback)
+  // sensors.trackLink(element, 'DApp_button', props, callback)
+  sensors.track('DApp_button', props, callback)
 }
 
 const trackDapplist = (element, props, callback = null) => {
-  sensors.trackLink(element, 'DApp_list', props, callback)
+  // sensors.trackLink(element, 'DApp_list', props, callback)
+  sensors.track('DApp_list', props, callback)
 }
 
 // const trackDappusetime = (element, props, callback = null) => {
