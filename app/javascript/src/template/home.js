@@ -57,7 +57,7 @@ const tDappblocksCell = (type, list) => {
     }
 
     t += `
-         <a class="dapp" href=${dappshowPath(id)}  data-catagory='${type}' data-name='${name}'>
+         <a class="dapp" href=${dappshowPath(id)}  data-category='${type}' data-name='${name}'>
           <div class='dappsimgContainer'>
             <img class="dappimg" src=${logo_url}>
             </div>

@@ -14,7 +14,7 @@ const tDappListCell = (type, { logo_url, name, id, desc, marketing_url }) => {
   if (marketing_url) {
     marketing = `<img class="dappsListMarketing" src=${marketing_url} alt="">`
   }
-  const t = `<a class="dappsListItem" href="${dappshowPath(id)}" data-catagory='${type}' data-name='${name}'>
+  const t = `<a class="dappsListItem" href="${dappshowPath(id)}" data-category='${type}' data-name='${name}'>
                 <div class='dappsListImgContainer'>
                   <img class="dappsListImg" src=${realimg} alt="">
                   

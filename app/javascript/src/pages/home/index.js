@@ -32,7 +32,7 @@ const bindSearchBar = () => {
 const bindTrackDapplist = (container) => {
   container.find('.dapp').each(function() {
     const dapp = $(this)
-    const category = dapp.attr('data-catagory')
+    const category = dapp.attr('data-category')
     const name = dapp.attr('data-name')
     dapp.on('click', function() {
       trackDapplist({
