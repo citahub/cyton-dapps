@@ -81,22 +81,23 @@
 
   #id-container-banner {
     & {
-      height: 38vw;
       overflow: hidden;
       white-space: nowrap;
       text-align: center;
       position: relative;
       z-index: 0;
+      margin-bottom: 30px;
     }
     .banner {
-      width: 85.33vw;
-      height: 37.33vw;
+      width: 92vw;
+      height: 46.4vw;
       margin: auto;
       // overflow: hidden;
       white-space: nowrap;
       position: relative;
       font-size: 0px;
       text-align: left;
+      margin-bottom: 15px;
       // display: flex;
     }
     .bannerimg {
@@ -136,6 +137,67 @@
         right: 0px;
         transform: translate(200%) scale(0.9);
       }
+    }
+
+    .navs {
+      display: flex;
+      justify-content: center;
+    }
+
+    .navCell {
+      width: 10px;
+      height: 4px;
+      margin: 0 3px;
+      background-color: #e9ebf0;
+    }
+    .navCell.active {
+      background-color: #365fff;
+    }
+  }
+
+  #id-container-jumpButtons {
+    & {
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 24px;
+    }
+
+    .button {
+      position: relative;
+      width: 100px;
+      height: 50px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 165px;
+      max-width: 44%;
+      height: 54px;
+      border-radius: 5px;
+
+      color: white;
+      font-size: 15px;
+    }
+
+    .icon {
+      margin-left: 22px;
+      width: 28px;
+      height: 28px;
+    }
+
+    .icon.back {
+      position: absolute;
+      right: 0;
+      height: 100%;
+      width: auto;
+      opacity: 0.15;
+    }
+
+    .openCollection {
+      background-image: linear-gradient(to right, #3d68ff, #00c6ff);
+    }
+
+    .openMyDapp {
+      background-image: linear-gradient(to left, #1fe2bf, #37cc92);
     }
   }
 

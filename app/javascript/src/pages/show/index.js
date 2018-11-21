@@ -22,10 +22,6 @@ const main = ({ pname }) => {
       DApp_name: name,
     })
   })
-  // trackDappbutton(gotobutton, {
-  //   DApp_category: category,
-  //   DApp_name: name,
-  // })
 }
 
 export default main

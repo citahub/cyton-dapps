@@ -15,8 +15,15 @@ const bindBanner = (bannerList) => {
   let timeout = null
   let mousedown = false
 
+  const nav = j('#id-container-banner .navs')
+
+  const updateNav = (currentindex) => {
+    nav.children('.active').removeClass('active')
+    nav.children(`:nth-child(${currentindex + 1})`).addClass('active')
+  }
+
   const initBanner = () => {
-    const domlist = [bannerList[0].jquery, bannerList[1].jquery, bannerList[bannerLength - 1].jquery]
+    const domlist = [bannerList[bannerLength - 1].jquery, bannerList[0].jquery, bannerList[1].jquery]
     banner.append(domlist)
   }
 
@@ -34,50 +41,51 @@ const bindBanner = (bannerList) => {
   }
 
   const moveleft = (event) => {
-    // 向左,
-    // 移除外部最后一个, 加到内部最后一个
-    let newindex = currentindex + 2
-    if (newindex > bannerLength - 1) {
-      newindex = newindex - bannerLength
-    }
+    // left <-, current increase, 7 0 1 -> 0 1 2
     currentindex += 1
     if (currentindex > bannerLength - 1) {
       currentindex = currentindex - bannerLength
     }
-    const newinfo = bannerList[newindex]
-    const newdom = newinfo.jquery
+
+    let newindex = currentindex + 1
+    if (newindex > bannerLength - 1) {
+      newindex = newindex - bannerLength
+    }
+
+    const newdom = bannerList[newindex].jquery
     newdom.attr('class', 'bannerimg newright')
     banner.append(newdom)
 
-    // 移除内部第一个加到外部第一个
     const unused = banner.children(':first-child')
     unused.remove()
+
     newdom.attr('class', 'bannerimg')
     bindMiddleimg(j(banner.children(':nth-child(2)')), bannerList[currentindex].props)
+    updateNav(currentindex)
   }
 
   const moveright = (event) => {
-    // 向右
-    // 移除外部第一个, 加入内部第一个
-    let newindex = currentindex - 2
-    if (newindex < 0) {
-      newindex = newindex + bannerLength
-    }
+    // right -> , current decrease, 7 0 1 -> 6 7 0
     currentindex -= 1
     if (currentindex < 0) {
       currentindex = currentindex + bannerLength
     }
-    const newinfo = bannerList[newindex]
-    const newdom = newinfo.jquery
+
+    let newindex = currentindex - 1
+    if (newindex < 0) {
+      newindex = newindex + bannerLength
+    }
+
+    const newdom = bannerList[newindex].jquery
     newdom.attr('class', 'bannerimg newleft')
     banner.prepend(newdom)
 
-    // 移除内部最后一个, 加入外部最后一个
     const unused = banner.children(':last-child')
-    bannerList.push(unused)
     unused.remove()
+
     newdom.attr('class', 'bannerimg')
     bindMiddleimg(j(banner.children(':nth-child(2)')), bannerList[currentindex].props)
+    updateNav(currentindex)
   }
 
   const onTouchstart = (e) => {
@@ -99,16 +107,6 @@ const bindBanner = (bannerList) => {
     })
   }
 
-  // const onMousedown = (e) => {
-  //   automoveStop()
-  //   const img = j(e.delegateTarget)
-  //   imgInnerPosition = img.position()
-  //   imgLeft = img.offset().left
-  //   pstart.x = e.offsetX
-  //   pcurrent.x = pstart.x
-  //   mousedown = true
-  // }
-
   const onTouchmove = (e) => {
     event.preventDefault()
     const img = j(e.delegateTarget)
@@ -127,28 +125,6 @@ const bindBanner = (bannerList) => {
     })
   }
 
-  // const onMousemove = (e) => {
-  //   if (mousedown) {
-  //     event.preventDefault()
-  //     event.stopPropagation()
-  //     event.stopImmediatePropagation()
-  //     const img = j(e.delegateTarget)
-  //     pcurrent.x = e.offsetX
-
-  //     log(imgInnerPosition)
-  //     const left = imgInnerPosition.left + ((pcurrent.x - pstart.x) * img.innerWidth()) / window.innerWidth / 3
-
-  //     const right = banner.innerWidth() - left - img.innerWidth()
-
-  //     img.css({
-  //       left,
-  //       right,
-  //       transform: 'translate(0)',
-  //       transition: 'left 0s',
-  //     })
-  //   }
-  // }
-
   const onTouchend = (props) => (e) => {
     e.stopPropagation()
     mousedown = false
@@ -163,7 +139,6 @@ const bindBanner = (bannerList) => {
     } else {
       bindMiddleimg(img, props)
       onClick(img, props)
-      // img.click()
     }
     setTimeout(() => {
       img.removeAttr('style')
@@ -181,10 +156,7 @@ const bindBanner = (bannerList) => {
 
   const bindMiddleimg = (middleimg) => {
     middleimg.on('touchstart', onTouchstart)
-    // middleimg.on('mousedown', onMousedown)
-
     middleimg.on('touchmove', onTouchmove)
-    // middleimg.on('mousemove', onMousemove)
 
     const props = bannerList[currentindex].props
     eventtable.touchend = onTouchend(props)
@@ -192,19 +164,14 @@ const bindBanner = (bannerList) => {
 
     eventtable.click = onClick(middleimg[0], props)
     middleimg.on('click', eventtable.click)
-    // trackDappbanner(middleimg.get(), props)
-    // middleimg.on('mouseup', onTouchend)
     automoveStart()
   }
 
   const unbindMiddleimg = () => {
     banner.children().off('touchstart', onTouchstart)
-    // banner.children().off('mousedown', onMousedown)
     banner.children().off('touchmove', onTouchmove)
-    // banner.children().off('mousemove', onMousemove)
     banner.children().off('touchend', eventtable.touchend)
     banner.children().off('click', eventtable.click)
-    // banner.children().off('mouseup', onTouchend)
   }
 
   const main = () => {

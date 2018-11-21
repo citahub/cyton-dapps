@@ -2,9 +2,6 @@ import platforminfo from './platform'
 import { log } from './index'
 
 const initAndroidApi = function() {
-  // 不知道为什么要加 try catch 或 settimeout,
-  // 尽量不使用箭头函数, 还是不知道为什么
-  // 但如果不加, java 就会报错...
   const openSearchPage = () => window.appHybrid.startAddWebsitePage()
   function setTitlebar(json) {
     setTimeout(() => {
@@ -55,4 +52,64 @@ const initNeuronTable = () => {
   return methods
 }
 
-export default initNeuronTable()
+// export default initNeuronTable()
+
+// trycatch way
+const warnPlatformError = () => console.warn('Not in Neuron')
+
+const openSearchPage = function() {
+  try {
+    window.appHybrid.startAddWebsitePage()
+  } catch (error) {
+    try {
+      window.touchSearchbar()
+    } catch (error) {
+      warnPlatformError()
+    }
+  }
+}
+
+const setTitlebar = function(json) {
+  try {
+    window.webTitleBar.getTitleBar(json)
+  } catch (error) {
+    try {
+      window.webkit.messageHandlers.getTitleBar.postMessage({ body: json })
+    } catch (error) {
+      warnPlatformError()
+    }
+  }
+}
+
+const openCollection = function() {
+  try {
+    android()
+  } catch (error) {
+    try {
+      clickMyCollection()
+    } catch (error) {
+      warnPlatformError()
+    }
+  }
+}
+
+const openMyDapp = function() {
+  try {
+    android()
+  } catch (error) {
+    try {
+      clickMyDApp()
+    } catch (error) {
+      warnPlatformError()
+    }
+  }
+}
+
+const methods = {
+  openSearchPage,
+  setTitlebar,
+  openCollection,
+  openMyDapp,
+}
+
+export default methods

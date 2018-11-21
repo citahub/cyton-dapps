@@ -14,7 +14,6 @@ const tDappListCell = (type, { logo_url, name, id, desc, marketing_url }) => {
   if (marketing_url) {
     marketing = `<img class="dappsListMarketing" src=${marketing_url} alt="">`
   }
-  console.log(marketing)
   const t = `<a class="dappsListItem" href="${dappshowPath(id)}" data-catagory='${type}' data-name='${name}'>
                 <div class='dappsListImgContainer'>
                   <img class="dappsListImg" src=${realimg} alt="">
@@ -62,20 +61,5 @@ const renderbyList = (container, list, type) => {
     container.html(html)
   }
 }
-
-// const renderMinePage = () => {
-//   if (location.pathname === '/dapps/mine') {
-//     const container = GlobalTable.elementTable.dapps
-//     const table = GlobalTable.renderkeyTable
-//     // TODO: 这里可以抽一个函数
-//     const mydapps = tDappsContainer(table.mydapps)
-//     const myhistory = tDappsContainer(table.myhistory)
-//     if (mydapps === '' && myhistory === '') {
-//       container.innerHTML = tMyDappsDefault()
-//     } else {
-//       container.innerHTML = mydapps + myhistory
-//     }
-//   }
-// }
 
 export { renderbyList, tDappsContainer, tDappsDefault }
