@@ -4,60 +4,60 @@ import noData from 'src/imgs/noData.png'
 import defaultimg from 'src/imgs/noData.png'
 import linkto from 'src/imgs/icon/linkto.png'
 
-const tDappListCell = ({ img, name, url, time }) => {
+const htmlDappListCell = ({ img, name, url, time }) => {
   let realimg = img
   if (!img) {
     realimg = defaultimg
   }
 
   const date = new Date(time)
-  const tim = `${date.getFullYear() || 2000}-${date.getMonth() || 0 + 1}-${date.getDate() || 1}`
-  const t = `<a class="dappsListItem" href="${url}">
+  const timeStr = `${date.getFullYear() || 2000}-${date.getMonth() || 0 + 1}-${date.getDate() || 1}`
+  const html = `<a class="dappsListItem" href="${url}">
                 <div class='dappsListImgContainer'>
                   <img class="dappsListImg" src=${realimg} alt="">
                   
                 </div>
                 <div class="dappsListContent">
                   <div class="dappsListName">${name}</div>
-                  <div class="dappsListUrl" >${tim}</div>
+                  <div class="dappsListUrl" >${timeStr}</div>
                 </div>
                 <img class="linkto" src=${linkto} alt="linkto">
             </a>`
-  return t
+  return html
 }
 
-const tDappsContainer = ({ local, title, icon }) => {
+const htmlDappsContainer = ({ local, title, icon }) => {
   const l = dappsLoaded(local)
   if (l.length === 0) {
     return ''
   }
   const len = l.length
-  let t = ''
+  let html = ''
   for (let i = 0; i < len; i++) {
     const info = l[i]
-    t += tDappListCell(info)
+    html += htmlDappListCell(info)
   }
-  const ttitle = `
+  const htmlTitle = `
           <div class="popularTitle">
             <img class="popularIcon" src=${icon}>
             <div class="popularText">${title}</div>
           </div>`
-  t = `<div class="popularContainer">
-          ${t}
+  html = `<div class="popularContainer">
+          ${html}
         </div>`
-  return t
+  return html
 }
 
-const tDappsDefault = () => {
-  const t = `<div class="noData">
+const htmlDappsDefault = () => {
+  const html = `<div class="noData">
                 <img class="noDataImg" src="${noData}" alt="">
                 <span class="noDataText">空空如也</span>
               </div>`
-  return t
+  return html
 }
 
 const renderbyList = (container, { local }) => {
-  const html = tDappsContainer({ local })
+  const html = htmlDappsContainer({ local })
   if (html === '') {
     container.html(tDappsDefault())
   } else {
@@ -65,19 +65,4 @@ const renderbyList = (container, { local }) => {
   }
 }
 
-// const renderMinePage = () => {
-//   if (location.pathname === '/dapps/mine') {
-//     const container = GlobalTable.elementTable.dapps
-//     const table = GlobalTable.renderkeyTable
-//     // TODO: 这里可以抽一个函数
-//     const mydapps = tDappsContainer(table.mydapps)
-//     const myhistory = tDappsContainer(table.myhistory)
-//     if (mydapps === '' && myhistory === '') {
-//       container.innerHTML = tMyDappsDefault()
-//     } else {
-//       container.innerHTML = mydapps + myhistory
-//     }
-//   }
-// }
-
-export { renderbyList, tDappsContainer, tDappsDefault }
+export { renderbyList, htmlDappsContainer, htmlDappsDefault }

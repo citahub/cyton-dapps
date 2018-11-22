@@ -2,7 +2,7 @@ import j from 'jquery'
 import { log } from '../../utils'
 import { renderbyList, renderBlockbyList } from '../../template/home'
 import jsontable from '../../utils/jsonApi'
-import { tBannerimg } from '../../template/home'
+import { htmlBannerImg } from '../../template/home'
 import bindBanner from './bannerAction'
 import neuronapi from '../../utils/neuron'
 import { bindPulldownRefresh } from './pulldownRefresh'
@@ -61,7 +61,7 @@ const renderRecommand = () => {
 
 const createBannerImgs = (list) => {
   return list.map((info, i) => {
-    const jquery = j(tBannerimg(info))
+    const jquery = j(htmlBannerImg(info))
     const props = {
       index: i.toString(),
       id: info.id.toString(),
@@ -75,12 +75,12 @@ const createBannerImgs = (list) => {
 
 const renderBannerNav = (length) => {
   let i = 1
-  let t = `<div class='navCell active'></div>`
+  let html = `<div class='navCell active'></div>`
   while (i < length) {
-    t += `<div class='navCell'></div>`
+    html += `<div class='navCell'></div>`
     i++
   }
-  j('#id-container-banner .navs').html(t)
+  j('#id-container-banner .navs').html(html)
 }
 
 const renderBanner = () => {

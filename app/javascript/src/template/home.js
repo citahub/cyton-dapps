@@ -3,7 +3,7 @@ import { log } from '../utils'
 import noData from 'src/imgs/noData.png'
 import defaultimg from 'src/imgs/noData.png'
 
-const tBannerimg = ({ image_url: img, address }) => {
+const htmlBannerImg = ({ image_url: img, address }) => {
   let realimg = img || defaultimg
   let href
   if (!isNaN(Number(address))) {
@@ -17,37 +17,37 @@ const tBannerimg = ({ image_url: img, address }) => {
     href = address
   }
 
-  const t = `
+  const html = `
     <a class='bannerimg' href=${href}><img  src=${realimg} alt=""></a>
   `
-  return t
+  return html
 }
 
-const tBanner = (list) => {
+const htmlBanner = (list) => {
   const l = list
   if (l.length === 0) {
     return ''
   }
   const len = l.length
-  let t = ''
+  let html = ''
   for (let i = 0; i < len; i++) {
     const info = l[i]
-    t += tBannerimg(info)
+    html += htmlBannerImg(info)
   }
-  t = `
+  html = `
     <div class='banner'>
-      ${t}
+      ${html}
     </div>
   `
-  return t
+  return html
 }
 
-const dappshowPath = (id) => {
+const pathShowDapp = (id) => {
   return `/dapps/${id}`
 }
 
-const tDappblocksCell = (type, list) => {
-  let t = ''
+const htmlDappBlocksCell = (type, list) => {
+  let html = ''
   list.forEach((info) => {
     const { name, logo_url, desc, id, marketing_url } = info
 
@@ -56,8 +56,8 @@ const tDappblocksCell = (type, list) => {
       marketing = `<img class="dappMarketing" src=${marketing_url} alt="">`
     }
 
-    t += `
-         <a class="dapp" href=${dappshowPath(id)}  data-category='${type}' data-name='${name}'>
+    html += `
+         <a class="dapp" href=${pathShowDapp(id)}  data-category='${type}' data-name='${name}'>
           <div class='dappsimgContainer'>
             <img class="dappimg" src=${logo_url}>
             </div>
@@ -71,19 +71,19 @@ const tDappblocksCell = (type, list) => {
         </a>
         `
   })
-  return t
+  return html
 }
 
 const dappmorePath = (name) => {
   return `/more/${name}`
 }
 
-const tDappblocks = (list) => {
-  let t = ''
+const htmlDappBlocks = (list) => {
+  let html = ''
   list.forEach((info) => {
     const { type, value } = info
-    const cell = tDappblocksCell(type, value)
-    t += `
+    const cell = htmlDappBlocksCell(type, value)
+    html += `
     <div class="block">
       <div class="header">
         <div class="headertitle">
@@ -97,19 +97,19 @@ const tDappblocks = (list) => {
     </div>
     `
   })
-  return t
+  return html
 }
 
-const tDefault = () => {
-  const t = `<div class="noData">
+const htmlDefault = () => {
+  const html = `<div class="noData">
                 <img class="noDataImg" src="${noData}" alt="">
                 <span class="noDataText">无数据显示</span>
               </div>`
-  return t
+  return html
 }
 
 const renderbyList = (container, list) => {
-  const html = tBanner(list)
+  const html = htmlBanner(list)
   if (html === '') {
     container.html(tDefault())
   } else {
@@ -118,8 +118,8 @@ const renderbyList = (container, list) => {
 }
 
 const renderBlockbyList = (container, list) => {
-  const html = tDappblocks(list)
+  const html = htmlDappBlocks(list)
   container.html(html)
 }
 
-export { renderbyList, tDappblocks, renderBlockbyList, tBannerimg, dappshowPath }
+export { renderbyList, htmlDappBlocks, renderBlockbyList, htmlBannerImg, pathShowDapp }
