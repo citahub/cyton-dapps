@@ -11,11 +11,11 @@ const initAndroidApi = function() {
   }
 
   const openMyDapp = function () {
-    toWebCollection()
+    window.appHybrid.toWebCollection()
   }
 
   const openCollection = function() {
-    toErc721()
+    window.appHybrid.toErc721()
   }
 
   const table = {
