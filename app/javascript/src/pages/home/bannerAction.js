@@ -6,14 +6,12 @@ import { trackDappbanner } from '../../utils/sensors'
 const bindBanner = (bannerList) => {
   const banner = j('#id-container-banner .banner')
   const bannerLength = bannerList.length
-  const pstart = {}
-  const pcurrent = {}
+  const pointStart = {}
+  const pointCurrent = {}
   let currentIndex = 0
-  let nextindex = 1
   let imgInnerPosition
   let imgLeft
   let timeout = null
-  let mousedown = false
 
   const nav = j('#id-container-banner .navs')
 
@@ -44,22 +42,22 @@ const bindBanner = (bannerList) => {
     // left <-, current increase, 7 0 1 -> 0 1 2
     currentIndex += 1
     if (currentIndex > bannerLength - 1) {
-      currentIndex = currentIndex - bannerLength
+      currentIndex = 0
     }
 
-    let newindex = currentIndex + 1
-    if (newindex > bannerLength - 1) {
-      newindex = newindex - bannerLength
+    let newIndex = currentIndex + 1
+    if (newIndex > bannerLength - 1) {
+      newIndex = 0
     }
 
-    const newdom = bannerList[newindex].jquery
-    newdom.attr('class', 'bannerimg newright')
-    banner.append(newdom)
+    const newDom = bannerList[newIndex].jquery
+    newDom.attr('class', 'bannerimg newright')
+    banner.append(newDom)
 
     const unused = banner.children(':first-child')
     unused.remove()
 
-    newdom.attr('class', 'bannerimg')
+    newDom.attr('class', 'bannerimg')
     bindMiddleimg(j(banner.children(':nth-child(2)')), bannerList[currentIndex].props)
     updateNav(currentIndex)
   }
@@ -71,19 +69,19 @@ const bindBanner = (bannerList) => {
       currentIndex = currentIndex + bannerLength
     }
 
-    let newindex = currentIndex - 1
-    if (newindex < 0) {
-      newindex = newindex + bannerLength
+    let newIndex = currentIndex - 1
+    if (newIndex < 0) {
+      newIndex = newIndex + bannerLength
     }
 
-    const newdom = bannerList[newindex].jquery
-    newdom.attr('class', 'bannerimg newleft')
-    banner.prepend(newdom)
+    const newDom = bannerList[newIndex].jquery
+    newDom.attr('class', 'bannerimg newleft')
+    banner.prepend(newDom)
 
     const unused = banner.children(':last-child')
     unused.remove()
 
-    newdom.attr('class', 'bannerimg')
+    newDom.attr('class', 'bannerimg')
     bindMiddleimg(j(banner.children(':nth-child(2)')), bannerList[currentIndex].props)
     updateNav(currentIndex)
   }
@@ -94,8 +92,8 @@ const bindBanner = (bannerList) => {
     imgInnerPosition = img.position()
     imgLeft = img.offset().left
     const touch = e.touches[0]
-    pstart.x = touch.clientX
-    pcurrent.x = pstart.x
+    pointStart.x = touch.clientX
+    pointCurrent.x = pointStart.x
 
     const left = imgInnerPosition.left
     const right = banner.innerWidth() - left - img.innerWidth()
@@ -111,9 +109,9 @@ const bindBanner = (bannerList) => {
     event.preventDefault()
     const img = j(e.delegateTarget)
     const touch = e.touches[0]
-    pcurrent.x = touch.clientX
+    pointCurrent.x = touch.clientX
 
-    const left = imgInnerPosition.left + ((pcurrent.x - pstart.x) * img.innerWidth()) / window.innerWidth / 3
+    const left = imgInnerPosition.left + ((pointCurrent.x - pointStart.x) * img.innerWidth()) / window.innerWidth / 3
 
     const right = banner.innerWidth() - left - img.innerWidth()
 
@@ -127,7 +125,6 @@ const bindBanner = (bannerList) => {
 
   const onTouchend = (props) => (e) => {
     e.stopPropagation()
-    mousedown = false
     const img = j(e.delegateTarget)
     unbindMiddleimg()
     if (img.offset().left < imgLeft) {
