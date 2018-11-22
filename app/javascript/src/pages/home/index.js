@@ -2,7 +2,7 @@ import j from 'jquery'
 import { log } from '../../utils'
 import { renderbyList, renderBlockbyList } from '../../template/home'
 import jsontable from '../../utils/jsonApi'
-import { tBannerimg } from '../../template/home'
+import { htmlBannerImg } from '../../template/home'
 import bindBanner from './bannerAction'
 import neuronapi from '../../utils/neuron'
 import { bindPulldownRefresh } from './pulldownRefresh'
@@ -30,14 +30,10 @@ const bindSearchBar = () => {
 }
 
 const bindTrackDapplist = (container) => {
-  container.each(function() {
+  container.find('.dapp').each(function() {
     const dapp = $(this)
     const category = dapp.attr('data-category')
     const name = dapp.attr('data-name')
-    // trackDapplist(this, {
-    //   DApp_category: category,
-    //   DApp_name: name,
-    // })
     dapp.on('click', function() {
       trackDapplist({
         DApp_category: category,
@@ -45,6 +41,12 @@ const bindTrackDapplist = (container) => {
       })
     })
   })
+}
+
+const bindLinkButtons = () => {
+  const container = j('#id-container-jumpButtons')
+  container.children('.button.openCollection').on('click', neuronapi.openCollection)
+  container.children('.button.openMyDapp').on('click', neuronapi.openMyDapp)
 }
 
 const renderRecommand = () => {
@@ -58,17 +60,27 @@ const renderRecommand = () => {
 }
 
 const createBannerImgs = (list) => {
-  return list.reverse().map((info, i) => {
-    const jquery = j(tBannerimg(info))
+  return list.map((info, i) => {
+    const jquery = j(htmlBannerImg(info))
     const props = {
-      index: i,
-      id: info.id,
+      index: i.toString(),
+      id: info.id.toString(),
     }
     return {
       jquery,
       props,
     }
   })
+}
+
+const renderBannerNav = (length) => {
+  let i = 1
+  let html = `<div class='navCell active'></div>`
+  while (i < length) {
+    html += `<div class='navCell'></div>`
+    i++
+  }
+  j('#id-container-banner .navs').html(html)
 }
 
 const renderBanner = () => {
@@ -85,7 +97,9 @@ const renderBanner = () => {
     } else {
       console.error('banners info error')
     }
+
     let l = createBannerImgs(dat)
+    renderBannerNav(length)
     bindBanner(l)
   })
 }
@@ -98,6 +112,7 @@ const render = () => {
 const bindEvent = () => {
   // bindPulldownRefresh()
   bindSearchBar()
+  bindLinkButtons()
 }
 
 const main = () => {
