@@ -10,12 +10,12 @@ const initAndroidApi = function() {
     window.webTitleBar.getTitleBar(json)
   }
 
-  const openMyDapp = function() {
-    console.warn('not method openMyDapp in android')
+  const openMyDapp = function () {
+    toWebCollection()
   }
 
   const openCollection = function() {
-    console.warn('not method openCollection in android')
+    toErc721()
   }
 
   const table = {
