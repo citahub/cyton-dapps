@@ -2,40 +2,61 @@ import platforminfo from './platform'
 import { log } from './index'
 
 const initAndroidApi = function() {
-  // 不知道为什么要加 try catch 或 settimeout,
-  // 尽量不使用箭头函数, 还是不知道为什么
-  // 但如果不加, java 就会报错...
-  const openSearchPage = () => window.appHybrid.startAddWebsitePage()
-  function setTitlebar(json) {
-    setTimeout(() => {
-      window.webTitleBar.getTitleBar(json)
-    }, 0)
-    console.log(json)
+  const openSearchPage = function() {
+    window.appHybrid.startAddWebsitePage()
   }
-  // const setTitlebar = (json) => {}
+
+  const setTitlebar = function(json) {
+    window.webTitleBar.getTitleBar(json)
+  }
+
+  const openMyDapp = function () {
+    window.appHybrid.toWebCollection()
+  }
+
+  const openCollection = function() {
+    window.appHybrid.toErc721()
+  }
+
   const table = {
     openSearchPage,
     setTitlebar,
+    openMyDapp,
+    openCollection,
   }
   return table
 }
 
 const initIosApi = function() {
-  const openSearchPage = () => window.touchSearchbar()
+  const openSearchPage = function() {
+    window.touchSearchbar()
+  }
+
   const setTitlebar = function(json) {
     window.webkit.messageHandlers.getTitleBar.postMessage({ body: json })
   }
+
+  const openMyDapp = function() {
+    clickMyDApp()
+  }
+
+  const openCollection = function() {
+    clickMyCollection()
+  }
+
   const table = {
     openSearchPage,
     setTitlebar,
+    openMyDapp,
+    openCollection,
   }
   return table
 }
 
 const initWebApi = () => {
-  const funcnames = ['openSearchPage', 'setTitlebar']
+  const funcNames = ['openSearchPage', 'setTitlebar', 'openMyDapp', 'openCollection']
   const table = {}
-  funcnames.forEach((name) => {
+  funcNames.forEach((name) => {
     table[name] = () => console.warn('no method:', name)
   })
   return table
