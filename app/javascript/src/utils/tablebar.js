@@ -24,7 +24,6 @@ const titlebarNormal = () => {
   const o = {
     left: {
       type: 'back',
-      action: 'jsFunction',
     },
     right: {
       isShow: false,
@@ -38,11 +37,9 @@ const titlebarShow = () => {
   const o = {
     left: {
       type: 'back',
-      action: 'jsFunction',
     },
     right: {
       isShow: true,
-      action: 'jsFunction',
       type: 'share',
     },
   }
