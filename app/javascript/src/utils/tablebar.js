@@ -21,32 +21,29 @@ import { log } from './index'
 */
 
 const titlebarNormal = () => {
-  const o = {
+  const config = {
     left: {
       type: 'back',
-      action: 'jsFunction',
     },
     right: {
       isShow: false,
     },
   }
-  const json = JSON.stringify(o)
+  const json = JSON.stringify(config)
   neuronMethods.setTitlebar(json)
 }
 
 const titlebarShow = () => {
-  const o = {
+  const config = {
     left: {
       type: 'back',
-      action: 'jsFunction',
     },
     right: {
       isShow: true,
-      action: 'jsFunction',
       type: 'share',
     },
   }
-  const json = JSON.stringify(o)
+  const json = JSON.stringify(config)
   neuronMethods.setTitlebar(json)
 }
 
