@@ -26,8 +26,9 @@ const init = () => {
   sensors.quick('autoTrack')
 }
 
-const trackDappbanner = (element, props, callback = null) => {
-  // sensors.trackLink(element, 'DApp_banner', props, callback)
+init()
+
+const trackDappbanner = (props, callback = null) => {
   sensors.track('DApp_banner', props, callback)
 }
 
@@ -35,31 +36,13 @@ const trackDappdetails = (props, callback = null) => {
   sensors.track('DApp_details', props, callback)
 }
 
-const trackDappbutton = (element, props, callback = null) => {
-  // sensors.trackLink(element, 'DApp_button', props, callback)
+const trackDappbutton = (props, callback = null) => {
   sensors.track('DApp_button', props, callback)
 }
 
-const trackDapplist = (element, props, callback = null) => {
-  // sensors.trackLink(element, 'DApp_list', props, callback)
+const trackDapplist = (props, callback = null) => {
   sensors.track('DApp_list', props, callback)
 }
-
-// const trackDappusetime = (element, props, callback = null) => {
-//   log('trackDappusetime')
-//   sensors.trackLink(element, 'DApp_usetime', props, callback)
-// }
-
-// const test = () => {
-//   sensors.track('test_event_name', { test_key: 'test_value' }, console.log.bind('test:\n'))
-// }
-
-const main = () => {
-  init()
-  // test()
-}
-
-main()
 
 export {
   sensors,
@@ -67,5 +50,4 @@ export {
   trackDappdetails,
   trackDappbutton,
   trackDapplist,
-  // trackDappusetime,
 }
