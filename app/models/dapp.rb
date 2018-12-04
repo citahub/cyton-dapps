@@ -1,6 +1,8 @@
 class Dapp < ApplicationRecord
   include VersionControlConcern
 
+  translates :name, :intro, :desc
+
   validates :start_at, presence: true
   validates :end_at, presence: true
 
