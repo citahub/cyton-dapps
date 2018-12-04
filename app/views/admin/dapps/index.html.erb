@@ -12,11 +12,11 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">名称</th>
+        <th scope="col">一句话描述</th>
+        <th scope="col">简介</th>
         <th scope="col">类型</th>
         <th scope="col">分数</th>
         <th scope="col">开发者</th>
-        <th scope="col">一句话描述</th>
-        <th scope="col">简介</th>
         <th scope="col">IP筛选</th>
         <th scope="col">iOS version</th>
         <th scope="col">Android version</th>
@@ -35,11 +35,11 @@
         <tr>
           <td><%= dapp.id %></td>
           <td><%= dapp.name %></td>
+          <td><%= dapp.desc %></td>
+          <td><%= dapp.intro %></td>
           <td><%= dapp.dapp_type&.name %></td>
           <td><%= dapp.score %></td>
           <td><%= dapp.developer %></td>
-          <td><%= dapp.desc %></td>
-          <td><%= dapp.intro %></td>
           <td><%= dapp.filter_ip %></td>
           <td><%= dapp.ios_version %></td>
           <td><%= dapp.android_version %></td>

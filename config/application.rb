@@ -19,5 +19,6 @@ module CitaDapps
     config.time_zone = "Beijing"
 
     config.i18n.default_locale = :"zh-CN"
+    config.i18n.available_locales = [:'zh-CN', :en]
   end
 end
