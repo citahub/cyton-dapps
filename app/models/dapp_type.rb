@@ -3,6 +3,7 @@ class DappType < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   translates :name
+  globalize_accessors
 
   scope :default_order, -> { order(id: :asc) }
 end
