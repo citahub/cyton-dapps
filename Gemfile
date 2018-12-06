@@ -72,6 +72,8 @@ gem 'maxminddb', '~> 0.1.22'
 gem 'globalize', '~> 5.2'
 gem 'globalize-accessors', '~> 0.2.1'
 
+gem 'http_accept_language', '~> 2.1', '>= 2.1.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
