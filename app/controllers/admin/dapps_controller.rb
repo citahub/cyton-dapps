@@ -69,6 +69,6 @@ class Admin::DappsController < Admin::ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def dapp_params
-    params.require(:dapp).permit(:android_version, :desc, :developer, :end_at, :intro, :ios_version, :logo_url, :marketing_url, :name, :publish_at, :score, :start_at, :url_address, :dapp_type_id, :filter_ip)
+    params.require(:dapp).permit(:android_version, :developer, :end_at, :ios_version, :logo_url, :marketing_url, :publish_at, :score, :start_at, :url_address, :dapp_type_id, :filter_ip, *Dapp.globalize_attribute_names)
   end
 end

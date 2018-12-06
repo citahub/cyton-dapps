@@ -1,0 +1,8 @@
+<% attrs.each do |attr, name| %>
+  <% I18n.available_locales.each do |lang| %>
+    <tr>
+      <td scope="col"><%= name %> <br> <%= lang %></td>
+      <td><%= dapp.send(transfer_i18n(attr, lang)) %></td>
+    </tr>
+  <% end %>
+<% end %>

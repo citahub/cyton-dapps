@@ -6,7 +6,7 @@ class DappsController < ApplicationController
     @banners = Banner.ransack(options).result
     # @dapps = Dapp.all.group_by { |dapp| dapp.d_type }
     @dapps = DappType.default_order.map do |dapp_type|
-      { dapp_type.name => dapp_type.dapps.default_order.ransack(options).result.limit(3) }
+      { {id: dapp_type.id, name: dapp_type.name} => dapp_type.dapps.default_order.ransack(options).result.limit(3) }
     end.reduce({}, :merge).reject {|k, v| v.empty?}
   end
 
@@ -27,7 +27,7 @@ class DappsController < ApplicationController
   def more
     options = get_options
 
-    @dapp_type = DappType.find_by name: params[:type_name]
+    @dapp_type = DappType.find_by id: params[:type_name]
     @dapps = @dapp_type.dapps.default_order.ransack(options).result
   end
 
