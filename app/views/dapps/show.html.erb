@@ -1,6 +1,6 @@
 <% @page_title = @dapp.name %>
 
-<div id='id-store' class='storeinfo' 
+<div id='id-store' class='storeinfo'
   data-category=<%=@dapp.dapp_type.name %>
   data-name=<%=@dapp.name %>
   ></div>
@@ -22,20 +22,20 @@
   </div>
 
   <div id='id-container-intro'>
-    <div class="title">应用描述</div>
+    <div class="title"><%= t("overview") %></div>
     <div class="intro">
       <%= @dapp.intro %>
     </div>
     <div class="time">
-      发布时间: <%= @dapp.publish_at&.strftime("%Y-%m-%d") %>
+      <%= t("submitted_at") %>: <%= @dapp.publish_at&.strftime("%Y-%m-%d") %>
     </div>
     <div class="author">
-      开发者: <%= @dapp.developer %>
+      <%= t("developer") %>: <%= @dapp.developer %>
     </div>
   </div>
 
   <div id="id-container-other">
-    <a class="goto" href=<%= @dapp.url_address %>>立即前往</a>
-    <div class="warning">您即将进入第三方 Dapp 平台，该服务不由 Neuron 提供</div>
+    <a class="goto" href=<%= @dapp.url_address %>><%= t("visit") %></a>
+    <div class="warning"><%= t("not_neuron") %></div>
   </div>
 </div>

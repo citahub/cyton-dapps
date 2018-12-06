@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_25_031650) do
+ActiveRecord::Schema.define(version: 2018_12_04_062635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,28 +49,45 @@ ActiveRecord::Schema.define(version: 2018_10_25_031650) do
     t.bigint "android_version_number"
   end
 
-  create_table "dapp_types", force: :cascade do |t|
-    t.string "name", null: false
+  create_table "dapp_translations", force: :cascade do |t|
+    t.integer "dapp_id", null: false
+    t.string "locale", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_dapp_types_on_name", unique: true
+    t.string "name"
+    t.text "intro"
+    t.text "desc"
+    t.index ["dapp_id"], name: "index_dapp_translations_on_dapp_id"
+    t.index ["locale"], name: "index_dapp_translations_on_locale"
+  end
+
+  create_table "dapp_type_translations", force: :cascade do |t|
+    t.integer "dapp_type_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["dapp_type_id"], name: "index_dapp_type_translations_on_dapp_type_id"
+    t.index ["locale"], name: "index_dapp_type_translations_on_locale"
+  end
+
+  create_table "dapp_types", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "dapps", force: :cascade do |t|
     t.string "logo_url"
-    t.string "name"
     t.string "url_address"
     t.integer "d_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "marketing_url"
-    t.text "desc"
     t.datetime "start_at"
     t.datetime "end_at"
     t.string "ios_version"
     t.string "android_version"
     t.integer "score"
-    t.text "intro"
     t.datetime "publish_at"
     t.string "developer"
     t.bigint "dapp_type_id"

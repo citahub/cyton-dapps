@@ -30,4 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  visit: "Visit"
+  not_neuron: "You will be redirected to a third party DApp, Please go through the User Agreement and Privacy Policy of the DApp carefully."
+  submitted_at: "Submitted"
+  developer: "Authors"
+  my_collectibles: "My Collectibles"
+  my_dapp: "My ÐApp"
+  overview: "Overview"

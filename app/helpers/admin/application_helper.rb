@@ -23,4 +23,8 @@ module Admin::ApplicationHelper
   rescue
     url
   end
+
+  def transfer_i18n(attr, locale)
+    "#{attr}_#{locale.to_s.downcase.gsub(/-/, "_")}"
+  end
 end

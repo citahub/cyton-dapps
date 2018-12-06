@@ -12,14 +12,30 @@
       </div>
     <% end %>
 
-    <div class="form-group">
-      <%= form.label :name, '名称', class: "text-secondary" %>
-      <%= form.text_field :name, class: "form-control" %>
-    </div>
+    <% I18n.available_locales.each do |lang| %>
+      <div class="form-group">
+        <%= form.label :"#{transfer_i18n(:name, lang)}", "名称 #{lang}", class: "text-secondary" %>
+        <%= form.text_field transfer_i18n(:name, lang), class: "form-control" %>
+      </div>
+    <% end %>
+
+    <% I18n.available_locales.each do |lang| %>
+      <div class="form-group">
+        <%= form.label transfer_i18n(:desc, lang), "一句话描述 #{lang}", class: "text-secondary" %>
+        <%= form.text_area transfer_i18n(:desc, lang), class: "form-control" %>
+      </div>
+    <% end %>
+
+    <% I18n.available_locales.each do |lang| %>
+      <div class="form-group">
+        <%= form.label transfer_i18n(:intro, lang), "简介 #{lang}", class: "text-secondary" %>
+        <%= form.text_area transfer_i18n(:intro, lang), class: "form-control" %>
+      </div>
+    <% end %>
 
     <div class="form-group">
       <%= form.label :dapp_type_id, '类型', class: "text-secondary" %>
-      <%= form.select :dapp_type_id, options_from_collection_for_select(DappType.default_order, "id", "name", dapp.dapp_type_id), {}, {class: "form-control"} %>
+      <%= form.select :dapp_type_id, options_from_collection_for_select(DappType.default_order, "id", "name", dapp.dapp_type_id), {}, { class: "form-control" } %>
     </div>
 
     <div class="form-group">
@@ -33,18 +49,8 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :desc, '一句话描述', class: "text-secondary" %>
-      <%= form.text_area :desc, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= form.label :intro, '简介', class: "text-secondary" %>
-      <%= form.text_area :intro, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
       <%= form.label :intro, 'IP筛选', class: "text-secondary" %>
-      <%= form.select :filter_ip, options_for_select([true, false], dapp.filter_ip), {}, {class: "form-control"} %>
+      <%= form.select :filter_ip, options_for_select([true, false], dapp.filter_ip), {}, { class: "form-control" } %>
     </div>
 
     <div class="form-group">

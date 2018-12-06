@@ -13,12 +13,6 @@ before_script:
   - psql -c 'create database "cita_dapps_test";' -U postgres
   - cp .env.test.local.travis .env.test.local
 
-branches:
-  only:
-    - master
-    - develop
-    - release
-
 env:
   global:
     - RAILS_ENV=test

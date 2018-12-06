@@ -4,6 +4,7 @@ import noData from 'src/imgs/noData.png'
 import defaultimg from 'src/imgs/noData.png'
 import linkto from 'src/imgs/icon/linkto.png'
 import { pathShowDapp } from './home'
+import { currentLocale } from "../i18n"
 
 const htmlDappListCell = (type, { logo_url, name, id, desc, marketing_url }) => {
   let realimg = logo_url
@@ -14,7 +15,7 @@ const htmlDappListCell = (type, { logo_url, name, id, desc, marketing_url }) => 
   if (marketing_url) {
     marketing = `<img class="dappsListMarketing" src=${marketing_url} alt="">`
   }
-  const html = `<a class="dappsListItem" href="${pathShowDapp(id)}" data-category='${type}' data-name='${name}'>
+  const html = `<a class="dappsListItem" href="${pathShowDapp(id)}?locale=${currentLocale()}" data-category='${type}' data-name='${name}'>
                 <div class='dappsListImgContainer'>
                   <img class="dappsListImg" src=${realimg} alt="">
                   
