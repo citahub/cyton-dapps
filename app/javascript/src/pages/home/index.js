@@ -8,7 +8,7 @@ import neuronapi from '../../utils/neuron'
 import { bindPulldownRefresh } from './pulldownRefresh'
 import { titlebarNormal } from '../../utils/tablebar'
 import { trackDapplist } from '../../utils/sensors'
-import {currentLocale} from "../../i18n"
+import { currentLocale } from "../../i18n"
 
 const bindNavigationButton = () => {
   const navbutton = j('#id-button-navigation')

@@ -6,7 +6,7 @@ import Config from '../../config'
 import jsontable from '../../utils/jsonApi'
 import { titlebarNormal } from '../../utils/tablebar'
 import { trackDapplist } from '../../utils/sensors'
-import {currentLocale} from "../../i18n"
+import { currentLocale } from "../../i18n"
 
 const bindTrackDapplist = (container) => {
   container.find('.dapp').each(function () {

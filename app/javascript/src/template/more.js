@@ -4,7 +4,7 @@ import noData from 'src/imgs/noData.png'
 import defaultimg from 'src/imgs/noData.png'
 import linkto from 'src/imgs/icon/linkto.png'
 import { pathShowDapp } from './home'
-import {currentLocale} from "../i18n"
+import { currentLocale } from "../i18n"
 
 const htmlDappListCell = (type, { logo_url, name, id, desc, marketing_url }) => {
   let realimg = logo_url
