@@ -6,7 +6,7 @@ import linkto from 'src/imgs/icon/linkto.png'
 import { pathShowDapp } from './home'
 import { currentLocale } from "../i18n"
 
-const htmlDappListCell = (type, { logo_url, name, id, desc, marketing_url }) => {
+const htmlDappListCell = (type, { logo_url, name, id, desc, marketing_url, name_zh_cn, desc_zh_cn }) => {
   let realimg = logo_url
   if (!realimg) {
     realimg = defaultimg
@@ -21,8 +21,8 @@ const htmlDappListCell = (type, { logo_url, name, id, desc, marketing_url }) => 
                   
                 </div>
                 <div class="dappsListContent">
-                  <div class="dappsListName">${name}${marketing}</div>
-                  <div class="dappsListUrl" >${desc}</div>
+                  <div class="dappsListName">${name || name_zh_cn}${marketing}</div>
+                  <div class="dappsListUrl" >${desc || desc_zh_cn}</div>
                 </div>
                 <img class="linkto" src=${linkto} alt="linkto">
             </a>`
