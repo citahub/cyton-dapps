@@ -6,7 +6,7 @@ class DappsController < ApplicationController
     @banners = Banner.ransack(options).result
     # @dapps = Dapp.all.group_by { |dapp| dapp.d_type }
     @dapps = DappType.default_order.map do |dapp_type|
-      { {id: dapp_type.id, name: dapp_type.name} => dapp_type.dapps.default_order.ransack(options).result.limit(3) }
+      { {id: dapp_type.id, name: dapp_type.name, name_zh_cn: dapp_type.name_zh_cn} => dapp_type.dapps.default_order.ransack(options).result.limit(3)&.map {|d| d.as_json.merge(name_zh_cn: d.name_zh_cn, desc_zh_cn: d.desc_zh_cn, intro_zh_cn: d.intro_zh_cn)} }
     end.reduce({}, :merge).reject {|k, v| v.empty?}
   end
 
