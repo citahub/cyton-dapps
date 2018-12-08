@@ -1,14 +1,14 @@
-<% @page_title = @dapp.name %>
+<% @page_title = @dapp.name || @dapp.name_zh_cn %>
 
 <div id='id-store' class='storeinfo'
-  data-category=<%=@dapp.dapp_type.name %>
-  data-name=<%=@dapp.name %>
+  data-category=<%= @dapp.dapp_type.name || @dapp.dapp_type.name_zh_cn %>
+  data-name=<%= @dapp.name || @dapp.name_zh_cn %>
   ></div>
 
 <div id='id-page-info' class='dappsContainer'>
   <div id='id-container-main'>
     <img class="mainimg" src=<%= @dapp.logo_url %> alt="mainimg">
-    <div class="title"><%= @dapp.name %></div>
+    <div class="title"><%= @dapp.name || @dapp.name_zh_cn %></div>
     <a class="link" href=<%= @dapp.marketing_url %>><%= @dapp.url_address %></a>
     <div id='id-div-stars'>
       <% @star.times do |i| %>
@@ -24,7 +24,7 @@
   <div id='id-container-intro'>
     <div class="title"><%= t("overview") %></div>
     <div class="intro">
-      <%= @dapp.intro %>
+      <%= @dapp.intro || @dapp.intro_zh_cn %>
     </div>
     <div class="time">
       <%= t("submitted_at") %>: <%= @dapp.publish_at&.strftime("%Y-%m-%d") %>

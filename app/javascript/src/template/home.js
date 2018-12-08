@@ -50,7 +50,7 @@ const pathShowDapp = (id) => {
 const htmlDappBlocksCell = (type, list) => {
   let html = ''
   list.forEach((info) => {
-    const { name, logo_url, desc, id, marketing_url } = info
+    const { name, logo_url, desc, id, marketing_url, name_zh_cn, desc_zh_cn } = info
 
     let marketing = ''
     if (marketing_url) {
@@ -58,16 +58,16 @@ const htmlDappBlocksCell = (type, list) => {
     }
 
     html += `
-         <a class="dapp" href=${pathShowDapp(id)}?locale=${currentLocale()}  data-category='${type}' data-name='${name}'>
+         <a class="dapp" href=${pathShowDapp(id)}?locale=${currentLocale()}  data-category='${type}' data-name='${name || name_zh_cn}'>
           <div class='dappsimgContainer'>
             <img class="dappimg" src=${logo_url}>
             </div>
             <div class="dappinfo">
             <div class="dapptitle">
-              ${name}
+              ${name || name_zh_cn}
               ${marketing}
             </div>
-            <div class="dappintro">${desc}</div>
+            <div class="dappintro">${desc || desc_zh_cn}</div>
           </div>
         </a>
         `
@@ -88,7 +88,7 @@ const htmlDappBlocks = (list) => {
     <div class="block">
       <div class="header">
         <div class="headertitle">
-          ${type.name}
+          ${type.name || type.name_zh_cn}
         </div>
         <a href=${dappmorePath(type.id)}?locale=${currentLocale()} class="buttonmore">${currentLocaleData().more}</a>
       </div>
