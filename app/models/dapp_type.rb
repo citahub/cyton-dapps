@@ -6,4 +6,8 @@ class DappType < ApplicationRecord
   globalize_accessors
 
   scope :default_order, -> { order(id: :asc) }
+
+  def name_or_default
+    name.blank? ? name_zh_cn : name
+  end
 end
