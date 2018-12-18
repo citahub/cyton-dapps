@@ -17,4 +17,16 @@ class Dapp < ApplicationRecord
     exchange: 30,
   }
 
+  def name_or_default
+    name.blank? ? name_zh_cn : name
+  end
+
+  def intro_or_default
+    intro.blank? ? intro_zh_cn : intro
+  end
+
+  def desc_or_default
+    desc.blank? ? desc_zh_cn : desc
+  end
+
 end
