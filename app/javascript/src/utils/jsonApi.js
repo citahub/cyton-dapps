@@ -23,8 +23,8 @@ const initJsonApiTable = () => {
     table[key] = createdUrl(key)
   })
 
-  table.more = (href) => {
-    return `${href}.json?${version}`
+  table.more = (href, locale) => {
+    return `${href}.json?${version}&locale=${locale}`
   }
 
   return table

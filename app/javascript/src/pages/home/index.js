@@ -8,6 +8,7 @@ import neuronapi from '../../utils/neuron'
 import { bindPulldownRefresh } from './pulldownRefresh'
 import { titlebarNormal } from '../../utils/tablebar'
 import { trackDapplist } from '../../utils/sensors'
+import { currentLocale } from "../../i18n"
 
 const bindNavigationButton = () => {
   const navbutton = j('#id-button-navigation')
@@ -50,7 +51,7 @@ const bindLinkButtons = () => {
 }
 
 const renderRecommand = () => {
-  const url = jsontable.dapps
+  const url = `${jsontable.dapps}locale=${currentLocale()}`
   const container = j('#id-container-dappblocks')
   return j.get(url, (data) => {
     renderBlockbyList(container, data)

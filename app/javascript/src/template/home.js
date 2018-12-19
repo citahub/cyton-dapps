@@ -2,6 +2,7 @@ import j from 'jquery'
 import { log } from '../utils'
 import noData from 'src/imgs/noData.png'
 import defaultimg from 'src/imgs/noData.png'
+import { currentLocale, currentLocaleData } from "../i18n"
 
 const htmlBannerImg = ({ image_url: img, address }) => {
   let realimg = img || defaultimg
@@ -49,7 +50,7 @@ const pathShowDapp = (id) => {
 const htmlDappBlocksCell = (type, list) => {
   let html = ''
   list.forEach((info) => {
-    const { name, logo_url, desc, id, marketing_url } = info
+    const { name, logo_url, desc, id, marketing_url, name_zh_cn, desc_zh_cn } = info
 
     let marketing = ''
     if (marketing_url) {
@@ -57,16 +58,16 @@ const htmlDappBlocksCell = (type, list) => {
     }
 
     html += `
-         <a class="dapp" href=${pathShowDapp(id)}  data-category='${type}' data-name='${name}'>
+         <a class="dapp" href=${pathShowDapp(id)}?locale=${currentLocale()}  data-category='${type}' data-name='${name || name_zh_cn}'>
           <div class='dappsimgContainer'>
             <img class="dappimg" src=${logo_url}>
             </div>
             <div class="dappinfo">
             <div class="dapptitle">
-              ${name}
+              ${name || name_zh_cn}
               ${marketing}
             </div>
-            <div class="dappintro">${desc}</div>
+            <div class="dappintro">${desc || desc_zh_cn}</div>
           </div>
         </a>
         `
@@ -87,9 +88,9 @@ const htmlDappBlocks = (list) => {
     <div class="block">
       <div class="header">
         <div class="headertitle">
-          ${type}
+          ${type.name || type.name_zh_cn}
         </div>
-        <a href=${dappmorePath(type)} class="buttonmore">更多</a>
+        <a href=${dappmorePath(type.id)}?locale=${currentLocale()} class="buttonmore">${currentLocaleData().more}</a>
       </div>
       <div class="dapplist">
         ${cell}
@@ -103,7 +104,7 @@ const htmlDappBlocks = (list) => {
 const htmlDefault = () => {
   const html = `<div class="noData">
                 <img class="noDataImg" src="${noData}" alt="">
-                <span class="noDataText">无数据显示</span>
+                <span class="noDataText">${currentLocaleData().noData}</span>
               </div>`
   return html
 }
