@@ -51,7 +51,7 @@ gem 'awesome_print'
 gem 'dotenv-rails'
 
 # active storage qiniu plugin
-gem 'activestorage_qiniu'
+gem 'activestorage_qiniu', github: "classicalliu/activestorage_qiniu", branch: "fix-argument-error-when-uploading"
 
 # better i18n
 gem 'rails-i18n', '~> 5.1'

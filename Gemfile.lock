@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/classicalliu/activestorage_qiniu.git
+  revision: b21fadfae5ebced96758c1f6757506cce5c784b5
+  branch: fix-argument-error-when-uploading
+  specs:
+    activestorage_qiniu (0.1.9)
+      qiniu (~> 6.9)
+      rails (~> 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -37,9 +46,6 @@ GEM
       actionpack (= 5.2.1.1)
       activerecord (= 5.2.1.1)
       marcel (~> 0.3.1)
-    activestorage_qiniu (0.1.9)
-      qiniu (~> 6.9)
-      rails (~> 5.0)
     activesupport (5.2.1.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
@@ -273,7 +279,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activestorage_qiniu
+  activestorage_qiniu!
   awesome_print
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
