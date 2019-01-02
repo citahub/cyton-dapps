@@ -31,6 +31,12 @@ class DappsController < ApplicationController
     @dapps = @dapp_type.dapps.default_order.ransack(options).result
   end
 
+  # GET /dapp/type/:id
+  def dapp_type
+    @dapp_type = DappType.find_by id: params[:id]
+    render json: { name: @dapp_type.name }
+  end
+
   def mine
   end
 

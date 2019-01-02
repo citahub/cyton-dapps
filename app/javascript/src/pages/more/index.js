@@ -26,13 +26,16 @@ const main = ({ pname }) => {
   titlebarNormal()
   // const url = jsontable.more(location.href, currentLocale())
   const url = location.protocol + "//" + location.host + location.pathname + ".json" + location.search
-  const pathnames = location.pathname.split('/')
-  document.title = decodeURI(pathnames[pathnames.length - 1])
-  const container = j('#id-container-dapplist')
-  j.get(url, (data) => {
-    const type = document.title
-    renderbyList(container, data, type)
-    bindTrackDapplist(container)
+  const arr = location.pathname.split("/")
+  const get_type_url = location.protocol + "//" + location.host + "/dapps/type/" + arr[arr.length - 1]
+  j.get(get_type_url, (resp)=> {
+    document.title = resp.name
+    const container = j('#id-container-dapplist')
+    j.get(url, (data) => {
+      const type = document.title
+      renderbyList(container, data, type)
+      bindTrackDapplist(container)
+    })
   })
 }
 

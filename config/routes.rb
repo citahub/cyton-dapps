@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :banners, only: [:index, :show]
   # get 'info', to: 'dapps#info'
   get 'more/:type_name', to: 'dapps#more', as: "more_dapps"
+  get 'dapps/type/:id', to: 'dapps#dapp_type', as: "dapps_type"
   get 'mine', to: 'dapps#mine'
   get 'history', to: 'dapps#history'
 
