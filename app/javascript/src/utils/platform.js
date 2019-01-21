@@ -1,12 +1,20 @@
 const parsedUserAgent = () => {
   const test =
-    'Mozilla/5.0 (Linux; Android 8.1.0; ONEPLUS A6000 Build/OPM1.171019.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.158 Mobile Safari/537.36 Neuron(Platform=Android&AppVersion=0.6.3.180919)'
+    'Mozilla/5.0 (Linux; Android 8.1.0; ONEPLUS A6000 Build/OPM1.171019.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.158 Mobile Safari/537.36 Cyton(Platform=Android&AppVersion=0.6.3.180919)'
   // const userAgent = test
 
   const userAgent = navigator.userAgent
-  let str = userAgent.split('Neuron(')[1]
+  // let str = userAgent.split('Cyton(')[1]
+
+  let str = undefined
+  if (userAgent.includes('Neuron(')) {
+    str = userAgent.split('Neuron(')[1]
+  } else {
+    str = userAgent.split('Cyton(')[1]
+  }
+
   if (str === undefined) {
-    console.warn('Not found Neuron info')
+    console.warn('Not found Cyton info')
     return {
       platform: 'ios',
       version: '0.0.0.000000',
