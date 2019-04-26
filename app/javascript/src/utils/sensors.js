@@ -26,7 +26,7 @@ const init = () => {
   sensors.quick('autoTrack')
 }
 
-init()
+// init()
 
 const trackDappbanner = (props, callback = null) => {
   sensors.track('DApp_banner', props, callback)
