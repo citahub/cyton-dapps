@@ -31,7 +31,7 @@
 
 en:
   visit: "Visit"
-  not_neuron: "You will be redirected to a third party DApp, Please go through the User Agreement and Privacy Policy of the DApp carefully."
+  not_cyton: "You will be redirected to a third party DApp, Please go through the User Agreement and Privacy Policy of the DApp carefully."
   submitted_at: "Submitted"
   developer: "Authors"
   my_collectibles: "My Collectibles"

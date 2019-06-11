@@ -7,8 +7,8 @@ const parsedUserAgent = () => {
   // let str = userAgent.split('Cyton(')[1]
 
   let str = undefined
-  if (userAgent.includes('Neuron(')) {
-    str = userAgent.split('Neuron(')[1]
+  if (userAgent.includes('Cyton(')) {
+    str = userAgent.split('Cyton(')[1]
   } else {
     str = userAgent.split('Cyton(')[1]
   }
@@ -18,7 +18,7 @@ const parsedUserAgent = () => {
     return {
       platform: 'ios',
       version: '0.0.0.000000',
-      notNeuron: true,
+      notCyton: true,
     }
   } else {
     str = str.split(')')[0]
