@@ -4,7 +4,7 @@ import { renderbyList, renderBlockbyList } from '../../template/home'
 import jsontable from '../../utils/jsonApi'
 import { htmlBannerImg } from '../../template/home'
 import bindBanner from './bannerAction'
-import neuronapi from '../../utils/neuron'
+import cytonapi from '../../utils/cyton'
 import { bindPulldownRefresh } from './pulldownRefresh'
 import { titlebarNormal } from '../../utils/tablebar'
 import { trackDapplist } from '../../utils/sensors'
@@ -25,7 +25,7 @@ const bindNavigationButton = () => {
 const bindSearchBar = () => {
   const bar = j('#id-button-search')
   bar.click((e) => {
-    neuronapi.openSearchPage()
+    cytonapi.openSearchPage()
     e.stopPropagation()
   })
 }
@@ -46,8 +46,8 @@ const bindTrackDapplist = (container) => {
 
 const bindLinkButtons = () => {
   const container = j('#id-container-jumpButtons')
-  container.children('.button.openCollection').on('click', neuronapi.openCollection)
-  container.children('.button.openMyDapp').on('click', neuronapi.openMyDapp)
+  container.children('.button.openCollection').on('click', cytonapi.openCollection)
+  container.children('.button.openMyDapp').on('click', cytonapi.openMyDapp)
 }
 
 const renderRecommand = () => {

@@ -3,8 +3,8 @@ import platforminfo from './platform'
 const log = console.log.bind(console, '>>>')
 
 const parsedPlatformVersion = () => {
-  const { platform, version, notNeuron } = platforminfo
-  const s = notNeuron ? '' : `${platform}_version=${version}`
+  const { platform, version, notCyton } = platforminfo
+  const s = notCyton ? '' : `${platform}_version=${version}`
   return s
 }
 
