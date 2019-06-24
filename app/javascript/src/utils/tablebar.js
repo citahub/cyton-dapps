@@ -1,5 +1,7 @@
-import neuronMethods from './neuron'
-import { log } from './index'
+import cytonMethods from './cyton'
+import {
+  log
+} from './index'
 
 /*
   {
@@ -30,7 +32,7 @@ const titlebarNormal = () => {
     },
   }
   const json = JSON.stringify(config)
-  neuronMethods.setTitlebar(json)
+  cytonMethods.setTitlebar(json)
 }
 
 const titlebarShow = () => {
@@ -44,7 +46,10 @@ const titlebarShow = () => {
     },
   }
   const json = JSON.stringify(config)
-  neuronMethods.setTitlebar(json)
+  cytonMethods.setTitlebar(json)
 }
 
-export { titlebarNormal, titlebarShow }
+export {
+  titlebarNormal,
+  titlebarShow
+}

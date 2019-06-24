@@ -1,12 +1,11 @@
 import platforminfo from './platform'
-import { log } from './index'
 
-const initAndroidApi = function() {
-  const openSearchPage = function() {
+const initAndroidApi = function () {
+  const openSearchPage = function () {
     window.appHybrid.startAddWebsitePage()
   }
 
-  const setTitlebar = function(json) {
+  const setTitlebar = function (json) {
     window.webTitleBar.getTitleBar(json)
   }
 
@@ -14,7 +13,7 @@ const initAndroidApi = function() {
     window.appHybrid.toWebCollection()
   }
 
-  const openCollection = function() {
+  const openCollection = function () {
     window.appHybrid.toErc721()
   }
 
@@ -27,20 +26,22 @@ const initAndroidApi = function() {
   return table
 }
 
-const initIosApi = function() {
-  const openSearchPage = function() {
+const initIosApi = function () {
+  const openSearchPage = function () {
     window.touchSearchbar()
   }
 
-  const setTitlebar = function(json) {
-    window.webkit.messageHandlers.getTitleBar.postMessage({ body: json })
+  const setTitlebar = function (json) {
+    window.webkit.messageHandlers.getTitleBar.postMessage({
+      body: json
+    })
   }
 
-  const openMyDapp = function() {
+  const openMyDapp = function () {
     clickMyDApp()
   }
 
-  const openCollection = function() {
+  const openCollection = function () {
     clickMyCollection()
   }
 
@@ -62,9 +63,12 @@ const initWebApi = () => {
   return table
 }
 
-const initNeuronTable = () => {
-  let { platform, notNeuron } = platforminfo
-  if (notNeuron) {
+const initCytonTable = () => {
+  let {
+    platform,
+    notCyton
+  } = platforminfo
+  if (notCyton) {
     platform = null
   }
   const initTable = {
@@ -76,4 +80,4 @@ const initNeuronTable = () => {
   return methods
 }
 
-export default initNeuronTable()
+export default initCytonTable()
