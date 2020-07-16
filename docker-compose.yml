@@ -5,11 +5,12 @@ services:
     volumes:
     - ./docker/data:/var/lib/postgresql/data
   app:
+    image: cyton_dapps_app
     build:
       context: .
       dockerfile: ./docker/app/Dockerfile
-    volumes:
-      - .:/app
+    # volumes:
+    #   - .:/app # for local debug
     command: bundle exec puma -C config/puma.docker.rb
     depends_on:
       - db
