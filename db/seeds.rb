@@ -28,17 +28,17 @@ end
 
 def create_dapp(dapps, type)
   normal = {
-    dapp_type_id: type.id, 
-    start_at: start_at, 
-    end_at: end_at, 
-    intro: '全球潮流音乐，搭配舞蹈、表演等内容形式，还有超多原创特效、滤镜、场景切换帮你一秒变大片，为你打造刷爆朋友圈的魔性短视频。脑洞有多大，舞台就有多大！好玩的人都在这儿！', 
-    score: 1, 
-    developer: 'developer', 
-    url_address: 'https://dapp.cryptape.com/faucet/', 
-    desc: '东半球最最好玩的游戏',
-    marketing_url: "https://dapp.cryptape.com/demo/first-forever",
+    dapp_type_id: type.id,
+    start_at: start_at,
+    end_at: end_at,
+    intro: 'dapp introduction',
+    score: 5,
+    developer: 'developer name',
+    url_address: 'https://docs.citahub.com/zh-CN/toolchain/cyton/cyton-intro',
+    desc: 'dapp description',
+    marketing_url: "https://first-forever.citahub.com",
     d_type: :new_dapp,
-    logo_url: "https://cdn.cryptape.com/neuron/Artboard3.png",
+    logo_url: "https://cdn.citahub.com/neuron/default_web_icon.png",
     ios_version: "0.0.0.000000",
     android_version: "0.0.0.000000",
   }
@@ -47,44 +47,60 @@ end
 
 def create_banner(banners)
   normal = {
-    start_at: start_at, 
+    start_at: start_at,
     end_at: end_at,
-    image_url: "https://img.chainnews.com/material/images/f15b61d0a3256e8af33eaebadc735cba.jpg",
+    image_url: "https://place-hold.it/960x480/37a6a8/000000/000?text=Awesome%20DApp",
     ios_version: "0.0.0.000000",
     android_version: "0.0.0.000000",
   }
-  
+
   Banner.create!(banners.map { |n| normal.merge(n) })
 end
 
 dapps = [
   {
     name: "First Forever",
-    url_address: "https://dapp.cryptape.com/demo/first-forever",
-    logo_url: "https://cdn.cryptape.com/neuron/Artboard3.png",
+    url_address: "https://first-forever.citahub.com",
+    marketing_url: "https://first-forever.citahub.com",
+    logo_url: "https://cdn.citahub.com/neuron/Artboard3.png",
     ios_version: "1.0.0.000000",
     android_version: "1.0.0.000000",
+    developer: "https://www.rivtower.com",
+    desc: "最初即永恒 - 把你重要的一刻，永存在链上",
+    intro: "开源代码： https://github.com/citahub/first-forever-demo",
   },
   {
-    name: "AppChain Testnet Faucet",
-    url_address: "https://dapp.cryptape.com/faucet",
-    logo_url: "https://avatars1.githubusercontent.com/u/35361817",
+    name: "CITA Testnet Faucet",
+    url_address: "https://faucet.citahub.com/faucet",
+    marketing_url: "https://faucet.citahub.com/faucet",
+    logo_url: "https://cdn.citahub.com/neuron/default_web_icon.png",
     ios_version: "2.0.0.000000",
     android_version: "2.0.0.000000",
+    developer: "https://www.rivtower.com",
+    desc: "CITA 测试链水龙头 - 领取测试链 token",
+    intro: "开源代码： https://github.com/citahub/cita-testnet-faucet",
   },
   {
     name: "Hyperdragon",
-    url_address: "https://hyperdragons.alfakingdom.com/",
+    url_address: "http://hyperdragons.alfakingdom.com/",
+    marketing_url: "http://hyperdragons.alfakingdom.com/?utm_source=Cyton",
     logo_url: "https://hyperdragons.alfakingdom.com/favicon.ico",
     ios_version: "3.0.0.000000",
     android_version: "3.0.0.000000",
+    developer: "",
+    desc: "云斗龙 是一款基于以太坊智能合约开发的有收藏价值，以及趣味游戏性的数字收藏品",
+    intro: "云斗龙 是一款基于以太坊智能合约开发的有收藏价值，以及趣味游戏性的数字收藏品",
   },
   {
     name: "DApp Review",
     url_address: "https://dapp.review/explore",
+    marketing_url: "https://dapp.review/explore?utm_source=Cyton",
     logo_url: "https://dapp.review/favicon.ico",
+    developer: "DappReview",
+    desc: "DappReview 是一个 DApp 评测平台，提供精确的 DApp 数据，用户洞察和市场数据分析",
+    intro: "DappReview 是一个 DApp 评测平台，提供精确的 DApp 数据，用户洞察和市场数据分析",
   }
-]
+].reverse!
 
 banners = [
   {
@@ -94,7 +110,7 @@ banners = [
   },
   {
     address: '2',
-    image_url: 'http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/07/maliao.jpg',
+    image_url: 'https://pic1.zhimg.com/v2-192038154899b948110dbfbd7c5ec1ae_1440w.jpg',
 
   },
   {
