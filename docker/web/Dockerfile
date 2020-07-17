@@ -13,8 +13,8 @@ WORKDIR $RAILS_ROOT
 # create log directory
 RUN mkdir log
 
-# copy over static assets
-COPY public public/
+# copy over static assets from rails app docker image
+COPY --from=cyton_dapps_app:latest /app/public public/
 
 # Copy Nginx config template
 COPY docker/web/nginx.conf /tmp/docker.nginx
