@@ -25,6 +25,7 @@ cache:
 
 install:
   - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+  - gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
   - bundle install
   - nvm install 8.11.2
   - node -v
